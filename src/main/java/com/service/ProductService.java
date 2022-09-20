@@ -19,4 +19,5 @@ public interface ProductService {
 	
 	public void saveProductInfo(ProductInfo productInfo);
 	
+	public boolean deleteProduct(String code);
 }

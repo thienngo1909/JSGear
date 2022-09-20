@@ -19,4 +19,6 @@ public interface ProductDao {
 	public ProductInfo getProductInfoByCode(String code);
 	
 	public void saveProductInfo(ProductInfo productInfo);
+	
+	public boolean deleteProduct(String code);
 }

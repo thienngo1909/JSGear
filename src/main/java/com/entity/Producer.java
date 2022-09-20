@@ -24,7 +24,7 @@ public class Producer {
 	@Column(name="Name", nullable = false)
 	private String name;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "producer", cascade={CascadeType.ALL})
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "producer", cascade={CascadeType.ALL})
 	private List<Product> list;
 
 	public int getId() {

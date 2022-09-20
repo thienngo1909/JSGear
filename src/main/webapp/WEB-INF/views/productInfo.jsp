@@ -26,7 +26,6 @@
 		<p>${productInfos.price}</p>
 		<p>${productInfos.category}</p>
 		<p>${productInfos.producer}</p>
-		<p>${productInfos.detail.describe}</p>
 		<p>${productInfos.detail.weight}</p>
 		<p>${productInfos.detail.color }</p>
 		

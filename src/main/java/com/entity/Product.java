@@ -2,6 +2,7 @@ package com.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
@@ -47,7 +48,7 @@ public class Product {
 	@JoinColumn(name="PRODUCER_ID", foreignKey = @ForeignKey(name="PRODUCER_PRO_FK"))
 	private Producer producer;
 	
-	@OneToOne(mappedBy = "product")
+	@OneToOne(mappedBy = "product", cascade = CascadeType.ALL)
 	private ProductDetail detail;
 	
 	

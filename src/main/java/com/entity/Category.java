@@ -24,7 +24,7 @@ public class Category {
 	@Column(name="name", nullable = false)
 	private String name;
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "category", cascade={CascadeType.ALL})
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "category", cascade={CascadeType.ALL})
 	private List<Product> list;
 	
 	public int getId() {

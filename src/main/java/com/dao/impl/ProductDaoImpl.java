@@ -99,12 +99,13 @@ public class ProductDaoImpl implements ProductDao {
 	@Override
 	public ProductInfo getProductInfoByCode(String code) {
 		Product product = this.getProductByCode(code);
-		ProductDetail productDetail = new ProductDetail(product.getDetail().getId(),product.getDetail().getInsurance(),
+		ProductDetail productDetail = new ProductDetail(product.getDetail().getId(), product.getDetail().getInsurance(),
 				product.getDetail().getWeight(), product.getDetail().getColor(),
 				product.getDetail().getSpecifications());
 
 		ProductInfo productInfo = new ProductInfo(product.getCode(), product.getName(), product.getPrice(),
-				product.getQuantity(), productDetail, product.getCategory().getName(), product.getProducer().getName(), null);
+				product.getQuantity(), productDetail, product.getCategory().getName(), product.getProducer().getName(),
+				null);
 		return productInfo;
 	}
 
@@ -117,22 +118,20 @@ public class ProductDaoImpl implements ProductDao {
 
 		if (code != null) {
 			product = getProductByCode(code);
+			if(product==null)
+				product = new Product();
 			isNew = true;
 			product.setCreateDate(new Date());
 		}
 
-		if (product == null) {
-			isNew = true;
-			product = new Product();
-			product.setCreateDate(new Date());
-		}
+		
 		product.setCode(code);
 		product.setName(productInfo.getName());
 		product.setQuantity(productInfo.getQuantity());
 		product.setPrice(productInfo.getPrice());
 		product.setCategory(getCategoryByName(productInfo.getCategory()));
 		product.setProducer(getProducerByName(productInfo.getProducer()));
-		updateDeatil(productInfo);
+		product.setDetail(updateDeatil(productInfo));
 		if (productInfo.getFileData() != null) {
 			byte[] image = productInfo.getFileData().getBytes();
 			if (image != null && image.length > 0)
@@ -142,38 +141,70 @@ public class ProductDaoImpl implements ProductDao {
 			session.persist(product);
 		session.flush();
 	}
-	
+
 	public Producer getProducerByName(String name) {
+		Producer producer = null;
 		Session session = sessionFactory.getCurrentSession();
 		String hql = "SELECT PRO FROM Producer PRO WHERE PRO.name= :name";
-		Query<Producer> query  = session.createQuery(hql);
+		Query<Producer> query = session.createQuery(hql);
 		query.setParameter("name", name);
-		Producer producer = (Producer) query.uniqueResult();
+		producer = (Producer) query.uniqueResult();
+		if(producer == null) {
+			producer = new Producer();
+			String newName = name.toUpperCase();
+			producer.setName(newName);
+		}
 		return producer;
 	}
-	
+
 	public Category getCategoryByName(String name) {
+		Category category = null;
 		Session session = sessionFactory.getCurrentSession();
 		String hql = "SELECT CAT FROM Category CAT WHERE CAT.name= :name";
-		Query<Category> query  = session.createQuery(hql);
+		Query<Category> query = session.createQuery(hql);
 		query.setParameter("name", name);
-		Category category = (Category) query.uniqueResult();
+		category = (Category) query.uniqueResult();
+		if(category==null) {
+			category = new Category();
+			String newName = name.toUpperCase();
+			category.setName(newName);
+		}
 		return category;
 	}
-	
-	public void updateDeatil(ProductInfo productInfo){
+
+	public com.entity.ProductDetail updateDeatil(ProductInfo productInfo) {
 		Session session = sessionFactory.getCurrentSession();
+		com.entity.ProductDetail productDetail = null;
 		try {
-			com.entity.ProductDetail productDetail  = session.get(com.entity.ProductDetail.class, productInfo.getDetail().getId());
+			productDetail = session.get(com.entity.ProductDetail.class,
+					productInfo.getDetail().getId());
+			if(productDetail==null)
+				productDetail = new com.entity.ProductDetail();
 			productDetail.setColor(productInfo.getDetail().getColor());
 			productDetail.setInsurance(productInfo.getDetail().getInsurance());
 			productDetail.setSpecifications(productDetail.getSpecifications());
 			productDetail.setWeight(productInfo.getDetail().getWeight());
-			session.update(productDetail);
-		}catch (Exception e) {
+			session.save(productDetail);
+		} catch (Exception e) {
 			e.getMessage();
 		}
+		return productDetail;
 	}
 
+	public boolean deleteProduct(String code) {
+		boolean isDelete = false;
+		try {
+			Session session = sessionFactory.getCurrentSession();
+			Product product = session.get(Product.class, code);
+
+			session.delete(product);
+
+			isDelete = true;
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return isDelete;
+	}
+	
 
 }

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -116,7 +117,7 @@ public class MainController {
 	
 	//edit product
 	@GetMapping("/product")
-	public String editProduct(Model model, @RequestParam(value="code", defaultValue = "")String code) {
+	public String product(Model model, @RequestParam(value="code", defaultValue = "")String code) {
 		ProductInfo productInfo = null;
 		if(code!=null && code.length()>0) {
 			productInfo = productService.getProductInfoByCode(code);
@@ -159,4 +160,15 @@ public class MainController {
 		response.getOutputStream().close();
 	}
 
+	//delete product
+	@GetMapping("/deleteProduct")
+	public String deleteProduct(@RequestParam(value="code")String code) {
+		boolean isDelete = productService.deleteProduct(code);
+		if(isDelete)
+			return "redirect:/productList";
+		else
+			System.out.println("fail");
+		return "redirect:/productList";
+		
+	}
 }

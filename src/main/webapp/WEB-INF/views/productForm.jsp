@@ -52,12 +52,16 @@
 				<td><form:input path="detail.color" /></td>
 			</tr>
 			<tr>
+				<td>Insurance</td>
+				<td><form:input path="detail.Insurance" /></td>
+			</tr>
+			<tr>
 				<td>Weight</td>
 				<td><form:input path="detail.weight" /></td>
 			</tr>
 			<tr>
 				<td>Specification</td>
-				<td><form:input path="detail.specification"/>
+				<td><form:textarea path="detail.specification"/>
 			</tr>
 			<tr>
 				<td>&nbsp;</td>

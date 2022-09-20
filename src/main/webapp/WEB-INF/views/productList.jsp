@@ -14,7 +14,7 @@
 <meta charset="ISO-8859-1">
 <title>Product List</title>
 <link rel="stylesheet" type="text/css"
-	href="${contextPath}/css/styles.css">
+	href="${contextPath}/css/test.css">
 
 </head>
 <body>
@@ -37,28 +37,26 @@
 		</table>
 	</form>
 
-	<!-- paginationProductInfos là model truyền tử Controller, list là thuộc tính của PaginationResult -->
+
 	<c:forEach items="${paginationProductInfos.list}" var="productInfo">
 
 		<div class="product-preview-container">
 			<ul>
 				<a href="${contextPath}/productInfo?code=${productInfo.code}">
 					<li><img class="product-image"
-						src="${contextPath}/productImage?code=${productInfo.code}" /> <!-- sẽ tự động gọi đến /productImage trong Controller -->
-				</li>
-					<li>Name: ${productInfo.name}</li>
+						src="${contextPath}/productImage?code=${productInfo.code}" />
+				<li>Name: ${productInfo.name}</li>
 					<li>Quantity: ${productInfo.quantity}</li>
 					<li>Price: <fmt:formatNumber value="${productInfo.price}"
-							type="currency" /> <!-- $100 -->
-				</li>
-					<li>
+							type="currency" /></li>
 				</a>
-				<a href="${contextPath}/product?code=${productInfo.code}">Edit</a>
-				<a href="${contextPath}/buyProduct?code=${productInfo.code}">Buy
-					Now</a>
-				<!-- khi nhấn vảo link này thì sẽ gọi đến /buyProduct trong Controller -->
+				<li><a href="${contextPath}/product?code=${productInfo.code}">Edit</a>
+					<a href="${contextPath}/buyProduct?code=${productInfo.code}">Buy
+						Now</a> <a
+					href="${contextPath}/deleteProduct?code=${productInfo.code}">Delete</a>
+
 				</li>
-				<!-- For Manager edit Product -->
+
 				<security:authorize access="hasRole('ROLE_MANAGER')">
 					<li><a style="color: red;"
 						href="${contextPath}/product?code=${productInfo.code}">Edit
@@ -66,10 +64,9 @@
 				</security:authorize>
 			</ul>
 		</div>
-
-
 	</c:forEach>
 	<br />
+	<a href="${contextPath}/product">Create new</a>
 
 
 	<c:if test="${paginationProductInfos.totalPages > 1}">
