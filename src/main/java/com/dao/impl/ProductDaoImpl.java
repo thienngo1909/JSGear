@@ -118,20 +118,18 @@ public class ProductDaoImpl implements ProductDao {
 
 		if (code != null) {
 			product = getProductByCode(code);
-			if(product==null)
+			if (product == null)
 				product = new Product();
 			isNew = true;
 			product.setCreateDate(new Date());
 		}
 
-		
 		product.setCode(code);
 		product.setName(productInfo.getName());
 		product.setQuantity(productInfo.getQuantity());
 		product.setPrice(productInfo.getPrice());
 		product.setCategory(getCategoryByName(productInfo.getCategory()));
 		product.setProducer(getProducerByName(productInfo.getProducer()));
-		product.setDetail(updateDeatil(productInfo));
 		if (productInfo.getFileData() != null) {
 			byte[] image = productInfo.getFileData().getBytes();
 			if (image != null && image.length > 0)
@@ -139,6 +137,7 @@ public class ProductDaoImpl implements ProductDao {
 		}
 		if (isNew)
 			session.persist(product);
+		product.setDetail(updateDeatil(productInfo));
 		session.flush();
 	}
 
@@ -149,11 +148,6 @@ public class ProductDaoImpl implements ProductDao {
 		Query<Producer> query = session.createQuery(hql);
 		query.setParameter("name", name);
 		producer = (Producer) query.uniqueResult();
-		if(producer == null) {
-			producer = new Producer();
-			String newName = name.toUpperCase();
-			producer.setName(newName);
-		}
 		return producer;
 	}
 
@@ -164,11 +158,6 @@ public class ProductDaoImpl implements ProductDao {
 		Query<Category> query = session.createQuery(hql);
 		query.setParameter("name", name);
 		category = (Category) query.uniqueResult();
-		if(category==null) {
-			category = new Category();
-			String newName = name.toUpperCase();
-			category.setName(newName);
-		}
 		return category;
 	}
 
@@ -176,14 +165,14 @@ public class ProductDaoImpl implements ProductDao {
 		Session session = sessionFactory.getCurrentSession();
 		com.entity.ProductDetail productDetail = null;
 		try {
-			productDetail = session.get(com.entity.ProductDetail.class,
-					productInfo.getDetail().getId());
-			if(productDetail==null)
+			productDetail = session.get(com.entity.ProductDetail.class, productInfo.getDetail().getId());
+			if (productDetail == null)
 				productDetail = new com.entity.ProductDetail();
 			productDetail.setColor(productInfo.getDetail().getColor());
 			productDetail.setInsurance(productInfo.getDetail().getInsurance());
-			productDetail.setSpecifications(productDetail.getSpecifications());
+			productDetail.setSpecifications(productInfo.getDetail().getSpecification());
 			productDetail.setWeight(productInfo.getDetail().getWeight());
+			productDetail.setProduct(getProductByCode(productInfo.getCode()));
 			session.save(productDetail);
 		} catch (Exception e) {
 			e.getMessage();
@@ -205,6 +194,5 @@ public class ProductDaoImpl implements ProductDao {
 		}
 		return isDelete;
 	}
-	
 
 }

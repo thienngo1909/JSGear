@@ -154,8 +154,8 @@ public class MainController {
 		}
 
 		if (product != null && product.getImage() != null) {
-			response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
-			response.getOutputStream().write(product.getImage());
+			response.setContentType("image/jpeg, image/jpg, image/png, image/gif");//thay đổi định dạng sẽ trả về
+			response.getOutputStream().write(product.getImage());//nội dung sẽ trả về
 		}
 		response.getOutputStream().close();
 	}

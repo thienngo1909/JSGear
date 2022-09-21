@@ -18,11 +18,20 @@
 	<form:form modelAttribute="productForm" method="POST"
 		action="${contextPath}/product">
 		<table style="text-align: left;">
-			<tr>
-				<td>Code *</td>
-				<td><form:input path="code" /></td>
-				<td><form:hidden path="newProduct" />
-			</tr>
+			<c:if test="${not empty productForm.code}">
+				<tr>
+					<td>Code *</td>
+					<td>"${productForm.code}"</td>
+					<td><form:hidden path="code" /></td>
+				</tr>
+			</c:if>
+			<c:if test="${empty productForm.code}">
+				<tr>
+					<td>Code *</td>
+					<td><form:input path="code" /></td>
+					<td><form:hidden path="newProduct" /></td>
+				</tr>
+			</c:if>
 			<tr>
 				<td>Name *</td>
 				<td><form:input path="name" /></td>
@@ -36,16 +45,22 @@
 				<td><form:input path="price" /></td>
 			</tr>
 			<tr>
-				<td>Category: </td>
-				<td><form:input path="Category" /></td>
+				<td>Category:</td>
+				<td><form:select path="category" >
+					<form:option value="MOUSE">MOUSE</form:option>
+					<form:option value="KEYBOAD">KEYBOAD</form:option>
+				</form:select></td>
 			</tr>
 			<tr>
 				<td>Producer </td>
-				<td><form:input path="Producer" /></td>
+				<td><form:select path="producer" >
+					<form:option value="ASUS">ASUS</form:option>
+					<form:option value="gigabyte">GIGABITE</form:option>
+				</form:select></td>
 			</tr>
+			<c:if test="${not empty detail.id}"></c:if>
 			<tr>
-				<td>ID </td>
-				<td><form:input path="detail.id" /></td>
+				<td><form:hidden path="detail.id" /></td>
 			</tr>
 			<tr>
 				<td>Color</td>
@@ -61,8 +76,21 @@
 			</tr>
 			<tr>
 				<td>Specification</td>
-				<td><form:textarea path="detail.specification"/>
+				<td><form:textarea path="detail.specification" />
 			</tr>
+			<%-- <tr>
+				<td>Image</td>
+				<td><img
+					src="${contextPath}/productImage?code=${productForm.code}"
+					width="100" /></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Upload Image</td>
+				<td><form:input type="file" path="fileData" /></td>
+				<td></td>
+			</tr> --%>
+
 			<tr>
 				<td>&nbsp;</td>
 				<td><input type="submit" value="Submit" /> <input type="reset"
