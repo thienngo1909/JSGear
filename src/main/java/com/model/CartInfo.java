@@ -94,7 +94,7 @@ public class CartInfo {
 	public int getQuantityTotal() {
 		int quantity = 0;
 		for(CartLineInfo cartlineInfo : this.cartLineInfos) {
-			quantity += cartlineInfo.getQuantity() + quantity;
+			quantity += cartlineInfo.getQuantity();
 		}
 		return quantity;
 	}
@@ -102,7 +102,7 @@ public class CartInfo {
 	public double getAmountTotal() {
 		double amount = 0;
 		for(CartLineInfo cartLineInfo : this.cartLineInfos) {
-			amount = cartLineInfo.getAmount() + amount;
+			amount += cartLineInfo.getAmount();
 		}
 		return amount;
 	}

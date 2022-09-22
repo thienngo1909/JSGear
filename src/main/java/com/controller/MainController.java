@@ -72,11 +72,27 @@ public class MainController {
 		return "productList";
 	}
 
+	// Them san pham vao cart
+	@GetMapping(value = {"/buyProduct"})
+	public String buyProductHandler(HttpServletRequest request, Model model,
+			@RequestParam(value = "code", defaultValue = "") String code) {
+		Product product = null;
+
+		if (code != null && code.length() > 0) {
+			product = productService.getProductByCode(code);
+		}
+		if (product != null) {
+			CartInfo cartInfo = Utils.getCartInfoInSession(request);
+			ProductInfo productInfo = new ProductInfo(product);
+			cartInfo.addProduct(productInfo, 1);
+			model.addAttribute(code, productInfo);
+		}
+		return "redirect:/shoppingCart";
+	}
 	// Hien thi Cart
 	@RequestMapping(value = { "/shoppingCart" }, method = RequestMethod.GET)
 	public String shoppingCartHandler(HttpServletRequest request, Model model) {
 		CartInfo cartInfo = Utils.getCartInfoInSession(request);
-
 		model.addAttribute("cartForm", cartInfo);
 
 		return "shoppingCart";
@@ -154,8 +170,8 @@ public class MainController {
 		}
 
 		if (product != null && product.getImage() != null) {
-			response.setContentType("image/jpeg, image/jpg, image/png, image/gif");//thay đổi định dạng sẽ trả về
-			response.getOutputStream().write(product.getImage());//nội dung sẽ trả về
+			response.setContentType("image/jpeg, image/jpg, image/png, image/gif");//thay Ä‘á»•i Ä‘á»‹nh dáº¡ng sáº½ tráº£ vá»�
+			response.getOutputStream().write(product.getImage());//ná»™i dung sáº½ tráº£ vá»�
 		}
 		response.getOutputStream().close();
 	}

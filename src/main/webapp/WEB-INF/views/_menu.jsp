@@ -39,7 +39,12 @@
 				<div class="site-cart">
 					<a href="#"><i class="fa fa-shopping-cart"
 						style="font-size: 40px" aria-hidden="true"></i> 
-						<div class="cart-number">1</div>
+						<c:if test="${myCartInfo.quantityTotal == null}">
+						<div class="cart-number">0</div>
+						</c:if>
+						<c:if test="${myCartInfo != null}">
+						<div class="cart-number">${myCartInfo.quantityTotal}</div>
+						</c:if>
 					</a>
 				</div>
 			</div>
@@ -48,14 +53,6 @@
 					<ul>
 						<li><a class="home-page" href="#">Home</a></li>
 						<li><a class="item" href="#">Product</a></li>					
-					</ul>
-				</div>
-			</div>
-			<div class="clearfix">
-				<div id="menu-main-menu" style="font-size: 30px">
-					<ul>
-						<li><a class="home-page" href="${contextPath}/productListByCategory?id=1">MOUSE</a></li>
-						<li><a class="home-page" href="${contextPath}/productListByCategory?id=2">KEYBOARD</a></li>					
 					</ul>
 				</div>
 			</div>

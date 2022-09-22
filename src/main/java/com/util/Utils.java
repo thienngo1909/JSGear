@@ -10,7 +10,7 @@ public class Utils {
 		
 		if(cartInfo == null) {
 			cartInfo = new CartInfo();
-			request.getSession().getAttribute("myCartInfo");
+			request.getSession().setAttribute("myCartInfo", cartInfo);
 		}
 		return cartInfo;
 	}

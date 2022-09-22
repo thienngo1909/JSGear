@@ -24,20 +24,6 @@
 
 	<div class="page-title">Product List</div>
 	
-	<form method="GET" action="${contextPath}/searchingProduct">
-		<table>
-			<tr>
-				<td>Code input: </td>
-				<td><input type="text" name="search" placeholder="Search for name...."></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center">
-					<input type="submit" value="Search">
-				</td>
-			</tr>
-		</table>
-	</form>
-	
 	<c:forEach items="${paginationProductInfos.list}" var="productInfo">
 		<div class="product-preview-container">
 			<ul>
