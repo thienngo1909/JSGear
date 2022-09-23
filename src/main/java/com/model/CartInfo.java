@@ -64,8 +64,8 @@ public class CartInfo {
 		}
 	}
 	
-	public void removeProduct(String code) {
-		CartLineInfo cartLineInfo = getCartLineInfoByCode(code);
+	public void removeProduct(ProductInfo productInfo) {
+		CartLineInfo cartLineInfo = getCartLineInfoByCode(productInfo.getCode());
 		if(cartLineInfo != null) {
 			this.cartLineInfos.remove(cartLineInfo);
 		}

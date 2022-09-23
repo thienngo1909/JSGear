@@ -119,6 +119,21 @@ public class MainController {
 		return "searchingProduct";
 	}
 
+	@RequestMapping(value = {"/shoppingCartRemoveProduct"})
+	public String removeProduct(HttpServletRequest request, Model model,
+			@RequestParam("code") String code) {
+		Product product = null;
+		if(code != null) {
+			product = productService.getProductByCode(code);
+		}
+		
+		if(product != null) {
+			CartInfo cartInfo = Utils.getCartInfoInSession(request);
+			ProductInfo productInfo = new ProductInfo(product);
+			cartInfo.removeProduct(productInfo);
+		}
+		return "redirect:/shoppingCart";
+	}
 	//xuat thong tin tung san pham
 	@GetMapping("/productInfo")
 	public String getProductInfo(Model model, @RequestParam(value = "code") String code) {
