@@ -216,6 +216,11 @@ table td {
 	color: red;
 }
 
+.product-image {
+	width: 300px;
+	height: 150px;
+}
+
 .clearfix::after {
   content: "";
   clear: both;

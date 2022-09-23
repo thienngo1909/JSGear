@@ -14,7 +14,7 @@
 <meta charset="ISO-8859-1">
 <title>Product List</title>
 <link rel="stylesheet" type="text/css"
-	href="${contextPath}/css/test.css">
+	href="${contextPath}/css/styles.css">
 
 </head>
 <body>
