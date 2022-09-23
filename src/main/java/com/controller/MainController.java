@@ -174,6 +174,10 @@ public class MainController {
 		}
 		catch (Exception e) {
 			model.addAttribute(e.getMessage());
+			List<Category> categories = productService.getAllCategory();
+			List<Producer> producers = productService.getAllProducer();
+			model.addAttribute("categories", categories);
+			model.addAttribute("producers", producers);
 			return "productForm";
 		}
 		return "redirect:/productList";

@@ -44,6 +44,8 @@ public class ProductInfoValidator implements Validator {
 					errors.rejectValue("code", "Duplicate.productForm.code");
 			}
 		}
+		
+		
 	}
 
 }
