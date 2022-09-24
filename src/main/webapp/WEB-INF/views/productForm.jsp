@@ -11,52 +11,53 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Product</title>
-<link rel="stylesheet" type="text/css" enctype="multipart/form-data"
+<link rel="stylesheet" type="text/css"
 	href="${contextPath}/css/styles.css">
 </head>
 <body>
+	<c:if test="${not empty errorMessage }">
+		<div class="error-message">${errorMessage}</div>
+	</c:if>
+
 	<form:form modelAttribute="productForm" method="POST"
-		action="${contextPath}/product">
-		<table style="text-align: left;">
-			<c:if test="${not empty productForm.code}">
-				<tr>
-					<td>Code *</td>
-					<td>"${productForm.code}"</td>
-					<td><form:hidden path="code" /></td>
-				</tr>
-			</c:if>
-			<c:if test="${empty productForm.code}">
-				<tr>
-					<td>Code *</td>
-					<td><form:input path="code" /></td>
-					<td><form:hidden path="newProduct" /></td>
-				</tr>
-			</c:if>
+		enctype="multipart/form-data" action="${contextPath}/product">
+		<table style="text-align: left;">			
+			<tr>
+				<td>Code *</td>
+				<td style="color: red;"><form:input path="code" /> <form:hidden
+						path="newProduct" /></td>
+				<td><form:errors path="code" class="error-message" /></td>
+			</tr>
 			<tr>
 				<td>Name *</td>
 				<td><form:input path="name" /></td>
+				<td><form:errors path="name" class="error-message" /></td>
 			</tr>
 			<tr>
 				<td>Quantity *</td>
 				<td><form:input path="quantity" /></td>
+				<td><form:errors path="quantity" class="error-message" /></td>
 			</tr>
 			<tr>
 				<td>Price</td>
 				<td><form:input path="price" /></td>
+				<td><form:errors path="price" class="error-message" /></td>
 			</tr>
 			<tr>
 				<td>Category:</td>
-				<td><form:select path="category" >
-					<form:option value="MOUSE">MOUSE</form:option>
-					<form:option value="KEYBOAD">KEYBOAD</form:option>
-				</form:select></td>
+				<td><form:select path="category">
+						<c:forEach items="${categories}" var="categorys">
+							<form:option value="${categorys.name}">${categorys.name}</form:option>
+						</c:forEach>
+					</form:select></td>
 			</tr>
 			<tr>
-				<td>Producer </td>
-				<td><form:select path="producer" >
-					<form:option value="ASUS">ASUS</form:option>
-					<form:option value="gigabyte">GIGABITE</form:option>
-				</form:select></td>
+				<td>Producer:</td>
+				<td><form:select path="producer">
+						<c:forEach items="${producers}" var="producers">
+							<form:option value="${producers.name}">${producers.name}</form:option>
+						</c:forEach>
+					</form:select></td>
 			</tr>
 			<c:if test="${not empty detail.id}"></c:if>
 			<tr>
@@ -78,7 +79,7 @@
 				<td>Specification</td>
 				<td><form:textarea path="detail.specification" />
 			</tr>
-			<%-- <tr>
+			<tr>
 				<td>Image</td>
 				<td><img
 					src="${contextPath}/productImage?code=${productForm.code}"
@@ -89,8 +90,8 @@
 				<td>Upload Image</td>
 				<td><form:input type="file" path="fileData" /></td>
 				<td></td>
-			</tr> --%>
-
+			</tr>
+			<form:hidden path="oldCode"/>
 			<tr>
 				<td>&nbsp;</td>
 				<td><input type="submit" value="Submit" /> <input type="reset"

@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,6 +24,8 @@ import com.model.CartInfo;
 import com.model.PaginationResult;
 import com.model.ProductInfo;
 import com.service.ProductService;
+import com.entity.Category;
+import com.entity.Producer;
 import com.entity.Product;
 import com.util.Utils;
 import com.validator.ProductInfoValidator;
@@ -152,25 +155,45 @@ public class MainController {
 		ProductInfo productInfo = null;
 		if(code!=null && code.length()>0) {
 			productInfo = productService.getProductInfoByCode(code);
+			productInfo.setOldCode(code);
 		}
 		if(productInfo==null) {
 			productInfo = new ProductInfo();
 			productInfo.setNewProduct(true);
 		}
-		
+		List<Category> categories = productService.getAllCategory();
+		List<Producer> producers = productService.getAllProducer();
 		model.addAttribute("productForm", productInfo);
+		model.addAttribute("categories", categories);
+		model.addAttribute("producers", producers);
 		return "productForm";
 	}
 	
 	//Save product xuong db
-	@PostMapping
-	public String saveProduct(Model model, @ModelAttribute("productForm1") ProductInfo productInfo) {
+	@PostMapping("/product")
+	public String saveProduct(Model model, @ModelAttribute("productForm") @Valid ProductInfo productInfo, BindingResult result ) {
+		productInfoValidator.validate(productInfo, result);
+		if(result.hasErrors()) {
+			List<Category> categories = productService.getAllCategory();
+			List<Producer> producers = productService.getAllProducer();
+			model.addAttribute("categories", categories);
+			model.addAttribute("producers", producers);
+			return "productForm";
+		}
 		try {
 			productService.saveProductInfo(productInfo);
+			if(productInfo.getOldCode()!=null && !productInfo.getOldCode().equals(productInfo.getCode())) {
+				boolean isDelete = productService.deleteProduct(productInfo.getOldCode());
+			}
+				 
 		}
 		catch (Exception e) {
 			model.addAttribute(e.getMessage());
-			return "product";
+			List<Category> categories = productService.getAllCategory();
+			List<Producer> producers = productService.getAllProducer();
+			model.addAttribute("categories", categories);
+			model.addAttribute("producers", producers);
+			return "productForm";
 		}
 		return "redirect:/productList";
 	}
