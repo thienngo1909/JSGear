@@ -18,7 +18,7 @@
 		<div class="header-bar">
 			<c:if test="${name != null}">
 				<ul>
-					<li>Hello <a href="${contextPath}/accountInfo">${name}</a>&nbsp;|&nbsp;
+					<li><a href="${contextPath}/accountInfo">Hello ${name}</a>
 					</li>
 					<li><a href="${contextPath}/logout">Logout</a></li>
 				</ul>
@@ -28,7 +28,7 @@
 			</c:if>
 			<ul>
 				<c:if test="${name == null}">
-					<li><a href="${contextPath}/signup">Sign up</a></li>
+					<li><a href="${contextPath}/register">Sign up</a></li>
 					<li><a href="${contextPath}/login">Login</a></li>
 				</c:if>
 			</ul>

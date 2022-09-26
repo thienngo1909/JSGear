@@ -26,6 +26,10 @@ public class Role {
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "role", cascade={CascadeType.ALL})
 	private List<Account> accounts;
 
+	public Role(int id, String roleName){
+		this.id = id;
+		this.roleName = roleName;
+	}
 	public int getId() {
 		return id;
 	}
