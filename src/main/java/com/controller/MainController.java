@@ -21,13 +21,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.model.CartInfo;
+import com.model.CustomerInfo;
 import com.model.PaginationResult;
 import com.model.ProductInfo;
 import com.service.ProductService;
+import com.dao.OrderDao;
 import com.entity.Category;
 import com.entity.Producer;
 import com.entity.Product;
 import com.util.Utils;
+import com.validator.CustomerInfoValidator;
 import com.validator.ProductInfoValidator;
 
 @Controller
@@ -37,6 +40,12 @@ public class MainController {
 
 	@Autowired
 	private ProductInfoValidator productInfoValidator;
+	
+	@Autowired
+	private CustomerInfoValidator customerInfoValidator;
+	
+	@Autowired
+	private OrderDao orderDao;
 	
 	// Hien thi tat ca san pham
 	@GetMapping(value = "/productList")
@@ -225,4 +234,80 @@ public class MainController {
 		return "redirect:/productList";
 		
 	}
+	
+	//Nguyen
+	
+	@GetMapping(value = {"/customerInfo"})
+	public String customerInfoForm(HttpServletRequest request, Model model) {
+		CartInfo cartInfo = Utils.getCartInfoInSession(request);
+		
+		//Chua mua hang
+		if(cartInfo.isEmpty()) {
+			return "redirect:/productList";
+		}
+		
+		CustomerInfo customerInfo = cartInfo.getCustomerInfo();
+		if(customerInfo == null) {
+			customerInfo = new CustomerInfo();
+		}
+		
+		model.addAttribute("customerForm", customerInfo);
+		return "productCustomerInforForm";
+	}
+	
+	//Save customer's Information
+	@PostMapping(value = {"/customerInfo"})
+	public String customerInfoSave(HttpServletRequest request, Model model,
+			@ModelAttribute("customerForm") @Valid CustomerInfo customerForm, BindingResult result) {
+	customerInfoValidator.validate(customerForm, result);
+	if(result.hasErrors()) {
+		customerForm.setValid(false);
+		return "customerInforForm";
+		}
+	customerForm.setValid(true);
+	CartInfo cartInfo = Utils.getCartInfoInSession(request);
+	cartInfo.setCustomerInfo(customerForm);
+	return "redirect:/shoppingCartConfirmation";
+	}
+	
+	//Check all Information
+	@GetMapping(value = {"/shoppingCartConfirmation"})
+	public String shoppingCartConfirmationReview(HttpServletRequest request, Model model) {
+		CartInfo cartInfo = Utils.getCartInfoInSession(request);
+		
+		if(cartInfo.isEmpty()) {
+			return "redirect:/productList";
+		} else if(!cartInfo.isValidCustomer()){
+			return "redirect:/customerForm";
+		}
+		return "shoppingCartConfirmation";
+	}
+	
+	@PostMapping(value = {"/shoppingCartConfirmation"})
+	public String shoppingCartConfirmationSave(HttpServletRequest request, Model model) {
+		CartInfo cartInfo = Utils.getCartInfoInSession(request);
+		
+		//Set chua mua mat hang dan den productList
+		if(cartInfo.isEmpty()) {
+			return "redirect:/productList";
+		} else if (!cartInfo.isValidCustomer()) {
+			return "redirect:/shoppingCartCustomer";
+		}
+		//Set chua co thong tin khach hang dan den customerForm
+		
+		try {
+			orderDao.saveOrder(cartInfo);
+		} catch (Exception e) {
+			return "shoppingCartConfirmation";
+		}
+		
+		//Xoa gio hang khoi session
+		Utils.removeCartInfoInSession(request);
+		
+		//Luu thong tin don da da mua
+		Utils.storeLastOrderedCartInfoSession(request, cartInfo);
+		return "redirect:/shoppingCartFinalize";
+	}
+	
+	
 }

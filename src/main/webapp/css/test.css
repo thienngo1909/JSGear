@@ -150,3 +150,20 @@ input[type="text"] {
   display: table;
   height: 20px;
 }
+
+/* ---------------------productCustomerInforForm------------------------ */
+
+.page-title{
+	margin: 10px 0;
+}
+
+.page-title p{
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.page-title h3{
+	font-size: 15px;
+	font-style: italic;
+}
+

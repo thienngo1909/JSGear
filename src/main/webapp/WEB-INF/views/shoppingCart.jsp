@@ -83,6 +83,7 @@
             <input class="button-update-product" type="submit" value="Update Information"/>
             <a class="navi-item" href="${contextPath}/productList">Continue
 					Buy</a>
+			<a class="navi-item" href="${contextPath}/customerInfo">Enter Customer Information</a>
         </form:form>
     </c:if>
 	</div>

@@ -1,5 +1,7 @@
 package com.model;
 
+import com.entity.Customer;
+
 public class CustomerInfo {
 	private String name;
 	
@@ -11,6 +13,8 @@ public class CustomerInfo {
 	
 	private boolean Valid;
 
+	
+	
 	public boolean isValid() {
 		return Valid;
 	}
