@@ -15,7 +15,7 @@
     <title>JSGearProject</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body onLoad="updateCart()">
     <jsp:include page="_header.jsp" />
 
 	<jsp:include page="_menu.jsp" />

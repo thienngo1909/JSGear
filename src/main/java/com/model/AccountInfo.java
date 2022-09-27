@@ -1,6 +1,10 @@
 package com.model;
 
-public class CustomerInfo {
+public class AccountInfo {
+	private String userName;
+	
+	private String password;
+	
 	private String name;
 	
 	private String address;
@@ -9,35 +13,30 @@ public class CustomerInfo {
 	
 	private String phone;
 	
-	private boolean Valid;
+	private boolean active;
 
-	public boolean isValid() {
-		return Valid;
-	}
-	
-	public CustomerInfo() {
-		
-	}
-	
-	public CustomerInfo(String name, String address, String email, String phone) {
-		super();
-		this.name = name;
-		this.address = address;
-		this.email = email;
-		this.phone = phone;
-	}
-	
-	public CustomerInfo(String name, String address, String email, String phone, boolean Valid) {
-		super();
-		this.name = name;
-		this.address = address;
-		this.email = email;
-		this.phone = phone;
-		this.Valid = Valid;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setValid(boolean isValid) {
-		this.Valid = isValid;
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 
 	public String getName() {
@@ -71,7 +70,6 @@ public class CustomerInfo {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-
 	
 	
 }
