@@ -49,4 +49,5 @@ public class AdminControlller {
 		}
 		return "redirect:/register";
 	}
+	
 }

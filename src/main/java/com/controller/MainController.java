@@ -47,9 +47,13 @@ public class MainController {
 	@Autowired
 	private OrderDao orderDao;
 	
+	@GetMapping(value = "/menu")
+	private String getAllProductInfo1() {
+		return "_menu";
+	}
 	// Hien thi tat ca san pham
 	@GetMapping(value = "/productList")
-	private String getAllProductInfo(Model model, @RequestParam(value = "name", defaultValue = "") String likeName,
+	private String getAllProductInfo(Model model, @RequestParam(value = "name",defaultValue = "") String likeName,
 
 			@RequestParam(value = "page", defaultValue = "1") int page) {
 		final int maxResult = 5;
@@ -58,31 +62,34 @@ public class MainController {
 		return "productList";
 	}
 
-	// Hien thi san pham theo loai
+	// Hien thi san pham
 	@GetMapping(value = "/productListByCategory")
-	private String getProductInfoByCategory(Model model, @RequestParam(value = "id") int id,
+	private String getProductInfoByCategory(Model model, @RequestParam(value = "category", defaultValue = "")String category,
+			@RequestParam(value="producer",defaultValue = "")String producer,
 			@RequestParam(value = "name", defaultValue = "") String likeName,
 			@RequestParam(value = "page", defaultValue = "1") int page) {
 		final int maxResult = 5;
 		PaginationResult<ProductInfo> productInfos = productService.getProductInfosByCategory(page, maxResult, likeName,
-				id);
+				category, producer);
 		model.addAttribute("paginationProductInfos", productInfos);
-		model.addAttribute("id", id);
-		return "productList";
+		model.addAttribute("category", category);
+		model.addAttribute("producer", producer);
+		return "getProduct";
 	}
 
 	// hien thi san pham theo hang san xuat
-	@GetMapping(value = "/productListByProducer")
-	private String getProductInforsByProducer(Model model, @RequestParam(value = "id") int id,
-			@RequestParam(value = "name", defaultValue = "") String likeName,
-			@RequestParam(value = "page", defaultValue = "1") int page) {
-		final int maxResult = 5;
-		PaginationResult<ProductInfo> productInfos = productService.getProductInfosByCategory(page, maxResult, likeName,
-				id);
-		model.addAttribute("paginationProductInfos", productInfos);
-		model.addAttribute("id", id);
-		return "productList";
-	}
+	/*
+	 * @GetMapping(value = "/productListByProducer") private String
+	 * getProductInforsByProducer(Model model, @RequestParam(value = "id") int id,
+	 * 
+	 * @RequestParam(value = "name", defaultValue = "") String likeName,
+	 * 
+	 * @RequestParam(value = "page", defaultValue = "1") int page) { final int
+	 * maxResult = 5; PaginationResult<ProductInfo> productInfos =
+	 * productService.getProductInfosByCategory(page, maxResult, likeName, id);
+	 * model.addAttribute("paginationProductInfos", productInfos);
+	 * model.addAttribute("id", id); return "productList"; }
+	 */
 
 	// Them san pham vao cart
 	@GetMapping(value = {"/buyProduct"})

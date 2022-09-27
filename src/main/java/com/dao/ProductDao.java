@@ -16,7 +16,7 @@ public interface ProductDao {
 	
 	public PaginationResult<ProductInfo> getProductByName(int page, int maxResult, String name);
 	
-	public PaginationResult<ProductInfo> getProductInfosByCategory(int page, int maxResult, String likeName,int idCategory);
+	public PaginationResult<ProductInfo> getProductInfosByCategory(int page, int maxResult, String likeName,String nameCategory, String nameProducer);
 	
 	public PaginationResult<ProductInfo> getProductInfosByProducer(int page, int maxResult, String likeName,int idProducer);
 	

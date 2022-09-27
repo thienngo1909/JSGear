@@ -57,8 +57,20 @@ public class ProductDaoImpl implements ProductDao {
 		return paginationResult;
 	}
 
-	@Override
 	public PaginationResult<ProductInfo> getProductInfosByCategory(int page, int maxResult, String likeName,
+			String nameCategory,String nameProducer) {
+		Category  category = getCategoryByName(nameCategory);
+		Producer producer = getProducerByName(nameProducer);
+		if(category==null&&producer==null)
+			return getAllProductInfos(page, maxResult, likeName);
+		else if(category!=null&& producer ==null) {
+			return getAllByCategory(page, maxResult, likeName, category.getId());
+		}
+		else 
+			return getAllProductByProducer(page, maxResult, likeName, category.getId(), producer.getId());
+	}
+
+	public PaginationResult<ProductInfo> getAllByCategory(int page, int maxResult, String likeName,
 			int idCategory) {
 		Session session = sessionFactory.getCurrentSession();
 		String hql = "SELECT NEW " + ProductInfo.class.getName()
@@ -67,6 +79,21 @@ public class ProductDaoImpl implements ProductDao {
 		hql += " ORDER BY PRO.createDate DESC ";
 		Query<ProductInfo> query = session.createQuery(hql);
 		query.setParameter("idCategory", idCategory);
+		List<ProductInfo> productInfos = query.list();
+		PaginationResult<ProductInfo> paginationResult = new PaginationResult<ProductInfo>(query, page, maxResult);
+		return paginationResult;
+	}
+	
+	public PaginationResult<ProductInfo> getAllProductByProducer(int page, int maxResult, String likeName,
+			int idCategory, int idProducer) {
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "SELECT NEW " + ProductInfo.class.getName()
+				+ "(PRO.code, PRO.name, PRO.price, PRO.quantity) FROM Product PRO";
+		hql += " WHERE PRO.category.id = :idCategory AND PRO.producer.id = :idProducer";
+		hql += " ORDER BY PRO.createDate DESC ";
+		Query<ProductInfo> query = session.createQuery(hql);
+		query.setParameter("idCategory", idCategory);
+		query.setParameter("idProducer", idProducer);
 		List<ProductInfo> productInfos = query.list();
 		PaginationResult<ProductInfo> paginationResult = new PaginationResult<ProductInfo>(query, page, maxResult);
 		return paginationResult;
@@ -213,5 +240,7 @@ public class ProductDaoImpl implements ProductDao {
 		List<Producer> producers = query.getResultList();
 		return producers;
 	}
+
+
 
 }

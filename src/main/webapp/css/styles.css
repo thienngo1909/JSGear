@@ -63,7 +63,7 @@ li a {
 .header-container .header-bar  a {
 	font-size: bold;
 }
-
+/*--------------------------MENU-------------------------*/
 .menu-container {
 	margin-top: 25px;
     position: relative;
@@ -76,6 +76,7 @@ li a {
 	margin-top: 15px;
 	float: left;
 	width: 40%;
+	
 }
 
 .menu-container .menu-container-right{
@@ -152,8 +153,28 @@ input[type="text"] {
 .menu-main-menu {
 	text-align: left;
 	vertical-align: left;
+	color:red;
+	border: 1px solid black;
 }
-
+.dropdown{
+	border:1px solid black;
+	display: block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+/*-------------------------------*/
 .product-preview-container {
 	border: 1px solid #ccc;
 	padding: 5px;
