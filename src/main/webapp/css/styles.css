@@ -1,5 +1,7 @@
 html {
 	background: white;
+	background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+	background-size: cover;
 }
 
 body {
@@ -9,6 +11,8 @@ body {
 	padding: 0px;
 	text-align: center;;
 	vertical-align: center;
+	font-family: sans-serif;
+	
 }
 
 .page-title {
@@ -222,3 +226,146 @@ table td {
   display: table;
   height: 20px;
 }
+
+/* ---------------------productCustomerInforForm------------------------ */
+
+
+ .page-title-form{
+	margin: 10px 0;
+	font-family: sans-serif;
+	color: #fff;
+	text-align: left;
+}
+
+.page-title-form p{
+	font-size: 170%;
+	font-weight: 600;
+}
+
+.page-title-form h3{
+	font-size: 14px;
+	font-style: italic;
+}
+
+.form-customer{
+	font-family: sans-serif;
+	color: #fff;
+	text-align: left;
+	
+}
+
+.row-form-customer input{
+	width: 250px;
+	caret-color: #00C9FF;
+}
+
+.btn-customer-form{
+	position: relative;
+	background: none;
+	color: #fff;
+	border: 1px solid #fff;
+	left: -30%;
+	margin-bottom: 20px;
+	width: 120px;
+	height: 40px;
+	margin-right: 20px;
+	text-align: center;
+	cursor: pointer;
+	transition: all .3s;
+	font-size: 16px;
+	
+}
+
+.btn-customer-form:hover, .btn-customer-form:active {
+	border: 1px solid #fff;
+	width: 130px;
+	height: 50px;
+	background: #00C9FF;
+	font-size: 20px;
+} 
+
+/* ---------------------ShoppingCartConfirmation------------------------ */
+
+.customer-form-confirm{
+	font-family: sans-serif;
+}
+
+.customer-form-confirm h3{
+	font-size: 130%;
+	font-style: oblique;
+	text-align: left;
+	color: #ff5500;
+}
+
+.customer-form-confirm li{
+	float: none;
+	text-align: left;
+	margin-bottom: 10px;
+}
+
+.customer-form-confirm li:first-child {
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.customer-form-confirm li:last-child {
+	margin-bottom: 20px;
+}
+
+.edit-btn{
+	text-align: left;
+	margin-bottom: 20px;
+}
+
+.edit-btn a{
+	text-decoration: none;
+	color: #fff;
+	font-size: 16px;
+	margin-right: 20px;
+	background: none;
+	border: 1px solid #fff;
+	text-align: center;
+	padding: 10px 20px;
+}
+
+.edit-btn input{
+	background: none;
+	color: #fff;
+	border: 1px solid #fff;
+	margin-bottom: 20px;
+	width: 120px;
+	height: 40px;
+	margin-right: 20px;
+	text-align: center;
+	cursor: pointer;
+	transition: all .3s;
+	font-size: 16px;
+}
+
+.edit-btn a:hover, .edit-btn a:active,
+.edit-btn input:hover, .edit-btn input:active {
+	border: 1px solid #003c4d;
+	color: #003c4d;
+}
+
+.product-information th, td{
+	border-bottom: 2px solid #fff;
+}
+
+.product-information th{
+	padding-bottom: 20px;
+}
+
+.product-subtotal{
+	position: relative;
+	left: 76%;
+	margin-top: 20px;
+	text-align: left;
+}
+
+.product-subtotal td{
+	padding: 15px;
+	border: none;
+}
+
+
