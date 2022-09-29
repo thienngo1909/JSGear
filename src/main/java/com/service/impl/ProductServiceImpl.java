@@ -1,9 +1,13 @@
 package com.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dao.ProductDao;
+import com.entity.Category;
+import com.entity.Producer;
 import com.entity.Product;
 import com.model.PaginationResult;
 import com.model.ProductInfo;
@@ -56,6 +60,18 @@ public class ProductServiceImpl implements ProductService{
 	public boolean deleteProduct(String code) {
 		// TODO Auto-generated method stub
 		return productDao.deleteProduct(code);
+	}
+
+	@Override
+	public List<Category> getAllCategory() {
+		// TODO Auto-generated method stub
+		return productDao.getAllCategory();
+	}
+
+	@Override
+	public List<Producer> getAllProducer() {
+		// TODO Auto-generated method stub
+		return productDao.getAllProducer();
 	}
 
 }

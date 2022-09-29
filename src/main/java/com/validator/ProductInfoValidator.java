@@ -12,7 +12,6 @@ import com.entity.Product;
 import com.model.ProductInfo;
 import com.service.ProductService;
 
-
 @Component
 public class ProductInfoValidator implements Validator {
 
@@ -32,18 +31,21 @@ public class ProductInfoValidator implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "code", "NotEmpty.productForm.code");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "NotEmpty.productForm.name");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "price", "NotEmpty.productForm.price");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "quantity", "NotEmpty.productForm.quantity");
 
 		String code = productInfo.getCode();
 		if (code != null && code.length() > 0) {
-			if (code.matches("\\s+")) {//
+			if (!code.matches("^S[0-9]{3}$")) {//
 				errors.rejectValue("code", "Pattern.productForm.code");
-			} else if (productInfo.isNewProduct()) {
+			}
+			else if(!productInfo.getOldCode().equals(code)) {
 				Product product = productService.getProductByCode(code);
-				if (product != null) {
+				if(product!=null)
 					errors.rejectValue("code", "Duplicate.productForm.code");
-				}
 			}
 		}
+		
+		
 	}
 
 }

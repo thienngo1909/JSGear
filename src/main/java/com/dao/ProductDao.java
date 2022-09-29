@@ -1,5 +1,9 @@
 package com.dao;
 
+import java.util.List;
+
+import com.entity.Category;
+import com.entity.Producer;
 import com.entity.Product;
 import com.model.PaginationResult;
 import com.model.ProductInfo;
@@ -21,4 +25,9 @@ public interface ProductDao {
 	public void saveProductInfo(ProductInfo productInfo);
 	
 	public boolean deleteProduct(String code);
+	
+	public List<Category> getAllCategory();
+	
+	public List<Producer> getAllProducer();
+	
 }

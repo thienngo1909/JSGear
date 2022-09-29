@@ -138,6 +138,7 @@ public class ProductDaoImpl implements ProductDao {
 		if (isNew)
 			session.persist(product);
 		product.setDetail(updateDeatil(productInfo));
+	
 		session.flush();
 	}
 
@@ -193,6 +194,24 @@ public class ProductDaoImpl implements ProductDao {
 			e.getMessage();
 		}
 		return isDelete;
+	}
+
+	@Override
+	public List<Category> getAllCategory() {
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "SELECT C FROM Category C";
+		Query<Category> query = session.createQuery(hql);
+		List<Category> categories = query.getResultList();
+		return categories;
+	}
+
+	@Override
+	public List<Producer>getAllProducer() {
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "SELECT PRO FROM Producer PRO";
+		Query<Producer> query = session.createQuery(hql);
+		List<Producer> producers = query.getResultList();
+		return producers;
 	}
 
 }

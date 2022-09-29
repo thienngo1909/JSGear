@@ -29,6 +29,10 @@ public class ProductInfo implements Serializable{
 	
 	private boolean newProduct = false;
 	
+	private String oldCode;
+	
+	
+	
 	private CommonsMultipartFile fileData;
 
 	public ProductInfo() {
@@ -162,6 +166,14 @@ public class ProductInfo implements Serializable{
 
 	public void setNewProduct(boolean newProduct) {
 		this.newProduct = newProduct;
+	}
+
+	public String getOldCode() {
+		return oldCode;
+	}
+
+	public void setOldCode(String oldCode) {
+		this.oldCode = oldCode;
 	}
 	
 	
