@@ -21,6 +21,7 @@ import com.model.CartInfo;
 import com.model.CartLineInfo;
 import com.model.CustomerInfo;
 import com.model.OrderInfo;
+import com.service.ProductService;
 
 @Repository
 @Transactional
@@ -36,7 +37,7 @@ public class OrderDaoImpl implements OrderDao{
 		Session session = sessionFactory.getCurrentSession();
 		String hql = "select max(ORD.orderNum) from Order ORD";
 		Query<Integer> query = session.createQuery(hql);
-		Integer value = query.uniqueResult();
+		Integer value = (Integer) query.uniqueResult();
 		if(value == null) {
 			return 0;
 		}
@@ -59,19 +60,23 @@ public class OrderDaoImpl implements OrderDao{
 		CustomerInfo customerInfo = cartInfo.getCustomerInfo();
 		Customer customer = new Customer();
 		customer.setFullName(customerInfo.getName());
-		customer.setAddress(customerInfo.getEmail());
-		customer.setPhone(customer.getPhone());
+		customer.setEmail(customerInfo.getEmail());
+		customer.setPhone(customerInfo.getPhone());
 		customer.setAddress(customerInfo.getAddress());
+		
+		session.persist(customer);//customer đang là một thuộc tính của Order(có mối quan hệ với order)
+		//trước khi em set customer vào order thì em phải lưu customer xuống database trước rồi mới được set như vầy order.setCustomer(customer)
+		
 		order.setCustomer(customer);
 		session.persist(order);
 		
 		List<CartLineInfo> cartLineInfos = cartInfo.getCartLineInfos();
-		for(CartLineInfo cartLineInfo : cartLineInfos) {
+		for(CartLineInfo cartLineInfo : cartLineInfos) { 
 			OrderDetail orderDetail = new OrderDetail();
 			orderDetail.setId(UUID.randomUUID().toString());
 			orderDetail.setOrder(order);
 			orderDetail.setPrice(cartLineInfo.getProductInfo().getPrice());
-			orderDetail.setAmount(cartLineInfo.getAmount());
+   			orderDetail.setAmount(cartLineInfo.getAmount());
 			orderDetail.setQuantity(cartLineInfo.getQuantity());
 			
 			String code = cartLineInfo.getProductInfo().getCode();
