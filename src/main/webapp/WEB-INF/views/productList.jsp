@@ -36,17 +36,13 @@
 					<li>Price: <fmt:formatNumber value="${productInfo.price}"
 							type="currency" /></li>
 				</a>
-				<li><a href="${contextPath}/product?code=${productInfo.code}">Edit</a>
-					<a href="${contextPath}/buyProduct?code=${productInfo.code}">Buy
-						Now</a> <a
-					href="${contextPath}/deleteProduct?code=${productInfo.code}">Delete</a>
-
-				</li>
+				<li><a
+					href="${contextPath}/buyProduct?code=${productInfo.code}">Buy
+						Now</a></li>
 
 				<security:authorize access="hasRole('ROLE_MANAGER')">
-					<li><a style="color: red;"
-						href="${contextPath}/product?code=${productInfo.code}">Edit
-							Product</a></li>
+					<li><a href="${contextPath}/deleteProduct?code=${productInfo.code}">Delete</a></li>
+					<li><a href="${contextPath}/product?code=${productInfo.code}">Edit</a></li>
 				</security:authorize>
 			</ul>
 		</div>

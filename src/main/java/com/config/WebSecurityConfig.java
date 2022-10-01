@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -18,7 +19,7 @@ import com.authentication.MyDBAuthenticationService;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	@Autowired
 	@Qualifier("myDBAuthenticationService")
-	private MyDBAuthenticationService myDBAauthenticationService;
+	private UserDetailsService userDetailsService;
 
 	@Bean
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
@@ -34,7 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();//ko có dòng này sẽ luôn nhảy vào /403
 		
-		http.authorizeRequests().antMatchers("/orderList", "/order", "/accountInfo").access("hasAnyRole('EMPLOYEE', 'MANAGER')");
+		http.authorizeRequests().antMatchers("/orderList", "/order", "/accountInfo").access("hasAnyRole('USER', 'MANAGER')");
 
 		http.authorizeRequests().antMatchers("/product").access("hasRole('MANAGER')");
 
@@ -49,11 +50,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 			.passwordParameter("password")
 			.and().logout()
 			.logoutUrl("/logout")
-			.logoutSuccessUrl("/");
+			.logoutSuccessUrl("/productList");
 	}
 	
 	@Autowired
 	protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(myDBAauthenticationService).passwordEncoder(bCryptPasswordEncoder());
+		auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
 	}
 }

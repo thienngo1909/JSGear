@@ -1,6 +1,10 @@
 package com.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +18,7 @@ import com.model.AccountInfo;
 import com.model.CustomerInfo;
 import com.service.AccountService;
 import com.service.ProductService;
+import com.validator.AccountInfoValidator;
 import com.validator.ProductInfoValidator;
 
 @Controller
@@ -22,10 +27,7 @@ public class AdminControlller {
 	private AccountService accountService;
 	
 	@Autowired
-	private ProductService productService;;
-	
-	@Autowired
-	private ProductInfoValidator productInfoValidator;
+	private AccountInfoValidator accountInfoValidator;
 	
 	@GetMapping(value="/login")
 	public String login(Model model) {
@@ -40,14 +42,18 @@ public class AdminControlller {
 	}
 	
 	@PostMapping(value = "/register")
-	public String saveNewAccount(Model model, @ModelAttribute("registerForm") AccountInfo AccountInfo, BindingResult result) {
+	public String saveNewAccount(Model model, @ModelAttribute("registerForm") @Valid AccountInfo AccountInfo, BindingResult result) {
+		accountInfoValidator.validate(AccountInfo, result);
+		if(result.hasErrors()) {
+			return "register";
+		}
 		try {
 			accountService.registerNewAccount(AccountInfo);
 		} catch (Exception e) {
 			model.addAttribute("errorMessage", e.getMessage());
 			return "register";
 		}
-		return "redirect:/register";
+		return "redirect:/login";
 	}
 	
 }

@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.io.IOException;
+import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,11 +25,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.model.CartInfo;
 import com.model.CustomerInfo;
+import com.model.OrderDetailInfo;
+import com.model.OrderInfo;
 import com.model.PaginationResult;
 import com.model.ProductInfo;
+import com.service.AccountService;
+import com.service.CustomerService;
+import com.service.OrderService;
 import com.service.ProductService;
 import com.dao.OrderDao;
+import com.entity.Account;
 import com.entity.Category;
+
+import com.entity.Order;
+import com.entity.OrderDetail;
+
+import com.entity.Customer;
+import com.entity.Order;
+
 import com.entity.Producer;
 import com.entity.Product;
 import com.util.Utils;
@@ -35,6 +51,16 @@ import com.validator.ProductInfoValidator;
 
 @Controller
 public class MainController {
+	
+	@Autowired
+	private OrderService orderService;
+	
+	@Autowired
+	private CustomerService customerService;
+	
+	@Autowired
+	private AccountService accountService;
+	
 	@Autowired
 	private ProductService productService;
 
@@ -245,18 +271,24 @@ public class MainController {
 	//Nguyen
 	
 	@GetMapping(value = {"/customerInfo"})
-	public String customerInfoForm(HttpServletRequest request, Model model) {
+	public String customerInfoForm(HttpServletRequest request, Model model, Principal principal) {
 		CartInfo cartInfo = Utils.getCartInfoInSession(request);
-		
 		//Chua mua hang
 		if(cartInfo.isEmpty()) {
 			return "redirect:/productList";
 		}
-		
 		CustomerInfo customerInfo = cartInfo.getCustomerInfo();
-		if(customerInfo == null) {
-			customerInfo = new CustomerInfo();
-		}
+		//kiem tra user da dang nhap chua
+		if(principal == null) {
+			return "redirect:/login";
+		}	
+//		if(customerInfo == null) {
+//			customerInfo = new CustomerInfo();
+//		}
+//		String user = request.getUserPrincipal().getName();
+		String user = principal.getName();
+		Account account = accountService.getAccountByUserName(user);
+		customerInfo = customerService.getCustomerInfoById(account.getCustomer().getId());	
 		
 		model.addAttribute("customerForm", customerInfo);
 		return "productCustomerInforForm";
@@ -293,7 +325,6 @@ public class MainController {
 	@PostMapping(value = {"/shoppingCartConfirmation"})
 	public String shoppingCartConfirmationSave(HttpServletRequest request, Model model) {
 		CartInfo cartInfo = Utils.getCartInfoInSession(request);
-		
 		//Set chua mua mat hang dan den productList
 		if(cartInfo.isEmpty()) {
 			return "redirect:/productList";
@@ -303,7 +334,7 @@ public class MainController {
 		//Set chua co thong tin khach hang dan den customerForm
 		
 		try {
-			orderDao.saveOrder(cartInfo);
+			orderService.saveOrder(cartInfo);
 		} catch (Exception e) {
 			return "shoppingCartConfirmation";
 		}
@@ -316,5 +347,46 @@ public class MainController {
 		return "redirect:/shoppingCartFinalize";
 	}
 	
+
+	@GetMapping(value = {"/shoppingCartFinalize"})
+	public String shoppingCartFinalize(HttpServletRequest request, Model model) {
+		CartInfo lastOrderCart = Utils.getLastOrderedCartInfoSession(request);
+		if(lastOrderCart == null) {
+			return "redirect:/productList";
+		}
+		return "shoppingCartFinalize";
+		
+	}
 	
+
+	@GetMapping(value= {"/accountInfo"})
+	public String customerAccountInfo(HttpServletRequest request, Model model, Principal principal) {
+		if(principal == null) {
+			return "redirect:/login";
+		}
+		String user = principal.getName();
+		Account account = accountService.getAccountByUserName(user);
+		CustomerInfo customerInfo = customerService.getCustomerInfoById(account.getCustomer().getId());	
+		Customer customer = customerService.getCustomerById(account.getCustomer().getId());		
+		List<OrderInfo> orderInfoList = orderService.getOrderByCustomer(customer.getId());
+		model.addAttribute("accountOrderList", orderInfoList);
+		model.addAttribute("accountInfo", customerInfo);
+		return "accountInfo";
+	}
+
+	
+	@GetMapping(value= {"/order"})
+	public String orderView(Model model, @RequestParam("orderId") String orderId, Principal principal) {
+		OrderInfo orderInfo = null;
+		if(orderId != null) {
+			orderInfo = orderService.getOrderInfoById(orderId);
+		}
+		if(orderId == null && principal == null) {
+			return "redirect:/login";
+		}
+		List<OrderDetailInfo> orderDetailInfos = orderService.GetAllOrderDetail(orderId);
+		orderInfo.setOrderDetailInfos(orderDetailInfos);
+		model.addAttribute("orderList", orderInfo);
+		return "order";
+	}
 }

@@ -113,9 +113,10 @@ public class ProductDaoImpl implements ProductDao {
 		PaginationResult<ProductInfo> paginationResult = new PaginationResult<ProductInfo>(query, page, maxResult);
 		return paginationResult;
 	}
-
+	
+	@Override
 	public Product getProductByCode(String code) {
-		Session session = sessionFactory.getCurrentSession();
+ 		Session session = sessionFactory.getCurrentSession();
 		String hql = "SELECT PRO FROM Product PRO WHERE PRO.code = :CODE";
 		Query<Product> query = session.createQuery(hql);
 		query.setParameter("CODE", code);

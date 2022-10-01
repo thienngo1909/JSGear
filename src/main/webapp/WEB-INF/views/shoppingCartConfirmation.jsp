@@ -22,23 +22,45 @@
 		<p>Confirmation</p>
 		<h3>Please check your information before submit</h3>
 	</div>
+	
 	<div class="customer-form-confirm">
-		<h3>Customer Information</h3>
-		<ul>
-			<li>Name: ${myCartInfo.customerInfo.name}</li>
-			<li>Address: ${myCartInfo.customerInfo.address}</li>
-			<li>Email: ${myCartInfo.customerInfo.email}</li>
-			<li>Phone: ${myCartInfo.customerInfo.phone}</li>
-		</ul>
-		<form class="edit-btn" method="POST" action="${contextPath}/shoppingCartConfirmation">
+		<!-- <h3>Customer Information</h3> -->
+		<div class="row">
+			<div class="customer-information">
+				<p>Name: </p>
+				<h4>${myCartInfo.customerInfo.name}</h4>
+			</div>
+			<div class="customer-information">
+				<p>Email: </p>
+				<h4>${myCartInfo.customerInfo.email}</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="customer-information">
+				<p>Total Quantity: </p>
+				<h4>${myCartInfo.quantityTotal}</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="customer-information">
+				<p>Phone: </p>
+				<h4>${myCartInfo.customerInfo.phone}</h4>
+			</div>
+			<div class="customer-information">
+				<p>Address: </p>
+				<h4>${myCartInfo.customerInfo.address}</h4>
+			</div>
+		</div>
+		
+	</div>
+	
+	<form class="edit-btn" method="POST" action="${contextPath}/shoppingCartConfirmation">
 			<input type="submit" value="Accept" class="btn-confirmation"/>
 			<a href="${contextPath}/shoppingCart">Edit Your Cart</a>
 			<a href="${contextPath}/customerInfo">Edit Your Information</a>
 		</form>
-	</div>
-	
-	
 	<div class="product-information">
+			<p>Product's Information</p>
 			<table>
 				<tr>
 					<th>Image</th>

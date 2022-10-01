@@ -31,7 +31,7 @@ public class MyDBAuthenticationService implements UserDetailsService {
 			throw new UsernameNotFoundException("User " + username + " was not found in the database");
 		}
 
-//		String roleName =  account.getRole().getRoleName();
+
 		String roleName = accountService.getAccountRoleName(account.getRole().getId());
 		List<GrantedAuthority> grantList = new ArrayList<>();
 
