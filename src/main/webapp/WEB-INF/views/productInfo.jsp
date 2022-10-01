@@ -18,24 +18,27 @@
 
 </head>
 <body>
-
-	<div class = "product_info">
-		<p>${productInfos.code}</p>
-		<p>${productInfos.name}</p>
-		<p>${productInfos.quantity}</p>
-		<p>${productInfos.price}</p>
-		<p>${productInfos.category}</p>
-		<p>${productInfos.producer}</p>
-		<p>${productInfos.detail.weight}</p>
-		<p>${productInfos.detail.color }</p>
-		
-	</div>
+	<jsp:include page="_header.jsp"></jsp:include>
+	<jsp:include page="_menu.jsp"></jsp:include>
+	<fmt:setLocale value="en_US" scope="session" />
 	
-
-		
-
-
-
+		<div class="row">
+			<div class="col-25">
+				<img src="${contextPath}/productImage?code=${productInfo.code}" />
+			</div>
+			<div class="col-75">
+				<p>Code: ${productInfos.code}</p>
+				<p>Name: ${productInfos.name}</p>
+				<p>Quantity: ${productInfos.quantity}</p>
+				<h3 style="color: red;">Price: <fmt:formatNumber  value="${productInfos.price}" type="currency"></fmt:formatNumber></h3></p>
+				<p>${productInfos.category}</p>
+				<p>${productInfos.producer}</p>
+				<p>Weight: ${productInfos.detail.weight}</p>
+				<p>Color: ${productInfos.detail.color }</p>
+				<h4>Insurance: ${productInfos.detail.insurance }</h4>
+				<p>${productInfos.detail.specification }</p>
+			</div>
+		</div>
 
 </body>
 </html>

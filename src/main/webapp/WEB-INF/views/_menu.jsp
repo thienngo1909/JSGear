@@ -49,6 +49,8 @@
 					</a>
 				</div>
 			</div>
+<<<<<<< HEAD
+=======
 			<div class="clearfix">
 				<div id="menu-main-menu" style="font-size: 30px">
 					<ul>
@@ -64,6 +66,7 @@
 						</c:if> </a>
 				</div>
 			</div>
+>>>>>>> 26826f4ffdfb4a8791a50e372314f5afbfc1e2c3
 		</div>
 	</div>
 	<div class="menu-main-menu">
