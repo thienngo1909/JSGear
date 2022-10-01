@@ -31,13 +31,12 @@
 				<a href="${contextPath}/productInfo?code=${productInfo.code}">
 					<li><img class="product-image"
 						src="${contextPath}/productImage?code=${productInfo.code}" />
-				<li>Name: ${productInfo.name}</li>
+					<li>Name: ${productInfo.name}</li>
 					<li>Quantity: ${productInfo.quantity}</li>
 					<li>Price: <fmt:formatNumber value="${productInfo.price}"
 							type="currency" /></li>
 				</a>
-				<li><a
-					href="${contextPath}/buyProduct?code=${productInfo.code}">Buy
+				<li><a href="${contextPath}/buyProduct?code=${productInfo.code}">Buy
 						Now</a></li>
 
 				<security:authorize access="hasRole('ROLE_MANAGER')">

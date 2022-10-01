@@ -49,14 +49,6 @@
 					</a>
 				</div>
 			</div>
-			<div class="clearfix">
-				<div id="menu-main-menu" style="font-size: 30px">
-					<ul>
-						<li><a class="home-page" href="${contextPath}/productList">Home</a></li>
-						<li><a class="item" href="#">Product</a></li>					
-					</ul>
-				</div>
-			</div>
 		</div>
 	</div>
 	<div class="menu-main-menu">

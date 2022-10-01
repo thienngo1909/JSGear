@@ -12,7 +12,6 @@ body {
 	text-align: center;;
 	vertical-align: center;
 	font-family: sans-serif;
-	
 }
 
 .page-title {
@@ -29,23 +28,23 @@ body {
 }
 
 ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
 }
 
 li {
-  float: left;
+	float: left;
 }
 
 li a {
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-weight: 900;
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-weight: 900;
 }
 
 .header-container {
@@ -58,7 +57,7 @@ li a {
 	position: absolute;
 	right: 10px;
 	bottom: 5px;
-} 
+}
 
 .header-container .header-bar  a {
 	font-size: bold;
@@ -66,133 +65,178 @@ li a {
 /*--------------------------MENU-------------------------*/
 .menu-container {
 	margin-top: 25px;
-    position: relative;
-    border-bottom: 1px solid #ccc;
-    min-height: 120px;
+	position: relative;
+	border-bottom: 1px solid #ccc;
+	min-height: 120px;
 	width: 100%;
 }
 
-.menu-container .menu-container-left{
+.menu-container .menu-container-left {
 	margin-top: 15px;
 	float: left;
 	width: 40%;
-	
 }
 
-.menu-container .menu-container-right{
+.menu-container .menu-container-right {
 	float: left;
 	width: 60%;
 	height: 100px;
 }
 
-.menu-container .menu-container.left .menu-logo{
+.menu-container .menu-container.left .menu-logo {
 	position: relative;
-    margin-top: 30px;
-    padding-left: 0.9375rem;
-    padding-right: 0.9375rem;
+	margin-top: 30px;
+	padding-left: 0.9375rem;
+	padding-right: 0.9375rem;
 }
 
-.menu-container .menu-container-right .menu-container-rigth-search-cart{
+.menu-container .menu-container-right .menu-container-rigth-search-cart
+	{
 	width: 100%;
 }
 
-.menu-container .menu-container-right .menu-container-rigth-search-cart .site-searching{
+.menu-container .menu-container-right .menu-container-rigth-search-cart .site-searching
+	{
 	float: left;
 	width: 60%;
 }
 
-.menu-container .site-searching button{
+.menu-container .site-searching button {
 	position: relative;
 	float: left;
-  	padding: 10px 14px;
- 	background: #eef0f1;
- 	font-size: 17px;
+	padding: 10px 14px;
+	background: #eef0f1;
+	font-size: 17px;
 	border: none;
- 	cursor: pointer;
- 	border-radius: 0px 20px 20px 0px;
+	cursor: pointer;
+	border-radius: 0px 20px 20px 0px;
 }
 
-.site-searching input#search{
-  	width: 350px;
-  	height: 40px;
-  	background:  #d0e8f4;
-  	border: none;
-  	font-size: 10pt;
-  	float: left;
-  	color: rgb(155, 130, 151);
-  	padding-left: 15px;
-  	-webkit-border-radius: 5px;
-  	-moz-border-radius: 5px;
-  	border-radius: 20px 0px 0px 20px;
+.site-searching input#search {
+	width: 350px;
+	height: 40px;
+	background: #d0e8f4;
+	border: none;
+	font-size: 10pt;
+	float: left;
+	color: rgb(155, 130, 151);
+	padding-left: 15px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 20px 0px 0px 20px;
 }
 
 input[type="text"] {
-      width: 130px;
-      box-sizing: border-box;
-      border: 1px solid #c0c0c0;
-      border-radius: 4px;
-      outline:none;
-      padding: 5px 5px;
-} 
+	width: 130px;
+	box-sizing: border-box;
+	border: 1px solid #c0c0c0;
+	border-radius: 4px;
+	outline: none;
+	padding: 5px 5px;
+}
 
 input[type="password"] {
-      outline:none;
-      padding: 5px 5px;
-      box-sizing: border-box;
-} 
+	outline: none;
+	padding: 5px 5px;
+	box-sizing: border-box;
+}
 
-.menu-container .menu-container-right .menu-container-rigtht-search-cart .site-cart{
+.menu-container .menu-container-right .menu-container-rigtht-search-cart .site-cart
+	{
 	width: 40%;
 	text-align: right;
 }
 
-
-.fa-shopping-cart{
+.fa-shopping-cart {
 	position: relative;
 	color: #88ced9;
 }
 
-.menu-container .menu-container-right .menu-container-right-menu{
+.menu-container .menu-container-right .menu-container-right-menu {
 	height: 60%;
 }
 
 .menu-main-menu {
 	text-align: left;
 	vertical-align: left;
-	color:red;
+	color: red;
 	border: 1px solid black;
 }
-.dropdown{
-	border:1px solid black;
+
+.dropdown {
+	border: 1px solid black;
 	display: block;
 }
+
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
 }
+
 .dropdown:hover .dropdown-content {
-  display: block;
+	display: block;
 }
+
 li a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
+	background-color: red;
 }
-/*-------------------------------*/
+/*--------------product list-----------------*/
 .product-preview-container {
 	border: 1px solid #ccc;
 	padding: 5px;
 	width: 250px;
-	margin: 10px;
+	margin: 5px;
 	display: inline-block;
-}
-.product-preview-container ul{
-	text-align: left !important;
+	text-align: left;
 }
 
-.shopping-cart-containter{
+.product-preview-container:hover {
+	box-shadow: 5px 5px 5px 5px lightblue;
+}
+
+.product-preview-container a {
+	color: black;
+}
+
+.product-image {
+	width: 250px;
+	height: 150px;
+}
+/*-------------product info----------------*/
+.row {
+	margin:20px 5px;
+	border: 1px black solid;
+}
+
+.col-25 {
+	float: left;
+	width: 39%;
+	margin-top: 6px;
+	
+}
+.col-25 img{
+	width:80%;
+	height:300px;
+}
+
+.col-75 {
+	border-left:0.5px solid black;
+	float: left;
+	width: 60%;
+	text-align: left;
+}
+
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+/*-----------------------*/
+.shopping-cart-containter {
 	border: 2px solid #ccc;
 }
 
@@ -207,25 +251,25 @@ li a:hover, .dropdown:hover .dropbtn {
 	width: 25px;
 	text-align: center;
 }
- 
-.cart-number{
+
+.cart-number {
 	position: absolute;
 	top: -2px;
-    right: 150px;
-    z-index: 20;
-    background: #294d9f;
-    color: #fff;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
-    width: 18px;
-    height: 18px;
-    text-align: center;
-    font-size: 9px;
-    line-height: 18px;
+	right: 150px;
+	z-index: 20;
+	background: #294d9f;
+	color: #fff;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	width: 18px;
+	height: 18px;
+	text-align: center;
+	font-size: 9px;
+	line-height: 18px;
 }
 
-table th{
+table th {
 	width: 180px;
 	padding: 5px;
 	font-size: 18px;
@@ -235,232 +279,237 @@ table td {
 	padding: 25px;
 }
 
-.customer-cart-subtotal-container{
-	padding-right:20px;
+.customer-cart-subtotal-container {
+	padding-right: 20px;
 	text-align: right;
 }
 
-.customer-cart-subtotal-container ul{
+.customer-cart-subtotal-container ul {
 	float: right !important;
 	font-weight: bold;
 	font-size: 25px;
 	color: red;
 }
 
-.login-container{
+.login-container {
 	padding: 5px;
 	margin: 20px 0px;
 }
 
-.login-container .login-form .login-input-group{
+.login-container .login-form .login-input-group {
 	height: 40px;
 	margin-bottom: 20px;
 }
 
-.login-container .login-form .login-input-group .login-input-group-username{
-	display:inline;
+.login-container .login-form .login-input-group .login-input-group-username
+	{
+	display: inline;
 	padding: 10px 16px 11px 16px;;
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 2;
-    color: #555;
-    text-align: center;
-    vertical-align: center;
-    background-color: #eee;
-    border: 1px solid #ccc;
-    border-radius: 10px 0 0 10px;
-    margin-right: -5px;
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 2;
+	color: #555;
+	text-align: center;
+	vertical-align: center;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	border-radius: 10px 0 0 10px;
+	margin-right: -5px;
 }
 
-.login-container .login-form .login-input-group .login-input-group-password{
-	display:inline;
+.login-container .login-form .login-input-group .login-input-group-password
+	{
+	display: inline;
 	padding: 6px 16px 10px 16px;
-    font-size: 20px;
-    font-weight: normal;
-    line-height: 2;
-    color: #555;
-    text-align: center;
-    vertical-align: center;
-    background-color: #eee;
-    border: 1px solid #ccc;
-  	border-radius: 10px 0 0 10px;
-    margin-right: -5px;
+	font-size: 20px;
+	font-weight: normal;
+	line-height: 2;
+	color: #555;
+	text-align: center;
+	vertical-align: center;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	border-radius: 10px 0 0 10px;
+	margin-right: -5px;
 }
 
-.login-container .login-form .login-input-group input{
-	display:inline-block;
+.login-container .login-form .login-input-group input {
+	display: inline-block;
 	width: 350px;
-  	height: 40px;
-  	border: 1px solid #ccc;
-  	font-size: 15px;
-  	border-radius: 0 10px 10px 0;
-  	background:  #d0e8f4;
+	height: 40px;
+	border: 1px solid #ccc;
+	font-size: 15px;
+	border-radius: 0 10px 10px 0;
+	background: #d0e8f4;
 }
 
-.login-container .login-form .login-button input{
+.login-container .login-form .login-button input {
 	width: 100px;
-  	height: 30px;
-  	border: 1px solid #ccc;
-  	font-size: 15px;
-  	border-radius: 15px;
-  	margin-bottom: 20px;
+	height: 30px;
+	border: 1px solid #ccc;
+	font-size: 15px;
+	border-radius: 15px;
+	margin-bottom: 20px;
 }
 
 /* ---------------------registerAccountForm------------------------ */
-.register-container .register-form{
+.register-container .register-form {
 	margin-bottom: 30px;
 }
 
-.register-container .register-form .register-button input{
+.register-container .register-form .register-button input {
 	width: 120px;
-  	height: 30px;
-  	border: 1px solid #ccc;
-  	font-size: 15px;
-  	border-radius: 15px;
-  	margin-top: 10px;
+	height: 30px;
+	border: 1px solid #ccc;
+	font-size: 15px;
+	border-radius: 15px;
+	margin-top: 10px;
 }
 
-.register-container .register-form .register-input-group input{
-	display:inline-block;
+.register-container .register-form .register-input-group input {
+	display: inline-block;
 	width: 350px;
-  	height: 40px;
-  	border: 1px solid #ccc;
-  	background:  #d0e8f4;
-  	font-size: 15px;
-  	border-radius: 0 10px 10px 0;
-  	margin-bottom: 10px;
+	height: 40px;
+	border: 1px solid #ccc;
+	background: #d0e8f4;
+	font-size: 15px;
+	border-radius: 0 10px 10px 0;
+	margin-bottom: 10px;
 }
 
-.register-container .register-form .register-input-group .register-input-group-username{
-	display:inline;
+.register-container .register-form .register-input-group .register-input-group-username
+	{
+	display: inline;
 	padding: 10px 16px 11px 16px;;
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 2;
-    color: #555;
-    text-align: center;
-    vertical-align: center;
-    background-color: #eee;
-    border: 1px solid #ccc;
-    border-radius: 10px 0 0 10px;
-    margin-right: -5px;
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 2;
+	color: #555;
+	text-align: center;
+	vertical-align: center;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	border-radius: 10px 0 0 10px;
+	margin-right: -5px;
 }
 
-.register-container .register-form .register-input-group .register-input-group-password{
-	display:inline;
+.register-container .register-form .register-input-group .register-input-group-password
+	{
+	display: inline;
 	padding: 5px 16px 10px 18px;
-    font-size: 20px;
-    font-weight: normal;
-    line-height: 2;
-    color: #555;
-    text-align: center;
-    vertical-align: center;
-    background-color: #eee;
-    border: 1px solid #ccc;
-  	border-radius: 10px 0 0 10px;
-    margin-right: -5px;
+	font-size: 20px;
+	font-weight: normal;
+	line-height: 2;
+	color: #555;
+	text-align: center;
+	vertical-align: center;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	border-radius: 10px 0 0 10px;
+	margin-right: -5px;
 }
 
-.register-container .register-form .register-input-group .register-input-group-name{
-	display:inline;
+.register-container .register-form .register-input-group .register-input-group-name
+	{
+	display: inline;
 	padding: 9.5px 16px 11px 16px;;
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 2;
-    color: #555;
-    text-align: center;
-    vertical-align: center;
-    background-color: #eee;
-    border: 1px solid #ccc;
-    border-radius: 10px 0 0 10px;
-    margin-right: -5px;
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 2;
+	color: #555;
+	text-align: center;
+	vertical-align: center;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	border-radius: 10px 0 0 10px;
+	margin-right: -5px;
 }
 
-.register-container .register-form .register-input-group .register-input-group-address{
-	display:inline;
+.register-container .register-form .register-input-group .register-input-group-address
+	{
+	display: inline;
 	padding: 9px 16px 11px 16px;;
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 2;
-    color: #555;
-    text-align: center;
-    vertical-align: center;
-    background-color: #eee;
-    border: 1px solid #ccc;
-    border-radius: 10px 0 0 10px;
-    margin-right: -5px;
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 2;
+	color: #555;
+	text-align: center;
+	vertical-align: center;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	border-radius: 10px 0 0 10px;
+	margin-right: -5px;
 }
 
-.register-container .register-form .register-input-group .register-input-group-email{
-	display:inline;
+.register-container .register-form .register-input-group .register-input-group-email
+	{
+	display: inline;
 	padding: 10px 16px 11px 16px;;
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 2;
-    color: #555;
-    text-align: center;
-    vertical-align: center;
-    background-color: #eee;
-    border: 1px solid #ccc;
-    border-radius: 10px 0 0 10px;
-    margin-right: -5px;
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 2;
+	color: #555;
+	text-align: center;
+	vertical-align: center;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	border-radius: 10px 0 0 10px;
+	margin-right: -5px;
 }
 
-.register-container .register-form .register-input-group .register-input-group-phone{
-	display:inline;
+.register-container .register-form .register-input-group .register-input-group-phone
+	{
+	display: inline;
 	padding: 9px 16px 11px 16px;;
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 2;
-    color: #555;
-    text-align: center;
-    vertical-align: center;
-    background-color: #eee;
-    border: 1px solid #ccc;
-    border-radius: 10px 0 0 10px;
-    margin-right: -5px;
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 2;
+	color: #555;
+	text-align: center;
+	vertical-align: center;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	border-radius: 10px 0 0 10px;
+	margin-right: -5px;
 }
 
 .clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
-  height: 20px;
+	content: "";
+	clear: both;
+	display: table;
+	height: 20px;
 }
 
 /* ---------------------productCustomerInforForm------------------------ */
-
-
- .page-title-form{
+.page-title-form {
 	margin: 10px 0;
 	font-family: sans-serif;
 	color: #fff;
 	text-align: left;
 }
 
-.page-title-form p{
+.page-title-form p {
 	font-size: 170%;
 	font-weight: 600;
 }
 
-.page-title-form h3{
+.page-title-form h3 {
 	font-size: 14px;
 	font-style: italic;
 }
 
-.form-customer{
+.form-customer {
 	font-family: sans-serif;
 	color: #fff;
 	text-align: left;
-	
 }
 
-.row-form-customer input{
+.row-form-customer input {
 	width: 250px;
 	caret-color: #00C9FF;
 }
 
-.btn-customer-form{
+.btn-customer-form {
 	position: relative;
 	background: none;
 	color: #fff;
@@ -483,22 +532,21 @@ table td {
 	height: 50px;
 	background: #00C9FF;
 	font-size: 20px;
-} 
+}
 
 /* ---------------------ShoppingCartConfirmation------------------------ */
-
-.customer-form-confirm{
+.customer-form-confirm {
 	font-family: sans-serif;
 }
 
-.customer-form-confirm h3{
+.customer-form-confirm h3 {
 	font-size: 130%;
 	font-style: oblique;
 	text-align: left;
 	color: #ff5500;
 }
 
-.customer-form-confirm li{
+.customer-form-confirm li {
 	float: none;
 	text-align: left;
 	margin-bottom: 10px;
@@ -513,12 +561,12 @@ table td {
 	margin-bottom: 20px;
 }
 
-.edit-btn{
+.edit-btn {
 	text-align: left;
 	margin-bottom: 20px;
 }
 
-.edit-btn a{
+.edit-btn a {
 	text-decoration: none;
 	color: #fff;
 	font-size: 16px;
@@ -529,7 +577,7 @@ table td {
 	padding: 10px 20px;
 }
 
-.edit-btn input{
+.edit-btn input {
 	background: none;
 	color: #fff;
 	border: 1px solid #fff;
@@ -543,30 +591,28 @@ table td {
 	font-size: 16px;
 }
 
-.edit-btn a:hover, .edit-btn a:active,
-.edit-btn input:hover, .edit-btn input:active {
+.edit-btn a:hover, .edit-btn a:active, .edit-btn input:hover, .edit-btn input:active
+	{
 	border: 1px solid #003c4d;
 	color: #003c4d;
 }
 
-.product-information th, td{
+.product-information th, td {
 	border-bottom: 2px solid #fff;
 }
 
-.product-information th{
+.product-information th {
 	padding-bottom: 20px;
 }
 
-.product-subtotal{
+.product-subtotal {
 	position: relative;
 	left: 76%;
 	margin-top: 20px;
 	text-align: left;
 }
 
-.product-subtotal td{
+.product-subtotal td {
 	padding: 15px;
 	border: none;
 }
-
-
