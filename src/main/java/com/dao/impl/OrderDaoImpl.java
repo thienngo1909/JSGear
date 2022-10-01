@@ -37,7 +37,7 @@ public class OrderDaoImpl implements OrderDao{
 	private int getMaxOrderNum() {
 		Session session = sessionFactory.getCurrentSession();
 		String hql = "select max(ORD.orderNum) from Order ORD";
-		Query<Integer> query = session.createQuery(hql);
+ 		Query<Integer> query = session.createQuery(hql);
 		Integer value = query.uniqueResult();
 		if(value == null) {
 			return 0;
@@ -50,7 +50,7 @@ public class OrderDaoImpl implements OrderDao{
 	public void saveOrder(CartInfo cartInfo) {
 		Session session = sessionFactory.getCurrentSession();
 		
-		int orderNum = getMaxOrderNum() + 1;
+ 		int orderNum = getMaxOrderNum() + 1;
 		
 		Order order = new Order();
 		order.setId(UUID.randomUUID().toString());
@@ -61,7 +61,7 @@ public class OrderDaoImpl implements OrderDao{
 		CustomerInfo customerInfo = cartInfo.getCustomerInfo();
 		Customer customer = new Customer();
 		customer.setFullName(customerInfo.getName());
-		customer.setAddress(customerInfo.getEmail());
+		customer.setEmail(customerInfo.getEmail());
 		customer.setPhone(customer.getPhone());
 		customer.setAddress(customerInfo.getAddress());
 		order.setCustomer(customer);

@@ -115,7 +115,7 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	public Product getProductByCode(String code) {
-		Session session = sessionFactory.getCurrentSession();
+ 		Session session = sessionFactory.getCurrentSession();
 		String hql = "SELECT PRO FROM Product PRO WHERE PRO.code = :CODE";
 		Query<Product> query = session.createQuery(hql);
 		query.setParameter("CODE", code);

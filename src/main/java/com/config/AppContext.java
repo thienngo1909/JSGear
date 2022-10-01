@@ -22,7 +22,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @PropertySource("classpath:database.properties")
 @EnableTransactionManagement
 public class AppContext {
-	
+
 	@Autowired
 	public Environment environment;
 
@@ -34,20 +34,20 @@ public class AppContext {
 		sessionFactory.setHibernateProperties(hibernateProperties());
 		return sessionFactory;
 	}
-	
+
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean() {
 		LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
-        entityManagerFactoryBean.setDataSource(dataSource());
-        entityManagerFactoryBean.setPackagesToScan(new String[] {"com.entity"});
-        entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-        entityManagerFactoryBean.setJpaProperties(hibernateProperties());
-        return entityManagerFactoryBean;
+		entityManagerFactoryBean.setDataSource(dataSource());
+		entityManagerFactoryBean.setPackagesToScan(new String[] { "com.entity" });
+		entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+		entityManagerFactoryBean.setJpaProperties(hibernateProperties());
+		return entityManagerFactoryBean;
 	}
-	
+
 	@Bean
 	public DataSource dataSource() {
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();//javax.sql.DataSource
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();// javax.sql.DataSource
 		dataSource.setDriverClassName(environment.getRequiredProperty("jdbc.driverClassName"));
 		dataSource.setUrl(environment.getRequiredProperty("jdbc.url"));
 		dataSource.setUsername(environment.getRequiredProperty("jdbc.username"));
@@ -56,7 +56,7 @@ public class AppContext {
 	}
 
 	public Properties hibernateProperties() {
-		Properties properties = new Properties();//java.util.Properties
+		Properties properties = new Properties();// java.util.Properties
 		properties.put("hibernate.dialect", environment.getRequiredProperty("hibernate.dialect"));
 		properties.put("hibernate.show_sql", environment.getRequiredProperty("hibernate.show_sql"));
 		properties.put("hibernate.format_sql", environment.getRequiredProperty("hibernate.format_sql"));
@@ -64,12 +64,11 @@ public class AppContext {
 		return properties;
 	}
 
-	
 	@Bean
 	public HibernateTransactionManager getTransactionManager() {
 		HibernateTransactionManager transactionManager = new HibernateTransactionManager();
 		transactionManager.setSessionFactory(sessionFactory().getObject());
 		return transactionManager;
 	}
-	
+
 }
