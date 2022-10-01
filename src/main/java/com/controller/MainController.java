@@ -37,8 +37,13 @@ import com.dao.OrderDao;
 import com.entity.Account;
 import com.entity.Category;
 
+
 import com.entity.Order;
 import com.entity.OrderDetail;
+
+import com.entity.Customer;
+import com.entity.Order;
+
 
 import com.entity.Customer;
 import com.entity.Order;
@@ -348,6 +353,7 @@ public class MainController {
 	}
 	
 
+
 	@GetMapping(value = {"/shoppingCartFinalize"})
 	public String shoppingCartFinalize(HttpServletRequest request, Model model) {
 		CartInfo lastOrderCart = Utils.getLastOrderedCartInfoSession(request);
@@ -357,6 +363,7 @@ public class MainController {
 		return "shoppingCartFinalize";
 		
 	}
+	
 	
 
 	@GetMapping(value= {"/accountInfo"})
@@ -373,8 +380,8 @@ public class MainController {
 		model.addAttribute("accountInfo", customerInfo);
 		return "accountInfo";
 	}
-
 	
+
 	@GetMapping(value= {"/order"})
 	public String orderView(Model model, @RequestParam("orderId") String orderId, Principal principal) {
 		OrderInfo orderInfo = null;

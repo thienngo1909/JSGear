@@ -536,12 +536,10 @@ table td {
 	cursor: pointer;
 	transition: all .3s;
 	font-size: 16px;
-<<<<<<< HEAD
 	margin-top: 20px;
-	
-=======
 	border-radius: 15px;
->>>>>>> 26826f4ffdfb4a8791a50e372314f5afbfc1e2c3
+	
+
 }
 
 .btn-customer-form:hover, .btn-customer-form:active {
