@@ -55,6 +55,13 @@
 						<li><a class="home-page" href="${contextPath}/productList">Home</a></li>
 						<li><a class="item" href="#">Product</a></li>					
 					</ul>
+					<a href="#"><i class="fa fa-shopping-cart"
+						style="font-size: 40px" aria-hidden="true"></i> <c:if
+							test="${myCartInfo.quantityTotal == null}">
+							<div class="cart-number">0</div>
+						</c:if> <c:if test="${myCartInfo != null}">
+							<div class="cart-number">${myCartInfo.quantityTotal}</div>
+						</c:if> </a>
 				</div>
 			</div>
 		</div>
