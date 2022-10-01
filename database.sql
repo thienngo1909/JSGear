@@ -61,3 +61,12 @@ VALUES ('asus');
 
 INSERT INTO producers (name)
 VALUES ('gigabyte');
+
+INSERT INTO roles (ID, Role_Name)
+VALUES (1, 'SUPERADMIN');
+
+INSERT INTO roles (ID, Role_Name)
+VALUES (2, 'ADMIN');
+
+INSERT INTO roles (ID, Role_Name)
+VALUES (3, 'USER');

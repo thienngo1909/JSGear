@@ -24,18 +24,18 @@ public class AccountDaoImpl implements AccountDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-	
+
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-	
+
 	@Autowired
 	private CustomerDao customerDao;
-	
+
 //	@Bean
 //	public PasswordEncoder passwordEncoder() {
 //	    return new BCryptPasswordEncoder();
 //	}
-	
+
 	@Override
 	public Account getAccountByUserName(String userName) {
 		// TODO Auto-generated method stub
@@ -45,12 +45,12 @@ public class AccountDaoImpl implements AccountDao {
 		query.setParameter("USERNAME", userName);
 		Account account = (Account) query.uniqueResult();
 		return account;
-	} 
+	}
 
 	@Override
 	public void registerNewAccount(AccountInfo accountInfo) {
 		// TODO Auto-generated method stub
-		Session session = sessionFactory.getCurrentSession();
+ 		Session session = sessionFactory.getCurrentSession();
 		String userName = accountInfo.getUserName();
 		Account account = null;
 		Customer customer = null;
@@ -69,8 +69,8 @@ public class AccountDaoImpl implements AccountDao {
 			customerInfo.setEmail(accountInfo.getEmail());
 			customerInfo.setPhone(accountInfo.getPhone());
 			customer = customerDao.registerNewCustomer(customerInfo);
-//			role = customerDao.getCustomerRole("USER");
-			role = new Role(3, "USER");
+			role = customerDao.getCustomerRole("USER");
+		//	role = new Role(3, "USER");
 			account.setRole(role);			
 			account.setCustomer(customer);
 			account.setActive(true);

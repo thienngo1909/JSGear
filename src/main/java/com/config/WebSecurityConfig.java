@@ -34,7 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();//ko có dòng này sẽ luôn nhảy vào /403
 		
-		http.authorizeRequests().antMatchers("/orderList", "/order", "/accountInfo").access("hasAnyRole('EMPLOYEE', 'MANAGER')");
+		http.authorizeRequests().antMatchers("/orderList", "/order", "/accountInfo").access("hasAnyRole('USER', 'MANAGER')");
 
 		http.authorizeRequests().antMatchers("/product").access("hasRole('MANAGER')");
 
@@ -49,7 +49,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 			.passwordParameter("password")
 			.and().logout()
 			.logoutUrl("/logout")
-			.logoutSuccessUrl("/");
+			.logoutSuccessUrl("/productList");
 	}
 	
 	@Autowired

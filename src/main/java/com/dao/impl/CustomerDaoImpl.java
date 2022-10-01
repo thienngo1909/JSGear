@@ -1,5 +1,7 @@
 package com.dao.impl;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.hibernate.Session;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.dao.CustomerDao;
 import com.entity.Customer;
+import com.entity.Order;
 import com.entity.Role;
 import com.model.CustomerInfo;
 
@@ -62,4 +65,5 @@ public class CustomerDaoImpl implements CustomerDao{
 		Role role = (Role) query.uniqueResult();
 		return role;
 	}
+
 }

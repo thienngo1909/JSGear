@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JSGearProject</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body onLoad="updateCart()">
     <jsp:include page="_header.jsp" />
@@ -65,7 +66,7 @@
 										<fmt:formatNumber value="${cartLineInfo.amount}" type="currency" />
 									</span>
 								</td>
-							<td><a href="${contextPath}/shoppingCartRemoveProduct?code=${cartLineInfo.productInfo.code}">Delete </a></td>
+							<td><a href="${contextPath}/shoppingCartRemoveProduct?code=${cartLineInfo.productInfo.code}"><i class="fa fa-trash-o" style="font-size:24px;color:red"></i> </a></td>
 						</tr>
 						</c:forEach>
 					</table>

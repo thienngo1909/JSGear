@@ -24,23 +24,23 @@
 		<table class= "form-customer">
 			<tr class="row-form-customer">
 				<td>Name *</td>
-				<td><form:input path="name" autofocus="autofocus"/></td>
-				<td><form:errors path="name" class="error-message" /> </td>
+				<td><form:input path="name" name="name" autofocus="autofocus"/></td>
+				<td><form:errors path="name" name="name" class="error-message" /> </td>
 			</tr>
 			<tr class="row-form-customer">
 				<td>Address *</td>
-				<td><form:input path="address"/></td>
-				<td><form:errors path="address" class="error-message" /> </td>
+				<td><form:input path="address" name="address"/></td>
+				<td><form:errors path="address" name="address" class="error-message" /> </td>
 			</tr>
 			<tr class="row-form-customer">
 				<td>Email *</td>
-				<td><form:input path="email"/></td>
-				<td><form:errors path="email" class="error-message" /> </td>
+				<td><form:input path="email"  name="email"/></td>
+				<td><form:errors path="email" name="email" class="error-message" /> </td>
 			</tr>
 			<tr class="row-form-customer">
 				<td>Phone *</td>
-				<td><form:input path="phone"/></td>
-				<td><form:errors path="phone" class="error-message" /> </td>
+				<td><form:input path="phone"   name="phone"/></td>
+				<td><form:errors path="phone" name="phone" class="error-message" /> </td>
 			</tr>		
 		</table>
 		<input class="btn-customer-form" type = "submit" value = "Submit Form">
