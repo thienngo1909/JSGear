@@ -5,6 +5,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri="http://www.springframework.org/security/tags"
 	prefix="security"%>
+
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
 <!DOCTYPE html>
@@ -17,55 +18,41 @@
 
 </head>
 <body>
-	<jsp:include page="_header.jsp" />
-	<jsp:include page="_menu.jsp" />
-
+	<jsp:include page="_header.jsp"></jsp:include>
+	<jsp:include page="_menu.jsp"></jsp:include>
 	<fmt:setLocale value="en_US" scope="session" />
 
 	<div class="page-title">Product List</div>
 
-	<form method="GET" action="${contextPath}/productList">
-		<table>
-			<tr>
-				<td>Code input:</td>
-				<td><input type="text" name="name"></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><input type="submit"
-					value="Search"></td>
-			</tr>
-		</table>
-	</form>
-
-
 	<c:forEach items="${paginationProductInfos.list}" var="productInfo">
+
 		<div class="product-preview-container">
-			<a href="${contextPath}/productInfo">
-				<ul>
+			<ul>
+				<a href="${contextPath}/productInfo?code=${productInfo.code}">
 					<li><img class="product-image"
-						src="${contextPath}/productImage?code=${productInfo.code}" /> <!-- sẽ tự động gọi đến /productImage trong Controller -->
-					</li>
-					<li>Name: ${productInfo.name}</li>
+						src="${contextPath}/productImage?code=${productInfo.code}" />
+				<li>Name: ${productInfo.name}</li>
 					<li>Quantity: ${productInfo.quantity}</li>
 					<li>Price: <fmt:formatNumber value="${productInfo.price}"
-							type="currency" />
-						<!-- $100 -->
-					</li>
-					<a href="${contextPath}/productInfo">
-						<li><a
-							href="${contextPath}/buyProduct?code=${productInfo.code}">Buy
-								Now</a> <!-- khi nhấn vảo link này thì sẽ gọi đến /buyProduct trong Controller -->
-					</li> <!-- For Manager edit Product --> <security:authorize
-							access="hasRole('ROLE_MANAGER')">
-							<li><a style="color: red;"
-								href="${contextPath}/product?code=${productInfo.code}">Edit
-									Product</a></li>
-						</security:authorize>
-				</ul>
-		</div>
+							type="currency" /></li>
+				</a>
+				<li><a href="${contextPath}/product?code=${productInfo.code}">Edit</a>
+					<a href="${contextPath}/buyProduct?code=${productInfo.code}">Buy
+						Now</a> <a
+					href="${contextPath}/deleteProduct?code=${productInfo.code}">Delete</a>
 
+				</li>
+
+				<security:authorize access="hasRole('ROLE_MANAGER')">
+					<li><a style="color: red;"
+						href="${contextPath}/product?code=${productInfo.code}">Edit
+							Product</a></li>
+				</security:authorize>
+			</ul>
+		</div>
 	</c:forEach>
 	<br />
+	<a href="${contextPath}/product">Create new</a>
 
 
 	<c:if test="${paginationProductInfos.totalPages > 1}">
@@ -74,8 +61,7 @@
 			<c:forEach items="${paginationProductInfos.navigationPages}"
 				var="page">
 				<c:if test="${page != -1 }">
-					<a href="productListByCategory?id=${id}&page=${page}"
-						class="nav-item">${page}
+					<a href="productListByCategory?category=${category}&page=${page}&producer=${producer}" class="nav-item">${page}
 				</c:if>
 				<c:if test="${page == -1 }">
 					<span class="nav-item"> ... </span>
@@ -86,6 +72,6 @@
 	</c:if>
 
 
-	<jsp:include page="_footer.jsp" />
+	<jsp:include page="_footer.jsp"></jsp:include>
 </body>
 </html>

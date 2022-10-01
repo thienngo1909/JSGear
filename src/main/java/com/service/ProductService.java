@@ -12,8 +12,7 @@ public interface ProductService {
 
 	public PaginationResult<ProductInfo> getAllProductInfos(int page, int maxResult, String likeName);
 
-	public PaginationResult<ProductInfo> getProductInfosByCategory(int page, int maxResult, String likeName,
-			int idCategory);
+	public PaginationResult<ProductInfo> getProductInfosByCategory(int page, int maxResult, String likeName,String nameCategory, String nameProducer);
 
 	public PaginationResult<ProductInfo> getProductByName(int page, int maxResult, String name);
 

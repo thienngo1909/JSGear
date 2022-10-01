@@ -51,4 +51,5 @@ public class AdminControlller {
 		}
 		return "redirect:/login";
 	}
+	
 }

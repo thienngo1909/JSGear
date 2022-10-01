@@ -28,7 +28,8 @@
 		<div class="menu-container-right">
 			<div class="menu-container-right-search-cart clearfix">
 				<div class="site-searching">
-					<form class="form-inline" method="GET" action="${contextPath}/searchingProduct">
+					<form class="form-inline" method="GET"
+						action="${contextPath}/searchingProduct">
 						<input type="text" id="search" class="form-control" name="search"
 							placeholder="Searching......">
 						<button type="submit" class="btn btn-primary">
@@ -57,7 +58,18 @@
 				</div>
 			</div>
 		</div>
-
+	</div>
+	<div class="menu-main-menu">
+		<ul>
+			<li><a href="#home">Home</a></li>
+			<li><a href="${contextPath}/productListByCategory">All Product</a></li>
+			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">MOUSE</a>
+				<div class="dropdown-content">
+					<a href="${contextPath}/productListByCategory?category=MOUSE&producer=gigabyte">GIGABYE</a>
+					 <a href="${contextPath}/productListByCategory?category=MOUSE&producer=asus">ASUS</a> 
+					 <a href="#">Link 3</a>
+				</div></li>
+		</ul>
 	</div>
 </body>
 </html>
