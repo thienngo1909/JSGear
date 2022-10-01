@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 	<%@ page isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
@@ -26,41 +27,47 @@
 		<h1>Register</h1>
 		<br>
 		<div class="register-form">
-			<form method="POST" modelAttribute="registerForm" action="${contextPath}/register">
+			<form:form method="POST" modelAttribute="registerForm" action="${contextPath}/register">
 				<div class="register-input-group">
 					<span class="register-input-group-username"><i
-						class="fas fa-user-alt"></i></span> <input name="userName" path="userName" type="text"
-						placeholder="UserName......" />
+						class="fas fa-user-alt"></i></span> <form:input name="userName" path="userName" type="text"
+						placeholder="*UserName......" />
+						<form:errors path="userName" name="userName" cssClass="error"/>	
 				</div>
 				<div class="register-input-group">
 					<span class="register-input-group-password"><i
-						class="fa fa-lock"></i></span> <input name="password" path="password" type="password"
-						placeholder="Password......" />
+						class="fa fa-lock"></i></span> <form:input name="password" path="password" type="password"
+						placeholder="*Password......" />
+					<form:errors path="password" name="password"  cssClass="error"/>	
 				</div>
 				<div class="register-input-group">
 					<span class="register-input-group-name"><i
-						class="fas fa-address-card"></i></span> <input name="name" path="name"
-						type="text" placeholder="Fullname......" />
+						class="fas fa-address-card"></i></span> <form:input name="name" path="name"
+						type="text" placeholder="*Fullname......" />
+						<form:errors path="name" name="name"  cssClass="error"/>	
 				</div>
 				<div class="register-input-group">
 					<span class="register-input-group-address"><i
-						class="fas fa-address-book"></i></span> <input name="address" path="address"
-						type="text" placeholder="Address......" />
+						class="fas fa-address-book"></i></span> <form:input name="address" path="address"
+						type="text" placeholder="*Address......" />
+						<form:errors path="address" name="address" cssClass="error"/>	
 				</div>
 				<div class="register-input-group">
 					<span class="register-input-group-email"><i
-						class="fas fa-envelope-square"></i></span> <input name="email" path="email"
-						type="text" placeholder="Email......" />
+						class="fas fa-envelope-square"></i></span> <form:input name="email" path="email"
+						type="text" placeholder="*Email......" />
+						<form:errors path="email" name="email"  cssClass="error"/>	
 				</div>
 				<div class="register-input-group">
 					<span class="register-input-group-phone"><i
-						class="fas fa-phone"></i></span> <input name="phone" path="phone" type="text"
-						placeholder="Phone......" />
+						class="fas fa-phone"></i></span> <form:input name="phone" path="phone" type="text"
+						placeholder="*Phone......" />
+						<form:errors path="phone" name="phone"  cssClass="error"/>	
 				</div>
 				<div class="register-button">
 					<input type="submit" value="Register" />
 				</div>
-			</form>
+			</form:form>
 			<span class="error-message">${error }</span>
 		</div>
 

@@ -27,6 +27,11 @@ body {
 	border-top: 1px solid #ccc;
 }
 
+.error {
+	color: #ff0000;
+	font-weight: bold;
+}
+
 ul {
 	list-style-type: none;
 	margin: 0;
@@ -296,14 +301,33 @@ table td {
 	margin: 20px 0px;
 }
 
+<<<<<<< HEAD
 .login-container .login-form .login-input-group {
+=======
+.login-container .login-form{
+	margin-bottom: 30px;
+	padding-left: 33%;
+	text-align: left !important;
+}
+
+.login-container .login-form .login-input-group{
+>>>>>>> 26826f4ffdfb4a8791a50e372314f5afbfc1e2c3
 	height: 40px;
 	margin-bottom: 20px;
 }
 
+<<<<<<< HEAD
 .login-container .login-form .login-input-group .login-input-group-username
 	{
 	display: inline;
+=======
+.login-container .login-form .register-link{
+	margin-left: 115px;
+}
+
+.login-container .login-form .login-input-group .login-input-group-username{
+	display:inline;
+>>>>>>> 26826f4ffdfb4a8791a50e372314f5afbfc1e2c3
 	padding: 10px 16px 11px 16px;;
 	font-size: 16px;
 	font-weight: normal;
@@ -345,25 +369,45 @@ table td {
 
 .login-container .login-form .login-button input {
 	width: 100px;
+<<<<<<< HEAD
 	height: 30px;
 	border: 1px solid #ccc;
 	font-size: 15px;
 	border-radius: 15px;
 	margin-bottom: 20px;
+=======
+  	height: 30px;
+  	border: 1px solid #ccc;
+  	font-size: 15px;
+  	border-radius: 15px;
+  	margin-bottom: 20px;
+  	margin-left: 140px;
+>>>>>>> 26826f4ffdfb4a8791a50e372314f5afbfc1e2c3
 }
 
 /* ---------------------registerAccountForm------------------------ */
 .register-container .register-form {
 	margin-bottom: 30px;
+	padding-left: 33%;
+	text-align: left !important;
 }
 
 .register-container .register-form .register-button input {
 	width: 120px;
+<<<<<<< HEAD
 	height: 30px;
 	border: 1px solid #ccc;
 	font-size: 15px;
 	border-radius: 15px;
 	margin-top: 10px;
+=======
+  	height: 30px;
+  	border: 1px solid #ccc;
+  	font-size: 15px;
+  	border-radius: 15px;
+  	margin-top: 10px;
+  	margin-left: 140px;
+>>>>>>> 26826f4ffdfb4a8791a50e372314f5afbfc1e2c3
 }
 
 .register-container .register-form .register-input-group input {
@@ -381,6 +425,7 @@ table td {
 	{
 	display: inline;
 	padding: 10px 16px 11px 16px;;
+<<<<<<< HEAD
 	font-size: 16px;
 	font-weight: normal;
 	line-height: 2;
@@ -391,6 +436,18 @@ table td {
 	border: 1px solid #ccc;
 	border-radius: 10px 0 0 10px;
 	margin-right: -5px;
+=======
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 2;
+    color: #555;
+    text-align: left !important;
+    vertical-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 10px 0 0 10px;
+    margin-right: -5px;
+>>>>>>> 26826f4ffdfb4a8791a50e372314f5afbfc1e2c3
 }
 
 .register-container .register-form .register-input-group .register-input-group-password
@@ -409,6 +466,7 @@ table td {
 	margin-right: -5px;
 }
 
+<<<<<<< HEAD
 .register-container .register-form .register-input-group .register-input-group-name
 	{
 	display: inline;
@@ -423,6 +481,21 @@ table td {
 	border: 1px solid #ccc;
 	border-radius: 10px 0 0 10px;
 	margin-right: -5px;
+=======
+.register-container .register-form .register-input-group .register-input-group-name{
+	display:inline;
+	padding: 9.5px 16px 11px 13px;;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 2;
+    color: #555;
+    text-align: center;
+    vertical-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 10px 0 0 10px;
+    margin-right: -5px;
+>>>>>>> 26826f4ffdfb4a8791a50e372314f5afbfc1e2c3
 }
 
 .register-container .register-form .register-input-group .register-input-group-address

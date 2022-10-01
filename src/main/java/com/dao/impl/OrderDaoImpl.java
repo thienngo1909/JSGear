@@ -60,9 +60,9 @@ public class OrderDaoImpl implements OrderDao{
 		
 		Order order = new Order();
 		order.setId(UUID.randomUUID().toString());
+		order.setOrderDate(new Date());
 		order.setOrderNum(orderNum);
 		order.setAmount(cartInfo.getAmountTotal());
-		order.setOrderDate(new Date());
 		
 		CustomerInfo customerInfo = cartInfo.getCustomerInfo();
 		Customer customer = new Customer();
@@ -93,6 +93,7 @@ public class OrderDaoImpl implements OrderDao{
 			session.persist(orderDetail);
 		}
 		cartInfo.setOrderNum(orderNum);
+		session.flush();
 	}
 	
 	public Order GetOrderById(String orderId) {
