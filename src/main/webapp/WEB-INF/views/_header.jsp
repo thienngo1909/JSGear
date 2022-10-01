@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="security"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <c:set var="name" value="${pageContext.request.userPrincipal.name}" />
 <!DOCTYPE html>
@@ -18,9 +20,11 @@
 		<div class="header-bar">
 			<c:if test="${name != null}">
 				<ul>
-					<li><a href="${contextPath}/accountInfo">Hello: ${name}</a>
-					</li>
+					<li><a href="${contextPath}/accountInfo">Hello: ${name}</a></li>
 					<li><a href="${contextPath}/logout">Logout</a></li>
+					<security:authorize access="hasRole('ROLE_SUPER_ADMIN')">
+						<li><a href="${contextPath}/getAllAcount">Edit</a></li>
+					</security:authorize>
 				</ul>
 
 
