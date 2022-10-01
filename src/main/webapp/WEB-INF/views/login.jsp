@@ -65,7 +65,7 @@
 				 <div class="login-button">
 				 	<input type="submit" value="Login"/>			 	
 				 </div>
-				 <div>
+				 <div class="register-link">
 				 	<a href="${contextPath}/register">Register new account</a>
 				 </div>
 			</form>
