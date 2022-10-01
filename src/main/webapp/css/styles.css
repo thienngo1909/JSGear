@@ -33,26 +33,6 @@ body {
 	font-weight: bold;
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-weight: 900;
-}
-
 .header-container {
 	text-align: left;
 	border-bottom: 1px solid #ccc;
@@ -66,7 +46,7 @@ li a {
 } 
 
 .header-container .header-bar  a {
-	font-size: bold;
+	font-weight: bold;
 }
 /*--------------------------MENU-------------------------*/
 .menu-container {
@@ -185,6 +165,142 @@ input[type="password"] {
 li a:hover, .dropdown:hover .dropbtn {
   background-color: red;
 }
+/*----------------------------*/
+.page-title{
+	text-align: center;
+}
+
+.page-title label{
+	padding-left: 130px;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.page-title button{
+	float: right;
+	background: none;
+	color: #fff;
+	border: 1px solid #fff;
+	left: -30%;
+	margin-bottom: 20px;
+	width: 120px;
+	height: 40px;
+	margin-right: 20px;
+	text-align: center;
+	cursor: pointer;
+	transition: all .3s;
+	font-size: 16px;
+	border-radius: 15px;
+}
+.btn-create-product:hover, .btn-create-product:active {
+	border: 1px solid #fff;
+	width: 130px;
+	height: 50px;
+	background: #00C9FF;
+	font-size: 20px;
+} 
+
+/*-------------Shoppingcart page------------*/
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-weight: 900;
+}
+
+.shopping-cart-container .product-shoppingcart-preview-container i:hover{
+	font-weight: bold;
+}
+
+.shopping-cart-container .shopping-cart-nav .button-update-product{
+	background: none;
+	color: #fff;
+	border: 1px solid #fff;
+	left: -30%;
+	margin-bottom: 20px;
+	width: 180px;
+	height: 40px;
+	margin-right: 20px;
+	text-align: center;
+	cursor: pointer;
+	transition: all .3s;
+	font-size: 16px;
+	border-radius: 15px;
+}
+.shopping-cart-container .shopping-cart-nav .button-update-product:hover, .button-update-product:active {
+	border: 1px solid #fff;
+	width: 210px;
+	height: 50px;
+	background: #00C9FF;
+	font-size: 20px;
+} 
+
+.shopping-cart-container .shopping-cart-nav .btn-continue-buy{
+	background: none;
+	color: #fff;
+	border: 1px solid #fff;
+	left: -30%;
+	margin-bottom: 20px;
+	width: 180px;
+	height: 40px;
+	margin-right: 20px;
+	text-align: center;
+	cursor: pointer;
+	transition: all .3s;
+	font-size: 16px;
+	border-radius: 15px;
+}
+.shopping-cart-container .shopping-cart-nav .btn-continue-buy:hover, .btn-continue-buy:active {
+	border: 1px solid #fff;
+	width: 210px;
+	height: 50px;
+	background: #00C9FF;
+	font-size: 20px;
+} 
+
+.shopping-cart-container .shopping-cart-nav .btn-enter-customer{
+	background: none;
+	color: #fff;
+	border: 1px solid #fff;
+	left: -30%;
+	margin-bottom: 20px;
+	width: 250px;
+	height: 40px;
+	margin-right: 20px;
+	text-align: center;
+	cursor: pointer;
+	transition: all .3s;
+	font-size: 16px;
+	border-radius: 15px;
+}
+.shopping-cart-container .shopping-cart-nav .btn-enter-customer:hover, .btn-enter-customer:active {
+	border: 1px solid #fff;
+	width: 280px;
+	height: 50px;
+	background: #00C9FF;
+	font-size: 20px;
+} 
+
+.shopping-cart-container{
+	border: 2px solid #ccc;
+}
+
+/*----------------------------------------*/
+
+
 /*-------------------------------*/
 .product-preview-container {
 	border: 1px solid #ccc;
@@ -197,9 +313,6 @@ li a:hover, .dropdown:hover .dropbtn {
 	text-align: left !important;
 }
 
-.shopping-cart-containter{
-	border: 2px solid #ccc;
-}
 
 .product-shoppingcart-preview-container {
 	padding: 5px;
@@ -445,6 +558,15 @@ table td {
   clear: both;
   display: table;
   height: 20px;
+}
+
+/*----------------------AccountInfo-------------------------------------*/
+.orderlist-container{
+	display: flex;
+	justify-content: center;
+}
+.orderlist-container table{
+	align-self: center;
 }
 
 /* ---------------------productCustomerInforForm------------------------ */

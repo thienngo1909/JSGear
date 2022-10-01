@@ -18,7 +18,7 @@
 	
 	<div class="accountinfo-container">
 		<h3>Your Account Information</h3>
-		<ul>
+		<ul class="">
 			<li>Name: ${accountInfo.name}</li>
 			<li>Address: ${accountInfo.address}</li>
 			<li>Email: ${accountInfo.email}</li>
@@ -43,8 +43,9 @@
 					<tr>
 						<td>${varStatus.index + 1}</td>
 						<td>${orderInfo.orderDate}</td>
-						<td style="color: red;">
-							<fmt:formatNumber value="${orderInfo.amount}" type="currency" />
+						<td style="color: red;font-weight:bold;">
+						${orderInfo.amount}
+							
 						</td>
 						<td>
 							<a href="${contextPath}/order?orderId=${orderInfo.id}">View</a>

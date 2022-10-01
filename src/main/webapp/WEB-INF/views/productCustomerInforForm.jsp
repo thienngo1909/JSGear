@@ -22,6 +22,10 @@
 	
 	<form:form method="POST" modelAttribute="customerForm" action="${contextPath}/customerInfo">
 		<table class= "form-customer">
+			<tr>
+				<td><form:input type="hidden" path="id" name="id" autofocus="autofocus"/></td>
+				<td><form:errors type="hidden" path="id" name="id" class="error-message" /> </td>
+			</tr>
 			<tr class="row-form-customer">
 				<td>Name *</td>
 				<td><form:input path="name" name="name" autofocus="autofocus"/></td>
