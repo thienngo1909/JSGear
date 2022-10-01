@@ -29,7 +29,7 @@ public class CustomerDaoImpl implements CustomerDao{
 		if(customer == null) {
 			return null;
 		}
-		CustomerInfo customerInfo = new CustomerInfo(customer.getFullName(), customer.getAddress(), customer.getEmail(), customer.getPhone());
+		CustomerInfo customerInfo = new CustomerInfo(customer.getId(), customer.getFullName(), customer.getAddress(), customer.getEmail(), customer.getPhone());
 		return customerInfo;
 	}
 

@@ -22,7 +22,10 @@
 	<jsp:include page="_menu.jsp"></jsp:include>
 	<fmt:setLocale value="en_US" scope="session" />
 
-	<div class="page-title">Product List</div>
+	<div class="page-title">
+		<label>Product List</label>
+		<button href="${contextPath}/product" class="btn-create-product">Create new</button>
+	</div>
 
 	<c:forEach items="${paginationProductInfos.list}" var="productInfo">
 

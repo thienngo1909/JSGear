@@ -51,7 +51,6 @@ li a {
 	text-decoration: none;
 	font-weight: 900;
 }
-
 .header-container {
 	text-align: left;
 	border-bottom: 1px solid #ccc;
@@ -65,7 +64,7 @@ li a {
 }
 
 .header-container .header-bar  a {
-	font-size: bold;
+	font-weight: bold;
 }
 /*--------------------------MENU-------------------------*/
 .menu-container {
@@ -189,7 +188,144 @@ input[type="password"] {
 li a:hover, .dropdown:hover .dropbtn {
 	background-color: red;
 }
-/*--------------product list-----------------*/
+
+/*----------------------------*/
+.page-title{
+	text-align: center;
+}
+
+.page-title label{
+	padding-left: 130px;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.page-title button{
+	float: right;
+	background: none;
+	color: #fff;
+	border: 1px solid #fff;
+	left: -30%;
+	margin-bottom: 20px;
+	width: 120px;
+	height: 40px;
+	margin-right: 20px;
+	text-align: center;
+	cursor: pointer;
+	transition: all .3s;
+	font-size: 16px;
+	border-radius: 15px;
+}
+.btn-create-product:hover, .btn-create-product:active {
+	border: 1px solid #fff;
+	width: 130px;
+	height: 50px;
+	background: #00C9FF;
+	font-size: 20px;
+} 
+
+/*-------------Shoppingcart page------------*/
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-weight: 900;
+}
+
+.shopping-cart-container .product-shoppingcart-preview-container i:hover{
+	font-weight: bold;
+}
+
+.shopping-cart-container .shopping-cart-nav .button-update-product{
+	background: none;
+	color: #fff;
+	border: 1px solid #fff;
+	left: -30%;
+	margin-bottom: 20px;
+	width: 180px;
+	height: 40px;
+	margin-right: 20px;
+	text-align: center;
+	cursor: pointer;
+	transition: all .3s;
+	font-size: 16px;
+	border-radius: 15px;
+}
+.shopping-cart-container .shopping-cart-nav .button-update-product:hover, .button-update-product:active {
+	border: 1px solid #fff;
+	width: 210px;
+	height: 50px;
+	background: #00C9FF;
+	font-size: 20px;
+} 
+
+.shopping-cart-container .shopping-cart-nav .btn-continue-buy{
+	background: none;
+	color: #fff;
+	border: 1px solid #fff;
+	left: -30%;
+	margin-bottom: 20px;
+	width: 180px;
+	height: 40px;
+	margin-right: 20px;
+	text-align: center;
+	cursor: pointer;
+	transition: all .3s;
+	font-size: 16px;
+	border-radius: 15px;
+}
+.shopping-cart-container .shopping-cart-nav .btn-continue-buy:hover, .btn-continue-buy:active {
+	border: 1px solid #fff;
+	width: 210px;
+	height: 50px;
+	background: #00C9FF;
+	font-size: 20px;
+} 
+
+.shopping-cart-container .shopping-cart-nav .btn-enter-customer{
+	background: none;
+	color: #fff;
+	border: 1px solid #fff;
+	left: -30%;
+	margin-bottom: 20px;
+	width: 250px;
+	height: 40px;
+	margin-right: 20px;
+	text-align: center;
+	cursor: pointer;
+	transition: all .3s;
+	font-size: 16px;
+	border-radius: 15px;
+}
+.shopping-cart-container .shopping-cart-nav .btn-enter-customer:hover, .btn-enter-customer:active {
+	border: 1px solid #fff;
+	width: 280px;
+	height: 50px;
+	background: #00C9FF;
+	font-size: 20px;
+} 
+
+.shopping-cart-container{
+	border: 2px solid #ccc;
+}
+
+/*----------------------------------------*/
+
+
+/*-------------------------------*/
 .product-preview-container {
 	border: 1px solid #ccc;
 	padding: 5px;
@@ -202,6 +338,7 @@ li a:hover, .dropdown:hover .dropbtn {
 .product-preview-container:hover {
 	box-shadow: 5px 5px 5px 5px lightblue;
 }
+
 
 .product-preview-container a {
 	color: black;
@@ -301,9 +438,9 @@ table td {
 	margin: 20px 0px;
 }
 
-<<<<<<< HEAD
+
 .login-container .login-form .login-input-group {
-=======
+
 .login-container .login-form{
 	margin-bottom: 30px;
 	padding-left: 33%;
@@ -311,23 +448,21 @@ table td {
 }
 
 .login-container .login-form .login-input-group{
->>>>>>> 26826f4ffdfb4a8791a50e372314f5afbfc1e2c3
 	height: 40px;
 	margin-bottom: 20px;
 }
 
-<<<<<<< HEAD
+
 .login-container .login-form .login-input-group .login-input-group-username
 	{
 	display: inline;
-=======
+  }
 .login-container .login-form .register-link{
 	margin-left: 115px;
 }
 
 .login-container .login-form .login-input-group .login-input-group-username{
 	display:inline;
->>>>>>> 26826f4ffdfb4a8791a50e372314f5afbfc1e2c3
 	padding: 10px 16px 11px 16px;;
 	font-size: 16px;
 	font-weight: normal;
@@ -368,21 +503,14 @@ table td {
 }
 
 .login-container .login-form .login-button input {
-	width: 100px;
-<<<<<<< HEAD
-	height: 30px;
-	border: 1px solid #ccc;
-	font-size: 15px;
-	border-radius: 15px;
-	margin-bottom: 20px;
-=======
+	  width: 100px;
   	height: 30px;
   	border: 1px solid #ccc;
   	font-size: 15px;
   	border-radius: 15px;
   	margin-bottom: 20px;
   	margin-left: 140px;
->>>>>>> 26826f4ffdfb4a8791a50e372314f5afbfc1e2c3
+
 }
 
 /* ---------------------registerAccountForm------------------------ */
@@ -394,20 +522,12 @@ table td {
 
 .register-container .register-form .register-button input {
 	width: 120px;
-<<<<<<< HEAD
-	height: 30px;
-	border: 1px solid #ccc;
-	font-size: 15px;
-	border-radius: 15px;
-	margin-top: 10px;
-=======
   	height: 30px;
   	border: 1px solid #ccc;
   	font-size: 15px;
   	border-radius: 15px;
   	margin-top: 10px;
   	margin-left: 140px;
->>>>>>> 26826f4ffdfb4a8791a50e372314f5afbfc1e2c3
 }
 
 .register-container .register-form .register-input-group input {
@@ -425,18 +545,6 @@ table td {
 	{
 	display: inline;
 	padding: 10px 16px 11px 16px;;
-<<<<<<< HEAD
-	font-size: 16px;
-	font-weight: normal;
-	line-height: 2;
-	color: #555;
-	text-align: center;
-	vertical-align: center;
-	background-color: #eee;
-	border: 1px solid #ccc;
-	border-radius: 10px 0 0 10px;
-	margin-right: -5px;
-=======
     font-size: 16px;
     font-weight: normal;
     line-height: 2;
@@ -447,7 +555,6 @@ table td {
     border: 1px solid #ccc;
     border-radius: 10px 0 0 10px;
     margin-right: -5px;
->>>>>>> 26826f4ffdfb4a8791a50e372314f5afbfc1e2c3
 }
 
 .register-container .register-form .register-input-group .register-input-group-password
@@ -466,22 +573,6 @@ table td {
 	margin-right: -5px;
 }
 
-<<<<<<< HEAD
-.register-container .register-form .register-input-group .register-input-group-name
-	{
-	display: inline;
-	padding: 9.5px 16px 11px 16px;;
-	font-size: 16px;
-	font-weight: normal;
-	line-height: 2;
-	color: #555;
-	text-align: center;
-	vertical-align: center;
-	background-color: #eee;
-	border: 1px solid #ccc;
-	border-radius: 10px 0 0 10px;
-	margin-right: -5px;
-=======
 .register-container .register-form .register-input-group .register-input-group-name{
 	display:inline;
 	padding: 9.5px 16px 11px 13px;;
@@ -495,7 +586,6 @@ table td {
     border: 1px solid #ccc;
     border-radius: 10px 0 0 10px;
     margin-right: -5px;
->>>>>>> 26826f4ffdfb4a8791a50e372314f5afbfc1e2c3
 }
 
 .register-container .register-form .register-input-group .register-input-group-address
@@ -551,6 +641,15 @@ table td {
 	clear: both;
 	display: table;
 	height: 20px;
+}
+
+/*----------------------AccountInfo-------------------------------------*/
+.orderlist-container{
+	display: flex;
+	justify-content: center;
+}
+.orderlist-container table{
+	align-self: center;
 }
 
 /* ---------------------productCustomerInforForm------------------------ */

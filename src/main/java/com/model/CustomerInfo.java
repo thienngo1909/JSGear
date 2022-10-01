@@ -3,6 +3,8 @@ package com.model;
 import com.entity.Customer;
 
 public class CustomerInfo {
+	private int id;
+
 	private String name;
 	
 	private String address;
@@ -31,6 +33,15 @@ public class CustomerInfo {
 		this.phone = phone;
 	}
 	
+	public CustomerInfo(int id, String name, String address, String email, String phone) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.address = address;
+		this.email = email;
+		this.phone = phone;
+	}
+	
 	public CustomerInfo(String name, String address, String email, String phone, boolean Valid) {
 		super();
 		this.name = name;
@@ -42,6 +53,14 @@ public class CustomerInfo {
 
 	public void setValid(boolean isValid) {
 		this.Valid = isValid;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getName() {
