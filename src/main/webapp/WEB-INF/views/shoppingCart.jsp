@@ -30,7 +30,7 @@
         <h3>Please click "Product" in menu to choose product</h3>
         <a href="${contextPath}/productList">Show Product List</a>
     </c:if>
-	<div class="shopping-cart-containter">
+	<div class="shopping-cart-container">
 		<c:if test = "${not empty cartForm and not empty cartForm.cartLineInfos}">
         <form:form method="POST" id="cartForm" modelAttribute="cartForm" action="${contextPath}/shoppingCart">	
            <div class="product-shoppingcart-preview-container">
@@ -81,10 +81,16 @@
 			</div>
             
             <div style="clear: both"></div>
-            <input class="button-update-product" type="submit" value="Update Information"/>
-            <a class="navi-item" href="${contextPath}/productList">Continue
-					Buy</a>
-			<a class="navi-item" href="${contextPath}/customerInfo">Enter Customer Information</a>
+            <div>
+            	
+            </div>
+            <div class="shopping-cart-nav">
+            	<button class="button-update-product" type="submit" value="Update Information">Update Information</button>
+            	<a class="btn-continue-buy" href="${contextPath}/productList">Continue Buy</a>
+				<a class="btn-enter-customer" href="${contextPath}/customerInfo">Enter Customer Information</a>
+				
+            </div>
+            
         </form:form>
     </c:if>
 	</div>

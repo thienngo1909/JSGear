@@ -22,7 +22,10 @@
 	<jsp:include page="_menu.jsp"></jsp:include>
 	<fmt:setLocale value="en_US" scope="session" />
 
-	<div class="page-title">Product List</div>
+	<div class="page-title">
+		<label>Product List</label>
+		<button href="${contextPath}/product" class="btn-create-product">Create new</button>
+	</div>
 
 	<c:forEach items="${paginationProductInfos.list}" var="productInfo">
 
@@ -31,14 +34,16 @@
 				<a href="${contextPath}/productInfo?code=${productInfo.code}">
 					<li><img class="product-image"
 						src="${contextPath}/productImage?code=${productInfo.code}" />
-				<li>Name: ${productInfo.name}</li>
+					<li>Name: ${productInfo.name}</li>
 					<li>Quantity: ${productInfo.quantity}</li>
 					<li>Price: <fmt:formatNumber value="${productInfo.price}"
 							type="currency" /></li>
 				</a>
+
 				<li><a
-					href="${contextPath}/buyProduct?code=${productInfo.code}">Buy
-						Now</a></li>
+					href="${contextPath}/buyProduct?code=${productInfo.code}">Buy now
+
+				</a></li>
 
 				<security:authorize access="hasRole('ROLE_MANAGER')">
 					<li><a href="${contextPath}/deleteProduct?code=${productInfo.code}">Delete</a></li>

@@ -36,18 +36,8 @@ import com.service.ProductService;
 import com.dao.OrderDao;
 import com.entity.Account;
 import com.entity.Category;
-
-
-import com.entity.Order;
-import com.entity.OrderDetail;
-
 import com.entity.Customer;
 import com.entity.Order;
-
-
-import com.entity.Customer;
-import com.entity.Order;
-
 import com.entity.Producer;
 import com.entity.Product;
 import com.util.Utils;
@@ -330,6 +320,7 @@ public class MainController {
 	@PostMapping(value = {"/shoppingCartConfirmation"})
 	public String shoppingCartConfirmationSave(HttpServletRequest request, Model model) {
 		CartInfo cartInfo = Utils.getCartInfoInSession(request);
+		
 		//Set chua mua mat hang dan den productList
 		if(cartInfo.isEmpty()) {
 			return "redirect:/productList";
@@ -352,21 +343,6 @@ public class MainController {
 		return "redirect:/shoppingCartFinalize";
 	}
 	
-
-
-	@GetMapping(value = {"/shoppingCartFinalize"})
-	public String shoppingCartFinalize(HttpServletRequest request, Model model) {
-		CartInfo lastOrderCart = Utils.getLastOrderedCartInfoSession(request);
-		if(lastOrderCart == null) {
-			return "redirect:/productList";
-		}
-		return "shoppingCartFinalize";
-		
-	}
-	
-
-	
-
 	@GetMapping(value= {"/accountInfo"})
 	public String customerAccountInfo(HttpServletRequest request, Model model, Principal principal) {
 		if(principal == null) {
@@ -382,7 +358,6 @@ public class MainController {
 		return "accountInfo";
 	}
 	
-
 	@GetMapping(value= {"/order"})
 	public String orderView(Model model, @RequestParam("orderId") String orderId, Principal principal) {
 		OrderInfo orderInfo = null;

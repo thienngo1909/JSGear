@@ -38,37 +38,34 @@
 					</form>
 				</div>
 				<div class="site-cart">
-<<<<<<< HEAD
+
 					<c:if test="${myCartInfo.quantityTotal == null}">
 						<div class="cart-number">0</div>
 					</c:if> 
 					<c:if test="${myCartInfo != null}">
 						<div class="cart-number">${myCartInfo.quantityTotal}</div>
 					</c:if> 
-=======
+
 					<a href="${contextPath}/shoppingCart"><i class="fa fa-shopping-cart"
 						style="font-size: 40px" aria-hidden="true"></i> 
-						<c:if test="${myCartInfo.quantityTotal == null}">
-						<div class="cart-number">0</div>
-						</c:if>
-						<c:if test="${myCartInfo != null}">
-						<div class="cart-number">${myCartInfo.quantityTotal}</div>
-						</c:if>
+						
 					</a>
 				</div>
 			</div>
+
 			<div class="clearfix">
 				<div id="menu-main-menu" style="font-size: 30px">
 					<ul>
 						<li><a class="home-page" href="${contextPath}/productList">Home</a></li>
 						<li><a class="item" href="#">Product</a></li>					
 					</ul>
->>>>>>> 26826f4ffdfb4a8791a50e372314f5afbfc1e2c3
+
 					<a href="#"><i class="fa fa-shopping-cart"
 						style="font-size: 40px" aria-hidden="true"></i> </a>
 					
 				</div>
 			</div>
+
 		</div>
 	</div>
 	<div class="menu-main-menu">

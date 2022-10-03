@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.dao.CustomerDao;
 import com.dao.OrderDao;
 import com.dao.ProductDao;
 import com.entity.Customer;
@@ -37,6 +38,9 @@ public class OrderDaoImpl implements OrderDao{
 	
 	@Autowired
 	private ProductDao productDao;
+	
+	@Autowired
+	private CustomerDao customerDao;
 	
 	private int getMaxOrderNum() {
 		Session session = sessionFactory.getCurrentSession();
@@ -65,15 +69,17 @@ public class OrderDaoImpl implements OrderDao{
 		order.setAmount(cartInfo.getAmountTotal());
 		
 		CustomerInfo customerInfo = cartInfo.getCustomerInfo();
-		Customer customer = new Customer();
-		customer.setFullName(customerInfo.getName());
-		customer.setEmail(customerInfo.getEmail());
-		customer.setPhone(customerInfo.getPhone());
-		customer.setAddress(customerInfo.getAddress());
+//		Customer customer = new Customer();
+//		customer.setFullName(customerInfo.getName());
+//		customer.setEmail(customerInfo.getEmail());
+//		customer.setPhone(customerInfo.getPhone());
+//		customer.setAddress(customerInfo.getAddress());
 		
-		session.persist(customer);//customer đang là một thuộc tính của Order(có mối quan hệ với order)
+//		session.persist(customer);//customer đang là một thuộc tính của Order(có mối quan hệ với order)
 		//trước khi em set customer vào order thì em phải lưu customer xuống database trước rồi mới được set như vầy order.setCustomer(customer)
 		
+		//phải lấy customer từ trong db ra trước mới set vào order.setCustomer(customer);
+		Customer customer = customerDao.getCustomerById(customerInfo.getId());
 		order.setCustomer(customer);
 		session.persist(order);
 		
@@ -112,7 +118,9 @@ public class OrderDaoImpl implements OrderDao{
 		if(order == null) {
 			return null;
 		}
+
 		CustomerInfo customerInfo = new CustomerInfo(order.getCustomer().getFullName(), order.getCustomer().getAddress(), order.getCustomer().getEmail(),
+
 				order.getCustomer().getPhone());
 		OrderInfo orderInfo = new OrderInfo(order.getId(), order.getOrderDate(), order.getOrderNum(), order.getAmount(), customerInfo);
 		return orderInfo;
