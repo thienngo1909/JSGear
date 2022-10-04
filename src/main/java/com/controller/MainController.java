@@ -2,7 +2,10 @@ package com.controller;
 
 import java.io.IOException;
 import java.security.Principal;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,6 +26,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.model.AccountDetailInfo;
+import com.model.AccountInfo;
 import com.model.CartInfo;
 import com.model.CustomerInfo;
 import com.model.OrderDetailInfo;
@@ -40,6 +45,7 @@ import com.entity.Customer;
 import com.entity.Order;
 import com.entity.Producer;
 import com.entity.Product;
+import com.entity.Role;
 import com.util.Utils;
 import com.validator.CustomerInfoValidator;
 import com.validator.ProductInfoValidator;
@@ -367,9 +373,105 @@ public class MainController {
 		if(orderId == null && principal == null) {
 			return "redirect:/login";
 		}
+		String user = principal.getName();
+		Account account = accountService.getAccountByUserName(user);
+		CustomerInfo customerInfo = customerService.getCustomerInfoById(account.getCustomer().getId());	
+		Customer customer = customerService.getCustomerById(account.getCustomer().getId());		
 		List<OrderDetailInfo> orderDetailInfos = orderService.GetAllOrderDetail(orderId);
 		orderInfo.setOrderDetailInfos(orderDetailInfos);
-		model.addAttribute("orderList", orderInfo);
-		return "order";
+		model.addAttribute("accountInfo", customerInfo);
+		model.addAttribute("orderList", orderDetailInfos);
+		return "orderList";
+	}
+	
+	@GetMapping(value= {"/editAccountInfo"})
+	public String editAccountInfo(Model model, Principal principal) {
+		if(principal == null) {
+			return "redirect:/login";
+		}
+		String user = principal.getName();
+		Account account = accountService.getAccountByUserName(user);
+		CustomerInfo customerInfo = customerService.getCustomerInfoById(account.getCustomer().getId());	
+		model.addAttribute("accountInfoForm", customerInfo);
+		return "accountInfoForm";
+	}
+	
+	@PostMapping(value = {"/editAccountInfo"})
+	public String editAccountInfoSave(HttpServletRequest request, Model model,
+			@ModelAttribute("accountInfoForm") CustomerInfo customerForm, BindingResult result) {
+//		customerInfoValidator.validate(customerForm, result);
+//		if(result.hasErrors()) {
+//			customerForm.setValid(false);
+//			return "customerForm";
+//		}
+		try {
+			customerService.saveCustomerInfo(customerForm);
+		} catch(Exception e) {
+			return "/editAccountInfo";
+		}
+		return "redirect:/accountInfo";
+	}
+	
+	@GetMapping(value= {"/manageAccount"})
+	public String manageAccount(Model model, Principal principal) {
+		if(principal == null) {
+			return "redirect:/login";
+		}
+
+		//lấy ra danh sách username có phân quyền
+		List<AccountInfo> accountUserNameList = accountService.getAllAccount();
+		Account account = null;
+		Customer customer = null;
+		AccountDetailInfo accountDetailInfo = new AccountDetailInfo();
+		for(AccountInfo accountInfo : accountUserNameList) {
+			account = accountService.getAccountByUserName(accountInfo.getUserName());
+			customer = customerService.getCustomerById(account.getCustomer().getId());
+			accountInfo.setId(account.getId());
+			accountInfo.setName(customer.getFullName());
+			accountInfo.setAddress(customer.getAddress());
+			accountInfo.setEmail(customer.getEmail());
+			accountInfo.setPhone(customer.getPhone());
+			accountInfo.setRole(accountService.getAccountRole(account));
+			accountDetailInfo.addAccountInfo(accountInfo);
+		}
+		
+		List<Role> roleList = accountService.getAllRoleName();
+		model.addAttribute("roleList", roleList);
+		
+		
+//		Set<Map.Entry<String, Integer>> roles;
+//		List<Role> roleList = accountService.getAllRoleName();
+//		final Map<String, Integer> roleMap = new HashMap<String, Integer>();
+//		for(Role role : roleList) {
+//			if(role != null) {
+//				roleMap.put(role.getRoleName(), role.getId());
+//			}
+//		}
+//		roles = roleMap.entrySet();
+//		model.addAttribute("roleList", roles);
+		
+		
+		model.addAttribute("accountDetailInfo", accountDetailInfo);
+		
+		return "manageAccount";
+	}
+	
+	@PostMapping(value= {"/manageAccount"})
+	public String manageAccount(HttpServletRequest request, Model model, 
+			@ModelAttribute("accountDetailInfo") AccountDetailInfo accountDetailInfo, BindingResult result) {
+		try {
+			List<AccountInfo> accountList = accountDetailInfo.getAccountInfo();
+			
+			for(AccountInfo newAccountInfo : accountList) {
+				Role role = accountService.getRoleById(newAccountInfo.getRole().getId());
+				Account account = accountService.getAccountByUserName(newAccountInfo.getUserName());
+				if(account != null && account.getRole().getId() != role.getId()) {
+					accountService.saveAccount(account, role);
+				}
+			}					
+		} catch(Exception e) {
+			return "/manageAccount";
+		}
+		return "redirect:/manageAccount";
 	}
 }

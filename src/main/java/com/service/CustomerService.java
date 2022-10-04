@@ -7,6 +7,8 @@ import com.entity.Order;
 import com.model.CustomerInfo;
 
 public interface CustomerService {
+	public void saveCustomerInfo(CustomerInfo customerInfo);
+	
 	public CustomerInfo getCustomerInfoById(int id);
 	
 	public Customer getCustomerById(int id);

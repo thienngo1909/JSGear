@@ -26,29 +26,28 @@
 		</ul>
 		<form class="edit-btn" method="POST" action="">
 			<input type="submit" value="Accept" class="btn-confirmation"/>
-			<a href="${contextPath}/editAccountInfo">Edit Your Information</a>
+			<a href="">Edit Your Information</a>
 		</form>
 	</div>
 	
-	<div class="orderlist-container">
-		<c:if test = "${not empty accountOrderList}">
+	<div class="orderDetaillist-container">
+		<c:if test = "${not empty orderList}">
 			<table>
 				<tr>
 					<th>No</th>
-					<th>Created Date</th>
+					<th>Product Name</th>
+					<th>Price</th>
+					<th>Quantity</th>
 					<th>Amount</th>
-					<th>View Detail</th>
 				</tr>
-				<c:forEach items="${accountOrderList}" var="orderInfo" varStatus="varStatus">
+				<c:forEach items="${orderList}" var="orderDetailInfo" varStatus="varStatus">
 					<tr>
 						<td>${varStatus.index + 1}</td>
-						<td>${orderInfo.orderDate}</td>
+						<td>${orderDetailInfo.productName}</td>
+						<td>${orderDetailInfo.price}</td>
+						<td>${orderDetailInfo.quantity}</td>
 						<td style="color: red;font-weight:bold;">
-						${orderInfo.amount}
-							
-						</td>
-						<td>
-							<a href="${contextPath}/order?orderId=${orderInfo.id}">View</a>
+						${orderDetailInfo.amount}							
 						</td>
 					</tr>
 				</c:forEach>
