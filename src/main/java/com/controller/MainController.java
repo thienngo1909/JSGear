@@ -355,10 +355,11 @@ public class MainController {
 
 
 	@GetMapping(value = {"/shoppingCartFinalize"})
-	public String shoppingCartFinalize(HttpServletRequest request, Model model) {
+	public String shoppingCartFinalize(HttpServletRequest request, Model model) {		
 		CartInfo lastOrderCart = Utils.getLastOrderedCartInfoSession(request);
 		if(lastOrderCart == null) {
 			return "redirect:/productList";
+			
 		}
 		return "shoppingCartFinalize";
 		

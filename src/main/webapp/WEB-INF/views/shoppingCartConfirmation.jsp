@@ -22,9 +22,9 @@
 		<p>Confirmation</p>
 		<h3>Please check your information before submit</h3>
 	</div>
-	
+	<h3 class="mid-title">Customer Information</h3> 
 	<div class="customer-form-confirm">
-		<!-- <h3>Customer Information</h3> -->
+		
 		<div class="row">
 			<div class="customer-information">
 				<p>Name: </p>
@@ -58,7 +58,7 @@
 			<input type="submit" value="Accept" class="btn-confirmation"/>
 			<a href="${contextPath}/shoppingCart">Edit Your Cart</a>
 			<a href="${contextPath}/customerInfo">Edit Your Information</a>
-		</form>
+	</form>
 	<div class="product-information">
 			<p>Product's Information</p>
 			<table>

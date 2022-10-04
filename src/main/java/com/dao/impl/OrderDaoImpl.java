@@ -94,9 +94,11 @@ public class OrderDaoImpl implements OrderDao{
 			
 			String code = cartLineInfo.getProductInfo().getCode();
 			Product product = productDao.getProductByCode(code);
+			product.setQuantity(product.getQuantity() - cartLineInfo.getQuantity());
+			session.persist(product);
 			orderDetail.setProduct(product);
-			
 			session.persist(orderDetail);
+			
 		}
 		cartInfo.setOrderNum(orderNum);
 		session.flush();

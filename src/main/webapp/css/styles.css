@@ -280,14 +280,14 @@ li a {
 	border: 1px solid #fff;
 	left: -30%;
 	margin-bottom: 20px;
-	width: 180px;
-	height: 40px;
+	padding: 10px 20px;
 	margin-right: 20px;
 	text-align: center;
 	cursor: pointer;
 	transition: all .3s;
 	font-size: 16px;
 	border-radius: 15px;
+	text-decoration: none;
 }
 
 /*--------------------------MENU-------------------------*/
@@ -386,8 +386,8 @@ input[type="password"] {
 	border: 1px solid #fff;
 	left: -30%;
 	margin-bottom: 20px;
-	width: 250px;
-	height: 40px;
+	padding: 10px 20px;
+	text-decoration: none;
 	margin-right: 20px;
 	text-align: center;
 	cursor: pointer;
@@ -936,6 +936,17 @@ table td {
 }
 
 /* ---------------------ShoppingCartConfirmation------------------------ */
+.mid-title{
+	margin-top: 25px;
+	margin-bottom: 5px;
+	font-family: sans-serif;
+	color: #fff;
+	text-align: left;
+	font-size: 140%;
+	font-style: oblique;
+	color: #ff5500;
+}
+
 .customer-form-confirm {
 	font-family: sans-serif;
 	margin: 0;
@@ -944,18 +955,12 @@ table td {
 	width: 1200px;
 }
 
-.customer-form-confirm h3 {
-	font-size: 130%;
-	font-style: oblique;
-	text-align: left;
-	color: #ff5500;
-}
-
 .customer-form-confirm .row{
 	float: none;
 	text-align: left;
 	margin-right: 20%;
 	margin-left: 10px;
+	border: none;
 }
 .customer-form-confirm .row .customer-information{
 	width: 100%;

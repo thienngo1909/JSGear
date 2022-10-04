@@ -22,7 +22,7 @@
 	
 	
 	<div class="page-title-finalize">
-		<p>THANK YOU!</p>	
+		<p>THANK YOU!</p>
 		<i class="fa-solid fa-check"></i>
 		<h2>${lastOrderedCartInfo.customerInfo.name}</h2>
 		<h3>Your order has been successfully processed</h3>
