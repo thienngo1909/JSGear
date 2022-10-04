@@ -683,6 +683,161 @@ td{
 	align-self: center;
 }
 
+.orderDetaillist-container{
+	display: flex;
+	justify-content: center;
+}
+.orderDetaillist-container table{
+	align-self: center;
+}
+.customer-form-confirm {
+	font-family: sans-serif;
+}
+
+.accountinfo-container h3 {
+	font-size: 130%;
+	font-style: oblique;
+	text-align: left;
+	color: #ff5500;
+}
+
+.accountinfo-container li {
+	float: none;
+	text-align: left;
+	margin-bottom: 10px;
+}
+
+.accountinfo-container li:first-child {
+	font-size: 18px;
+	font-weight: 600;
+}
+.accountinfo-container li:last-child {
+	margin-bottom: 20px;
+}
+
+/*--------------------------editAccountInfo----------------*/
+.form-accountInfo-container .accountInfo-form {
+	margin-bottom: 30px;
+	padding-left: 33%;
+	text-align: left !important;
+}
+
+.form-accountInfo-container .accountInfo-form .accountInfo-button input {
+	width: 120px;
+  	height: 30px;
+  	border: 1px solid #ccc;
+  	font-size: 15px;
+  	border-radius: 15px;
+  	margin-top: 10px;
+  	margin-left: 140px;
+}
+
+.form-accountInfo-container .accountInfo-form .accountInfo-input-group input {
+	display: inline-block;
+	width: 350px;
+	height: 40px;
+	border: 1px solid #ccc;
+	background: #d0e8f4;
+	font-size: 15px;
+	border-radius: 0 10px 10px 0;
+	margin-bottom: 10px;
+}
+
+.form-accountInfo-container .accountInfo-form .accountInfo-input-group .accountInfo-input-group-username
+	{
+	display: inline;
+	padding: 10px 16px 11px 16px;;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 2;
+    color: #555;
+    text-align: left !important;
+    vertical-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 10px 0 0 10px;
+    margin-right: -5px;
+}
+
+.form-accountInfo-container .accountInfo-form .accountInfo-input-group .accountInfo-input-group-password
+	{
+	display: inline;
+	padding: 5px 16px 10px 18px;
+	font-size: 20px;
+	font-weight: normal;
+	line-height: 2;
+	color: #555;
+	text-align: center;
+	vertical-align: center;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	border-radius: 10px 0 0 10px;
+	margin-right: -5px;
+}
+
+.form-accountInfo-container .accountInfo-form .accountInfo-input-group .accountInfo-input-group-name{
+	display:inline;
+	padding: 9.5px 16px 11px 13px;;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 2;
+    color: #555;
+    text-align: center;
+    vertical-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 10px 0 0 10px;
+    margin-right: -5px;
+}
+
+.form-accountInfo-container .accountInfo-form .accountInfo-input-group .accountInfo-input-group-address
+	{
+	display: inline;
+	padding: 9px 16px 11px 16px;;
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 2;
+	color: #555;
+	text-align: center;
+	vertical-align: center;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	border-radius: 10px 0 0 10px;
+	margin-right: -5px;
+}
+
+.form-accountInfo-container .accountInfo-form .accountInfo-input-group .accountInfo-input-group-email
+	{
+	display: inline;
+	padding: 10px 16px 11px 16px;;
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 2;
+	color: #555;
+	text-align: center;
+	vertical-align: center;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	border-radius: 10px 0 0 10px;
+	margin-right: -5px;
+}
+
+.form-accountInfo-container .accountInfo-form .accountInfo-input-group .accountInfo-input-group-phone
+	{
+	display: inline;
+	padding: 9px 16px 11px 16px;;
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 2;
+	color: #555;
+	text-align: center;
+	vertical-align: center;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	border-radius: 10px 0 0 10px;
+	margin-right: -5px;
+}
+
 /* ---------------------productCustomerInforForm------------------------ */
 .page-title-form {
 	margin: 10px 0;

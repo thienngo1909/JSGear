@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Register new account</title>
+<title>Edit Your Information</title>
 </head>
 <link rel="stylesheet" type="text/css"
 	href="${contextPath}/css/styles.css">
@@ -20,52 +20,44 @@
 	<jsp:include page="_header.jsp" />
 	<jsp:include page="_menu.jsp" />
 
-	<div class="page-title">Register</div>
+	<div class="page-title">Edit Your Information</div>
 
-	<div class="register-container">
+	<div class="form-accountInfo-container">
 
-		<h1>Register</h1>
+		<h1>Edit Your Information</h1>
 		<br>
-		<div class="register-form">
-			<form:form method="POST" modelAttribute="registerForm" action="${contextPath}/editAccountInfo">
-				<div class="register-input-group">
-					<span class="register-input-group-username"><i
-						class="fas fa-user-alt"></i></span> <form:input name="userName" path="userName" type="text"
-						placeholder="*UserName......" />
-						<form:errors path="userName" name="userName" cssClass="error"/>	
+		<div class="accountInfo-form">
+			<form:form method="POST" modelAttribute="accountInfoForm" action="${contextPath}/editAccountInfo">
+				<div class="accountInfo-input-group">
+						<form:input name="id" path="id" type="hidden" />
+						<form:errors path="id" name="id" type="hidden" cssClass="error"/>	
 				</div>
-				<div class="register-input-group">
-					<span class="register-input-group-password"><i
-						class="fa fa-lock"></i></span> <form:input name="password" path="password" type="password"
-						placeholder="*Password......" />
-					<form:errors path="password" name="password"  cssClass="error"/>	
-				</div>
-				<div class="register-input-group">
-					<span class="register-input-group-name"><i
+				<div class="accountInfo-input-group">
+					<span class="accountInfo-input-group-name"><i
 						class="fas fa-address-card"></i></span> <form:input name="name" path="name"
 						type="text" placeholder="*Fullname......" />
 						<form:errors path="name" name="name"  cssClass="error"/>	
 				</div>
-				<div class="register-input-group">
-					<span class="register-input-group-address"><i
+				<div class="accountInfo-input-group">
+					<span class="accountInfo-input-group-address"><i
 						class="fas fa-address-book"></i></span> <form:input name="address" path="address"
 						type="text" placeholder="*Address......" />
 						<form:errors path="address" name="address" cssClass="error"/>	
 				</div>
-				<div class="register-input-group">
-					<span class="register-input-group-email"><i
+				<div class="accountInfo-input-group">
+					<span class="accountInfo-input-group-email"><i
 						class="fas fa-envelope-square"></i></span> <form:input name="email" path="email"
 						type="text" placeholder="*Email......" />
 						<form:errors path="email" name="email"  cssClass="error"/>	
 				</div>
-				<div class="register-input-group">
-					<span class="register-input-group-phone"><i
+				<div class="accountInfo-input-group">
+					<span class="accountInfo-input-group-phone"><i
 						class="fas fa-phone"></i></span> <form:input name="phone" path="phone" type="text"
 						placeholder="*Phone......" />
 						<form:errors path="phone" name="phone"  cssClass="error"/>	
 				</div>
-				<div class="register-button">
-					<input type="submit" value="Register" />
+				<div class="accountInfo-button">
+					<input type="submit" value="Edit" />
 				</div>
 			</form:form>
 			<span class="error-message">${error }</span>

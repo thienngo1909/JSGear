@@ -47,7 +47,7 @@ public class ProductDaoImpl implements ProductDao {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
 		String hql = "SELECT NEW " + ProductInfo.class.getName()
-				+ " (PRO.code, PRO.name, PRO.price) FROM Product PRO WHERE LOWER(PRO.name) LIKE :LIKENAME ORDER BY PRO.createDate DESC ";
+				+ " (PRO.code, PRO.name, PRO.price, PRO.quantity) FROM Product PRO WHERE LOWER(PRO.name) LIKE :LIKENAME ORDER BY PRO.createDate DESC ";
 		Query<ProductInfo> query = session.createQuery(hql);
 		if (name != null && name.length() > 0) {
 			query.setParameter("LIKENAME", "%" + name.toLowerCase() + "%");

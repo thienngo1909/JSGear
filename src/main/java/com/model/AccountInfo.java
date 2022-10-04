@@ -1,6 +1,11 @@
 package com.model;
 
+import com.entity.Customer;
+import com.entity.Role;
+
 public class AccountInfo {
+	private int id;
+	
 	private String userName;
 	
 	private String password;
@@ -14,6 +19,38 @@ public class AccountInfo {
 	private String phone;
 	
 	private boolean active;
+	
+	private Role role;
+	
+	private Customer customer;
+	
+	public AccountInfo() {
+		
+	}
+
+
+
+	public AccountInfo(int id, String userName, String password, Role role, Customer customer) {
+		super();
+		this.id = id;
+		this.userName = userName;
+		this.password = password;
+		this.role = role;
+		this.customer = customer;
+	}
+
+
+
+	public AccountInfo(String userName) {
+		this.userName = userName;
+	}
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
 
 	public String getUserName() {
 		return userName;
@@ -71,5 +108,23 @@ public class AccountInfo {
 		this.phone = phone;
 	}
 	
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public String roleName(){
+		return this.role.getRoleName();
+	}
 }
