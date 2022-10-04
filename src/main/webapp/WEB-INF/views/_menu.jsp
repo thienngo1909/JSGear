@@ -49,14 +49,9 @@
 					</a>
 				</div>
 			</div>
-<<<<<<< HEAD
-=======
+
 			<div class="clearfix">
 				<div id="menu-main-menu" style="font-size: 30px">
-					<ul>
-						<li><a class="home-page" href="${contextPath}/productList">Home</a></li>
-						<li><a class="item" href="#">Product</a></li>					
-					</ul>
 					<a href="#"><i class="fa fa-shopping-cart"
 						style="font-size: 40px" aria-hidden="true"></i> <c:if
 							test="${myCartInfo.quantityTotal == null}">
@@ -66,13 +61,30 @@
 						</c:if> </a>
 				</div>
 			</div>
->>>>>>> 26826f4ffdfb4a8791a50e372314f5afbfc1e2c3
 		</div>
 	</div>
 	<div class="menu-main-menu">
 		<ul>
-			<li><a href="#home">Home</a></li>
-			<li><a href="${contextPath}/productListByCategory">All Product</a></li>
+			<li class="dropdown"><a href="#home">Home</a></li>
+			<li class="dropdown"><a href="${contextPath}/productListByCategory">All Product</a></li>
+			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">MOUSE</a>
+				<div class="dropdown-content">
+					<a href="${contextPath}/productListByCategory?category=MOUSE&producer=gigabyte">GIGABYE</a>
+					 <a href="${contextPath}/productListByCategory?category=MOUSE&producer=asus">ASUS</a> 
+					 <a href="#">Link 3</a>
+				</div></li>
+			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">KEYBOAD</a>
+				<div class="dropdown-content">
+					<a href="${contextPath}/productListByCategory?category=MOUSE&producer=gigabyte">GIGABYE</a>
+					 <a href="${contextPath}/productListByCategory?category=MOUSE&producer=asus">ASUS</a> 
+					 <a href="#">Link 3</a>
+				</div></li>
+			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">MOUSE</a>
+				<div class="dropdown-content">
+					<a href="${contextPath}/productListByCategory?category=MOUSE&producer=gigabyte">GIGABYE</a>
+					 <a href="${contextPath}/productListByCategory?category=MOUSE&producer=asus">ASUS</a> 
+					 <a href="#">Link 3</a>
+				</div></li>
 			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">MOUSE</a>
 				<div class="dropdown-content">
 					<a href="${contextPath}/productListByCategory?category=MOUSE&producer=gigabyte">GIGABYE</a>

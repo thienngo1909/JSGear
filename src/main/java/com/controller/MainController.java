@@ -77,7 +77,7 @@ public class MainController {
 	private String getAllProductInfo(Model model, @RequestParam(value = "name",defaultValue = "") String likeName,
 
 			@RequestParam(value = "page", defaultValue = "1") int page) {
-		final int maxResult = 5;
+		final int maxResult = 10;
 		PaginationResult<ProductInfo> productInfos = productService.getAllProductInfos(page, maxResult, likeName);
 		model.addAttribute("paginationProductInfos", productInfos);
 		return "productList";
@@ -89,13 +89,13 @@ public class MainController {
 			@RequestParam(value="producer",defaultValue = "")String producer,
 			@RequestParam(value = "name", defaultValue = "") String likeName,
 			@RequestParam(value = "page", defaultValue = "1") int page) {
-		final int maxResult = 5;
+		final int maxResult = 10;
 		PaginationResult<ProductInfo> productInfos = productService.getProductInfosByCategory(page, maxResult, likeName,
 				category, producer);
 		model.addAttribute("paginationProductInfos", productInfos);
 		model.addAttribute("category", category);
 		model.addAttribute("producer", producer);
-		return "getProduct";
+		return "productList";
 	}
 
 	// hien thi san pham theo hang san xuat
@@ -266,7 +266,7 @@ public class MainController {
 	//Nguyen
 	
 	@GetMapping(value = {"/customerInfo"})
-	public String customerInfoForm(HttpServletRequest request, Model model, Principal principal) {
+	public String customerInfoForm(HttpServletRequest request, Model model, Principal principal  ) {
 		CartInfo cartInfo = Utils.getCartInfoInSession(request);
 		//Chua mua hang
 		if(cartInfo.isEmpty()) {

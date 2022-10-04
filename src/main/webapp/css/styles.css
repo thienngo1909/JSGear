@@ -168,11 +168,14 @@ input[type="password"] {
 }
 
 .dropdown {
-	border: 1px solid black;
+	
 	display: block;
+	width:15%;
+	text-align: center;
 }
 
 .dropdown-content {
+	width : 180px;
 	display: none;
 	position: absolute;
 	background-color: #f9f9f9;
@@ -186,7 +189,7 @@ input[type="password"] {
 }
 
 li a:hover, .dropdown:hover .dropbtn {
-	background-color: red;
+	background-color: #80ffff;
 }
 
 /*----------------------------*/
@@ -333,6 +336,9 @@ li a {
 	margin: 5px;
 	display: inline-block;
 	text-align: left;
+}
+.product-preview-container ul{
+	display: block;
 }
 
 .product-preview-container:hover {
@@ -509,7 +515,35 @@ table td {
   	margin-left: 140px;
 
 }
+/*-------------------Product From---------------------------*/
+.product-form{
+	text-align:center;
+	border: 1px solid black;
+	padding: 0px;
+	margin: 0px;
+}
+td{
+	border:1px solid black;
+	text-align: left;
+	padding: 10px;
+}
+.product-form input{
+	width:300px;
+	height:30px;
+	margin: 0px;
+}
+.product-form textarea{
+	width:500px;
+	height:30px;
+	margin: 0px;
+}
 
+
+.product-form select{
+	width:100px;
+	height:30px;
+	text-align: center;
+}
 /* ---------------------registerAccountForm------------------------ */
 .register-container .register-form {
 	margin-bottom: 30px;
