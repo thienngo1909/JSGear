@@ -38,7 +38,6 @@
 					</form>
 				</div>
 				<div class="site-cart">
-
 					<c:if test="${myCartInfo.quantityTotal == null}">
 						<div class="cart-number">0</div>
 					</c:if> 
