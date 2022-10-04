@@ -16,12 +16,12 @@
 </head>
 <body>
 	<c:if test="${not empty errorMessage }">
-		<div class="error-message">${errorMessage}</div>
+		<div class="errorstyle="text-align: center;"-message">${errorMessage}</div>
 	</c:if>
 
 	<form:form modelAttribute="productForm" method="POST"
 		enctype="multipart/form-data" action="${contextPath}/product">
-		<table style="text-align: left;">			
+		<table class="product-form "style="text-align: left;">			
 			<tr>
 				<td>Code *</td>
 				<td style="color: red;"><form:input path="code" /> <form:hidden
@@ -34,14 +34,14 @@
 				<td><form:errors path="name" class="error-message" /></td>
 			</tr>
 			<tr>
-				<td>Quantity *</td>
-				<td><form:input path="quantity" /></td>
-				<td><form:errors path="quantity" class="error-message" /></td>
-			</tr>
-			<tr>
 				<td>Price</td>
 				<td><form:input path="price" /></td>
 				<td><form:errors path="price" class="error-message" /></td>
+			</tr>
+			<tr>
+				<td>Quantity</td>
+				<td><form:input path="quantity" /></td>
+				<td><form:errors path="quantity" class="error-message" /></td>
 			</tr>
 			<tr>
 				<td>Category:</td>
@@ -60,9 +60,6 @@
 					</form:select></td>
 			</tr>
 			<c:if test="${not empty detail.id}"></c:if>
-			<tr>
-				<td><form:hidden path="detail.id" /></td>
-			</tr>
 			<tr>
 				<td>Color</td>
 				<td><form:input path="detail.color" /></td>
@@ -92,6 +89,7 @@
 				<td></td>
 			</tr>
 			<form:hidden path="oldCode"/>
+			<form:hidden path="detail.id" />
 			<tr>
 				<td>&nbsp;</td>
 				<td><input type="submit" value="Submit" /> <input type="reset"

@@ -24,38 +24,37 @@
 
 	<div class="page-title">
 		<label>Product List</label>
-		<button href="${contextPath}/product" class="btn-create-product">Create new</button>
+		<security:authorize access="hasRole('ROLE_MANAGER')">
+			<button href="${contextPath}/product" class="btn-create-product">Create
+				new</button>
+		</security:authorize>
+
 	</div>
 
 	<c:forEach items="${paginationProductInfos.list}" var="productInfo">
 
 		<div class="product-preview-container">
 			<ul>
+		
 				<a href="${contextPath}/productInfo?code=${productInfo.code}">
-					<li><img class="product-image"
-						src="${contextPath}/productImage?code=${productInfo.code}" />
-					<li>Name: ${productInfo.name}</li>
-					<li>Quantity: ${productInfo.quantity}</li>
-					<li>Price: <fmt:formatNumber value="${productInfo.price}"
-							type="currency" /></li>
+						<li><img class="product-image"
+							src="${contextPath}/productImage?code=${productInfo.code}" />
+						<li>Name: ${productInfo.name}</li>
+						<li>Price: <fmt:formatNumber value="${productInfo.price}"
+								type="currency" /></li>
 				</a>
-
 				<li><a
 					href="${contextPath}/buyProduct?code=${productInfo.code}">Buy now
-
 				</a></li>
-
 				<security:authorize access="hasRole('ROLE_MANAGER')">
-					<li><a href="${contextPath}/deleteProduct?code=${productInfo.code}">Delete</a></li>
+					<li><a
+						href="${contextPath}/deleteProduct?code=${productInfo.code}">Delete</a></li>
 					<li><a href="${contextPath}/product?code=${productInfo.code}">Edit</a></li>
 				</security:authorize>
 			</ul>
 		</div>
 	</c:forEach>
 	<br />
-	<a href="${contextPath}/product">Create new</a>
-
-
 	<c:if test="${paginationProductInfos.totalPages > 1}">
 		<div class="page-navigator">
 
