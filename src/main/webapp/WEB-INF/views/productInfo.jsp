@@ -29,10 +29,9 @@
 			<div class="col-75">
 				<p>Code: ${productInfos.code}</p>
 				<p>Name: ${productInfos.name}</p>
-				<p>Quantity: ${productInfos.quantity}</p>
 				<h3 style="color: red;">Price: <fmt:formatNumber  value="${productInfos.price}" type="currency"></fmt:formatNumber></h3></p>
-				<p>${productInfos.category}</p>
-				<p>${productInfos.producer}</p>
+				<p>Category: ${productInfos.category}</p>
+				<p>Producer: ${productInfos.producer}</p>
 				<p>Weight: ${productInfos.detail.weight}</p>
 				<p>Color: ${productInfos.detail.color }</p>
 				<h4>Insurance: ${productInfos.detail.insurance }</h4>

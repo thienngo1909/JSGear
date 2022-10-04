@@ -36,7 +36,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		
 		http.authorizeRequests().antMatchers("/orderList", "/order", "/accountInfo").access("hasAnyRole('USER', 'MANAGER')");
 
-		http.authorizeRequests().antMatchers("/product").access("hasRole('MANAGER')");
+		//http.authorizeRequests().antMatchers("/product").access("hasRole('MANAGER')");
 
 		http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/403");
 
