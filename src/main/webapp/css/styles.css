@@ -168,11 +168,14 @@ input[type="password"] {
 }
 
 .dropdown {
-	border: 1px solid black;
+	
 	display: block;
+	width:15%;
+	text-align: center;
 }
 
 .dropdown-content {
+	width : 180px;
 	display: none;
 	position: absolute;
 	background-color: #f9f9f9;
@@ -186,7 +189,7 @@ input[type="password"] {
 }
 
 li a:hover, .dropdown:hover .dropbtn {
-	background-color: red;
+	background-color: #80ffff;
 }
 
 /*----------------------------*/
@@ -272,6 +275,21 @@ li a {
 	font-size: 20px;
 } 
 
+.shopping-cart-container .shopping-cart-nav a:link{
+	background: none;
+	color: #fff;
+	border: 1px solid #fff;
+	left: -30%;
+	margin-bottom: 20px;
+	margin-right: 20px;
+	text-align: center;
+	cursor: pointer;
+	transition: all .3s;
+	font-size: 16px;
+	border-radius: 15px;
+	text-decoration: none;
+}
+
 .shopping-cart-container .shopping-cart-nav .btn-continue-buy{
 	background: none;
 	color: #fff;
@@ -333,6 +351,9 @@ li a {
 	margin: 5px;
 	display: inline-block;
 	text-align: left;
+}
+.product-preview-container ul{
+	display: block;
 }
 
 .product-preview-container:hover {
@@ -419,6 +440,7 @@ table th {
 
 table td {
 	padding: 25px;
+	text-align: center;
 }
 
 .customer-cart-subtotal-container {
@@ -509,7 +531,35 @@ table td {
   	margin-left: 140px;
 
 }
+/*-------------------Product From---------------------------*/
+.product-form{
+	text-align:center;
+	border: 1px solid black;
+	padding: 0px;
+	margin: 0px;
+}
+td{
+	border:1px solid black;
+	text-align: left;
+	padding: 10px;
+}
+.product-form input{
+	width:300px;
+	height:30px;
+	margin: 0px;
+}
+.product-form textarea{
+	width:500px;
+	height:30px;
+	margin: 0px;
+}
 
+
+.product-form select{
+	width:100px;
+	height:30px;
+	text-align: center;
+}
 /* ---------------------registerAccountForm------------------------ */
 .register-container .register-form {
 	margin-bottom: 30px;
@@ -940,3 +990,28 @@ table td {
 	padding: 15px;
 	border: none;
 }
+
+
+/*-------------------manageAccount-------------------*/
+.account-list-container .account-list-nav .button-update-account{
+	background: none;
+	color: #fff;
+	border: 1px solid #fff;
+	left: -30%;
+	margin-bottom: 20px;
+	width: 180px;
+	height: 40px;
+	margin-right: 20px;
+	text-align: center;
+	cursor: pointer;
+	transition: all .3s;
+	font-size: 16px;
+	border-radius: 15px;
+}
+.account-list-container .account-list-nav .button-update-account:hover, .button-update-account:active {
+	border: 1px solid #fff;
+	width: 210px;
+	height: 50px;
+	background: #00C9FF;
+	font-size: 20px;
+} 

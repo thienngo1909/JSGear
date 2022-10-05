@@ -49,29 +49,30 @@
 					</a>
 				</div>
 			</div>
-			<!-- 
-			<div class="clearfix">
-				<div id="menu-main-menu" style="font-size: 30px">
-					<ul>
-						<li><a class="home-page" href="${contextPath}/productList">Home</a></li>
-						<li><a class="item" href="#">Product</a></li>					
-					</ul>
-					<a href="#"><i class="fa fa-shopping-cart"
-						style="font-size: 40px" aria-hidden="true"></i> <c:if
-							test="${myCartInfo.quantityTotal == null}">
-							<div class="cart-number">0</div>
-						</c:if> <c:if test="${myCartInfo != null}">
-							<div class="cart-number">${myCartInfo.quantityTotal}</div>
-						</c:if> </a>
-				</div>
-			</div>
-			 -->
 		</div>
 	</div>
 	<div class="menu-main-menu">
 		<ul>
-			<li><a href="#home">Home</a></li>
-			<li><a href="${contextPath}/productListByCategory">All Product</a></li>
+			<li class="dropdown"><a href="#home">Home</a></li>
+			<li class="dropdown"><a href="${contextPath}/productListByCategory">All Product</a></li>
+			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">MOUSE</a>
+				<div class="dropdown-content">
+					<a href="${contextPath}/productListByCategory?category=MOUSE&producer=gigabyte">GIGABYE</a>
+					 <a href="${contextPath}/productListByCategory?category=MOUSE&producer=asus">ASUS</a> 
+					 <a href="#">Link 3</a>
+				</div></li>
+			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">KEYBOAD</a>
+				<div class="dropdown-content">
+					<a href="${contextPath}/productListByCategory?category=MOUSE&producer=gigabyte">GIGABYE</a>
+					 <a href="${contextPath}/productListByCategory?category=MOUSE&producer=asus">ASUS</a> 
+					 <a href="#">Link 3</a>
+				</div></li>
+			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">MOUSE</a>
+				<div class="dropdown-content">
+					<a href="${contextPath}/productListByCategory?category=MOUSE&producer=gigabyte">GIGABYE</a>
+					 <a href="${contextPath}/productListByCategory?category=MOUSE&producer=asus">ASUS</a> 
+					 <a href="#">Link 3</a>
+				</div></li>
 			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">MOUSE</a>
 				<div class="dropdown-content">
 					<a href="${contextPath}/productListByCategory?category=MOUSE&producer=gigabyte">GIGABYE</a>

@@ -140,11 +140,5 @@ public class Product {
 	public void setDetail(ProductDetail detail) {
 		this.detail = detail;
 	}
-
-
-
-	
-	
-	
 	
 }
