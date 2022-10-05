@@ -22,8 +22,8 @@
 				<ul>
 					<li><a href="${contextPath}/accountInfo">Hello: ${name}</a></li>
 					<li><a href="${contextPath}/logout">Logout</a></li>
-					<security:authorize access="hasRole('ROLE_SUPER_ADMIN')">
-						<li><a href="${contextPath}/getAllAcount">Edit</a></li>
+					<security:authorize access="hasRole('ROLE_SUPERADMIN')">
+						<li><a href="${contextPath}/manageAccount">Manage Account</a></li>
 					</security:authorize>
 				</ul>
 
