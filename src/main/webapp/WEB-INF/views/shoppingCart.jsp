@@ -36,7 +36,7 @@
            <div class="product-shoppingcart-preview-container">
 					<table>			
 						<tr>
-							<th></th>
+							<th>Image</th>
 							<th>Name</th>
 							<th>Price</th>
 							<th>Quantity</th>
