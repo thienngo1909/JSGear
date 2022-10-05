@@ -1,19 +1,13 @@
 package com.controller;
 
 import java.io.IOException;
-import java.security.Principal;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,52 +20,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.model.AccountDetailInfo;
-import com.model.AccountInfo;
 import com.model.CartInfo;
 import com.model.CustomerInfo;
-import com.model.OrderDetailInfo;
-import com.model.OrderInfo;
 import com.model.PaginationResult;
 import com.model.ProductInfo;
-import com.service.AccountService;
-import com.service.CustomerService;
-import com.service.OrderService;
 import com.service.ProductService;
 import com.dao.OrderDao;
-import com.entity.Account;
 import com.entity.Category;
-
-
-import com.entity.Order;
-import com.entity.OrderDetail;
-
-import com.entity.Customer;
-import com.entity.Order;
-
-
-import com.entity.Customer;
-import com.entity.Order;
-
 import com.entity.Producer;
 import com.entity.Product;
-import com.entity.Role;
 import com.util.Utils;
 import com.validator.CustomerInfoValidator;
 import com.validator.ProductInfoValidator;
 
 @Controller
 public class MainController {
-	
-	@Autowired
-	private OrderService orderService;
-	
-	@Autowired
-	private CustomerService customerService;
-	
-	@Autowired
-	private AccountService accountService;
-	
 	@Autowired
 	private ProductService productService;
 
@@ -93,7 +56,7 @@ public class MainController {
 	private String getAllProductInfo(Model model, @RequestParam(value = "name",defaultValue = "") String likeName,
 
 			@RequestParam(value = "page", defaultValue = "1") int page) {
-		final int maxResult = 10;
+		final int maxResult = 5;
 		PaginationResult<ProductInfo> productInfos = productService.getAllProductInfos(page, maxResult, likeName);
 		model.addAttribute("paginationProductInfos", productInfos);
 		return "productList";
@@ -105,13 +68,13 @@ public class MainController {
 			@RequestParam(value="producer",defaultValue = "")String producer,
 			@RequestParam(value = "name", defaultValue = "") String likeName,
 			@RequestParam(value = "page", defaultValue = "1") int page) {
-		final int maxResult = 10;
+		final int maxResult = 5;
 		PaginationResult<ProductInfo> productInfos = productService.getProductInfosByCategory(page, maxResult, likeName,
 				category, producer);
 		model.addAttribute("paginationProductInfos", productInfos);
 		model.addAttribute("category", category);
 		model.addAttribute("producer", producer);
-		return "productList";
+		return "getProduct";
 	}
 
 	// hien thi san pham theo hang san xuat
@@ -282,24 +245,18 @@ public class MainController {
 	//Nguyen
 	
 	@GetMapping(value = {"/customerInfo"})
-	public String customerInfoForm(HttpServletRequest request, Model model, Principal principal  ) {
+	public String customerInfoForm(HttpServletRequest request, Model model) {
 		CartInfo cartInfo = Utils.getCartInfoInSession(request);
+		
 		//Chua mua hang
 		if(cartInfo.isEmpty()) {
 			return "redirect:/productList";
 		}
+		
 		CustomerInfo customerInfo = cartInfo.getCustomerInfo();
-		//kiem tra user da dang nhap chua
-		if(principal == null) {
-			return "redirect:/login";
-		}	
-//		if(customerInfo == null) {
-//			customerInfo = new CustomerInfo();
-//		}
-//		String user = request.getUserPrincipal().getName();
-		String user = principal.getName();
-		Account account = accountService.getAccountByUserName(user);
-		customerInfo = customerService.getCustomerInfoById(account.getCustomer().getId());	
+		if(customerInfo == null) {
+			customerInfo = new CustomerInfo();
+		}
 		
 		model.addAttribute("customerForm", customerInfo);
 		return "productCustomerInforForm";
@@ -336,6 +293,7 @@ public class MainController {
 	@PostMapping(value = {"/shoppingCartConfirmation"})
 	public String shoppingCartConfirmationSave(HttpServletRequest request, Model model) {
 		CartInfo cartInfo = Utils.getCartInfoInSession(request);
+		
 		//Set chua mua mat hang dan den productList
 		if(cartInfo.isEmpty()) {
 			return "redirect:/productList";
@@ -345,7 +303,7 @@ public class MainController {
 		//Set chua co thong tin khach hang dan den customerForm
 		
 		try {
-			orderService.saveOrder(cartInfo);
+			orderDao.saveOrder(cartInfo);
 		} catch (Exception e) {
 			return "shoppingCartConfirmation";
 		}
@@ -358,147 +316,5 @@ public class MainController {
 		return "redirect:/shoppingCartFinalize";
 	}
 	
-
-
-	@GetMapping(value = {"/shoppingCartFinalize"})
-	public String shoppingCartFinalize(HttpServletRequest request, Model model) {		
-		CartInfo lastOrderCart = Utils.getLastOrderedCartInfoSession(request);
-		if(lastOrderCart == null) {
-			return "redirect:/productList";
-			
-		}
-		return "shoppingCartFinalize";
-		
-	}
 	
-	
-
-	
-
-	@GetMapping(value= {"/accountInfo"})
-	public String customerAccountInfo(HttpServletRequest request, Model model, Principal principal) {
-		if(principal == null) {
-			return "redirect:/login";
-		}
-		String user = principal.getName();
-		Account account = accountService.getAccountByUserName(user);
-		CustomerInfo customerInfo = customerService.getCustomerInfoById(account.getCustomer().getId());	
-		Customer customer = customerService.getCustomerById(account.getCustomer().getId());		
-		List<OrderInfo> orderInfoList = orderService.getOrderByCustomer(customer.getId());
-		model.addAttribute("accountOrderList", orderInfoList);
-		model.addAttribute("accountInfo", customerInfo);
-		return "accountInfo";
-	}
-	
-
-	@GetMapping(value= {"/order"})
-	public String orderView(Model model, @RequestParam("orderId") String orderId, Principal principal) {
-		OrderInfo orderInfo = null;
-		if(orderId != null) {
-			orderInfo = orderService.getOrderInfoById(orderId);
-		}
-		if(orderId == null && principal == null) {
-			return "redirect:/login";
-		}
-		String user = principal.getName();
-		Account account = accountService.getAccountByUserName(user);
-		CustomerInfo customerInfo = customerService.getCustomerInfoById(account.getCustomer().getId());	
-		Customer customer = customerService.getCustomerById(account.getCustomer().getId());		
-		List<OrderDetailInfo> orderDetailInfos = orderService.GetAllOrderDetail(orderId);
-		orderInfo.setOrderDetailInfos(orderDetailInfos);
-		model.addAttribute("accountInfo", customerInfo);
-		model.addAttribute("orderList", orderDetailInfos);
-		return "orderList";
-	}
-	
-	@GetMapping(value= {"/editAccountInfo"})
-	public String editAccountInfo(Model model, Principal principal) {
-		if(principal == null) {
-			return "redirect:/login";
-		}
-		String user = principal.getName();
-		Account account = accountService.getAccountByUserName(user);
-		CustomerInfo customerInfo = customerService.getCustomerInfoById(account.getCustomer().getId());	
-		model.addAttribute("accountInfoForm", customerInfo);
-		return "accountInfoForm";
-	}
-	
-	@PostMapping(value = {"/editAccountInfo"})
-	public String editAccountInfoSave(HttpServletRequest request, Model model,
-			@ModelAttribute("accountInfoForm") CustomerInfo customerForm, BindingResult result) {
-		customerInfoValidator.validate(customerForm, result);
-		if(result.hasErrors()) {
-			customerForm.setValid(false);
-			return "customerForm";
-		}
-		try {
-			customerService.saveCustomerInfo(customerForm);
-		} catch(Exception e) {
-			return "/editAccountInfo";
-		}
-		return "redirect:/accountInfo";
-	}
-	
-	@GetMapping(value= {"/manageAccount"})
-	public String manageAccount(Model model, Principal principal) {
-		if(principal == null) {
-			return "redirect:/login";
-		}
-
-		//lấy ra danh sách username có phân quyền
-		List<AccountInfo> accountUserNameList = accountService.getAllAccount();
-		Account account = null;
-		Customer customer = null;
-		AccountDetailInfo accountDetailInfo = new AccountDetailInfo();
-		for(AccountInfo accountInfo : accountUserNameList) {
-			account = accountService.getAccountByUserName(accountInfo.getUserName());
-			customer = customerService.getCustomerById(account.getCustomer().getId());
-			accountInfo.setId(account.getId());
-			accountInfo.setName(customer.getFullName());
-			accountInfo.setAddress(customer.getAddress());
-			accountInfo.setEmail(customer.getEmail());
-			accountInfo.setPhone(customer.getPhone());
-			accountInfo.setRole(accountService.getAccountRole(account));
-			accountDetailInfo.addAccountInfo(accountInfo);
-		}
-		
-		List<Role> roleList = accountService.getAllRoleName();
-		model.addAttribute("roleList", roleList);
-		
-		
-//		Set<Map.Entry<String, Integer>> roles;
-//		List<Role> roleList = accountService.getAllRoleName();
-//		final Map<String, Integer> roleMap = new HashMap<String, Integer>();
-//		for(Role role : roleList) {
-//			if(role != null) {
-//				roleMap.put(role.getRoleName(), role.getId());
-//			}
-//		}
-//		roles = roleMap.entrySet();
-//		model.addAttribute("roleList", roles);
-		
-		
-		model.addAttribute("accountDetailInfo", accountDetailInfo);
-		
-		return "manageAccount";
-	}
-	
-	@PostMapping(value= {"/manageAccount"})
-	public String manageAccount(HttpServletRequest request, Model model, 
-			@ModelAttribute("accountDetailInfo") AccountDetailInfo accountDetailInfo, BindingResult result) {
-		try {
-			List<AccountInfo> accountList = accountDetailInfo.getAccountInfo();
-			
-			for(AccountInfo newAccountInfo : accountList) {
-				Role role = accountService.getRoleById(newAccountInfo.getRole().getId());
-				Account account = accountService.getAccountByUserName(newAccountInfo.getUserName());
-				if(account != null && account.getRole().getId() != role.getId()) {
-					accountService.saveAccount(account, role);
-				}
-			}					
-		} catch(Exception e) {
-			return "/manageAccount";
-		}
-		return "redirect:/manageAccount";
-	}
 }

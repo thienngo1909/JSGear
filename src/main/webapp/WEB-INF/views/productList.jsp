@@ -44,8 +44,8 @@
 								type="currency" /></li>
 				</a>
 				<li><a
-					href="${contextPath}/buyProduct?code=${productInfo.code}">Buy
-						Now</a></li>
+					href="${contextPath}/buyProduct?code=${productInfo.code}">Buy now
+				</a></li>
 				<security:authorize access="hasRole('ROLE_MANAGER')">
 					<li><a
 						href="${contextPath}/deleteProduct?code=${productInfo.code}">Delete</a></li>

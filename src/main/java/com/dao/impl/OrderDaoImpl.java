@@ -94,9 +94,11 @@ public class OrderDaoImpl implements OrderDao{
 			
 			String code = cartLineInfo.getProductInfo().getCode();
 			Product product = productDao.getProductByCode(code);
+			product.setQuantity(product.getQuantity() - cartLineInfo.getQuantity());
+			session.persist(product);
 			orderDetail.setProduct(product);
-			
 			session.persist(orderDetail);
+			
 		}
 		cartInfo.setOrderNum(orderNum);
 		session.flush();
@@ -118,7 +120,9 @@ public class OrderDaoImpl implements OrderDao{
 		if(order == null) {
 			return null;
 		}
-		CustomerInfo customerInfo = new CustomerInfo(order.getCustomer().getId(), order.getCustomer().getFullName(), order.getCustomer().getAddress(), order.getCustomer().getEmail(),
+
+		CustomerInfo customerInfo = new CustomerInfo(order.getCustomer().getFullName(), order.getCustomer().getAddress(), order.getCustomer().getEmail(),
+
 				order.getCustomer().getPhone());
 		OrderInfo orderInfo = new OrderInfo(order.getId(), order.getOrderDate(), order.getOrderNum(), order.getAmount(), customerInfo);
 		return orderInfo;

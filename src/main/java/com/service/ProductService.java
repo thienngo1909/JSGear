@@ -27,4 +27,5 @@ public interface ProductService {
 	public List<Category> getAllCategory();
 
 	public List<Producer> getAllProducer();
+	
 }
