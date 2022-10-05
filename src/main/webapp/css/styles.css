@@ -275,6 +275,21 @@ li a {
 	font-size: 20px;
 } 
 
+.shopping-cart-container .shopping-cart-nav a:link{
+	background: none;
+	color: #fff;
+	border: 1px solid #fff;
+	left: -30%;
+	margin-bottom: 20px;
+	margin-right: 20px;
+	text-align: center;
+	cursor: pointer;
+	transition: all .3s;
+	font-size: 16px;
+	border-radius: 15px;
+	text-decoration: none;
+}
+
 .shopping-cart-container .shopping-cart-nav .btn-continue-buy{
 	background: none;
 	color: #fff;
@@ -425,6 +440,7 @@ table th {
 
 table td {
 	padding: 25px;
+	text-align: center;
 }
 
 .customer-cart-subtotal-container {
@@ -974,3 +990,28 @@ td{
 	padding: 15px;
 	border: none;
 }
+
+
+/*-------------------manageAccount-------------------*/
+.account-list-container .account-list-nav .button-update-account{
+	background: none;
+	color: #fff;
+	border: 1px solid #fff;
+	left: -30%;
+	margin-bottom: 20px;
+	width: 180px;
+	height: 40px;
+	margin-right: 20px;
+	text-align: center;
+	cursor: pointer;
+	transition: all .3s;
+	font-size: 16px;
+	border-radius: 15px;
+}
+.account-list-container .account-list-nav .button-update-account:hover, .button-update-account:active {
+	border: 1px solid #fff;
+	width: 210px;
+	height: 50px;
+	background: #00C9FF;
+	font-size: 20px;
+} 

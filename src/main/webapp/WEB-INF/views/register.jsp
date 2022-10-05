@@ -27,7 +27,7 @@
 		<h1>Register</h1>
 		<br>
 		<div class="register-form">
-			<form:form method="POST" modelAttribute="registerForm" action="${contextPath}/editAccountInfo">
+			<form:form method="POST" modelAttribute="registerForm" action="${contextPath}/register">
 				<div class="register-input-group">
 					<span class="register-input-group-username"><i
 						class="fas fa-user-alt"></i></span> <form:input name="userName" path="userName" type="text"

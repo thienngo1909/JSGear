@@ -14,6 +14,11 @@
 <link rel="stylesheet" type="text/css"
 	href="${contextPath}/css/styles.css">
 </head>
+<script>
+	function alertMessage(){
+		alert("Update Successfully!!!");
+	}
+</script>
 <body>
 	<jsp:include page="_header.jsp" />
 
@@ -24,7 +29,7 @@
 	</div>
 	<div class="account-list-container">
 		<c:if test="${not empty accountDetailInfo}">
-			<form:form method="POST" id="accountDetailInfo"
+			<form:form method="POST" id="accountDetailInfo" onsubmit="return alertMessage()"
 				modelAttribute="accountDetailInfo"
 				action="${contextPath}/manageAccount">
 				<div class="product-shoppingcart-preview-container">
