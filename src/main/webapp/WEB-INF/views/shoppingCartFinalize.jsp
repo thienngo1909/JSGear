@@ -26,7 +26,7 @@
 		<i class="fa-solid fa-check"></i>
 		<h2>${lastOrderedCartInfo.customerInfo.name}</h2>
 		<h3>Your order has been successfully processed</h3>
-		<h3>We'll send more information to your gmail and call you soon.</h3>
+		<h3>We'll send more information to your gmail and call you soon. </h3>
 	</div>
 	
 	<jsp:include page="_footer.jsp" />

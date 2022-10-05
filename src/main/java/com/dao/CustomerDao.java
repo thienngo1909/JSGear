@@ -9,6 +9,8 @@ import com.entity.Role;
 import com.model.CustomerInfo;
 
 public interface CustomerDao {
+	public void saveCustomerInfo(CustomerInfo customerInfo);
+	
 	public CustomerInfo getCustomerInfoById(int id);
 	
 	public Role getCustomerRole(String roleName);

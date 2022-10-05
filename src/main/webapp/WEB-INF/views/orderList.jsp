@@ -18,11 +18,7 @@
 	
 	<div class="accountinfo-container">
 		<h3>Your Account Information</h3>
-<<<<<<< HEAD
-		<ul>
-=======
 		<ul class="">
->>>>>>> 5151bdeec011411d555f250d5c86c465f96471e6
 			<li>Name: ${accountInfo.name}</li>
 			<li>Address: ${accountInfo.address}</li>
 			<li>Email: ${accountInfo.email}</li>
@@ -30,28 +26,28 @@
 		</ul>
 		<form class="edit-btn" method="POST" action="">
 			<input type="submit" value="Accept" class="btn-confirmation"/>
-			<a href="${contextPath}/editAccountInfo">Edit Your Information</a>
+			<a href="">Edit Your Information</a>
 		</form>
 	</div>
 	
-	<div class="orderlist-container">
-		<c:if test = "${not empty accountOrderList}">
+	<div class="orderDetaillist-container">
+		<c:if test = "${not empty orderList}">
 			<table>
 				<tr>
 					<th>No</th>
-					<th>Created Date</th>
+					<th>Product Name</th>
+					<th>Price</th>
+					<th>Quantity</th>
 					<th>Amount</th>
-					<th>View Detail</th>
 				</tr>
-				<c:forEach items="${accountOrderList}" var="orderInfo" varStatus="varStatus">
+				<c:forEach items="${orderList}" var="orderDetailInfo" varStatus="varStatus">
 					<tr>
 						<td>${varStatus.index + 1}</td>
-						<td>${orderInfo.orderDate}</td>
-						<td style="color: red;">
-							<fmt:formatNumber value="${orderInfo.amount}" type="currency" />		
-						</td>
-						<td>
-							<a href="${contextPath}/order?orderId=${orderInfo.id}">View</a>
+						<td>${orderDetailInfo.productName}</td>
+						<td>${orderDetailInfo.price}</td>
+						<td>${orderDetailInfo.quantity}</td>
+						<td style="color: red;font-weight:bold;">
+						${orderDetailInfo.amount}							
 						</td>
 					</tr>
 				</c:forEach>

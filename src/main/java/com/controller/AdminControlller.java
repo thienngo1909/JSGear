@@ -39,7 +39,7 @@ public class AdminControlller {
 		AccountInfo accountInfo = new AccountInfo();
 		model.addAttribute("registerForm", accountInfo);
 		return "register";
-	}
+	} 
 	
 	@PostMapping(value = "/register")
 	public String saveNewAccount(Model model, @ModelAttribute("registerForm") @Valid AccountInfo AccountInfo, BindingResult result) {

@@ -66,4 +66,28 @@ public class CustomerDaoImpl implements CustomerDao{
 		return role;
 	}
 
+	@Override
+	public void saveCustomerInfo(CustomerInfo customerInfo) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		int id = customerInfo.getId();
+		Customer customer = null;
+		boolean isValid = false;
+		
+		if(id != 0) {
+			customer = getCustomerById(id);
+			if(customer != null) {
+				isValid = true;
+			}
+		}
+		
+		customer.setFullName(customerInfo.getName());
+		customer.setEmail(customerInfo.getEmail());
+		customer.setAddress(customerInfo.getAddress());
+		customer.setPhone(customerInfo.getPhone());
+		if(isValid) {
+			session.persist(customer);
+		}
+		session.flush();
+	}
 }

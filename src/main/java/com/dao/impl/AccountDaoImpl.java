@@ -1,5 +1,7 @@
 package com.dao.impl;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -94,6 +96,71 @@ public class AccountDaoImpl implements AccountDao {
 		query.setParameter("ID", id);
 		Role role = (Role) query.uniqueResult();
 		return role.getRoleName();
+	}
+
+	@Override
+	public List<AccountInfo> getAllAccount() {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+//		String hql = "Select ACC From Account ACC Where ACC.role.roleName = :ROLE1 And ACC.role.roleName = :ROLE2";
+		String hql = "Select New " + AccountInfo.class.getName() + "(ACC.userName)" 
+				+ "From Account ACC";
+		Query<AccountInfo> query = session.createQuery(hql);
+		List<AccountInfo> accountList = (List<AccountInfo>) query.list();
+		return accountList;
+	}
+
+	@Override
+	public void saveRoleName(Account account, Role role) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		account.setRole(role);
+		session.update(account);
+
+		session.flush();
+	}
+
+	@Override
+	public Role getRoleById(int roleId) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "Select ROLE From Role ROLE Where ROLE.id like :ID";
+		Query<Role> query = session.createQuery(hql);
+		query.setParameter("ID", roleId);
+		Role role = (Role) query.uniqueResult();
+		return role;
+	}
+
+	@Override
+	public List<Role> getAllRoleName() {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "Select ROLE From Role ROLE";
+		Query<Role> query = session.createQuery(hql);
+		List<Role> roleList = (List<Role>) query.list();
+		return roleList;
+	}
+
+	@Override
+	public Role getAccountRole(Account account) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "Select ROLE From Role ROLE Where ROLE.id like :ID";
+		Query<Role> query = session.createQuery(hql);
+		query.setParameter("ID", account.getRole().getId());
+		Role role = (Role) query.uniqueResult();
+		return role;
+	}
+
+	@Override
+	public AccountInfo getAccountInfoByUserName(String userName) {
+		// TODO Auto-generated method stub
+		Account account = getAccountByUserName(userName);
+		if(account == null) {
+			return null;
+		}
+		AccountInfo accountInfo = new AccountInfo(account.getId(), account.getUserName(), account.getPassword(), account.getRole(), account.getCustomer());
+		return accountInfo;
 	}
 
 }

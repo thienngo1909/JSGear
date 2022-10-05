@@ -106,7 +106,7 @@ public class OrderDaoImpl implements OrderDao{
 	
 	public Order GetOrderById(String orderId) {
 		Session session = sessionFactory.getCurrentSession();
-		String hql = "Select ORD From Order Where ORD.id = :ORDERID";
+		String hql = "Select ORD From Order ORD Where ORD.id = :ORDERID";
 		Query<Order> query = session.createQuery(hql);
 		query.setParameter("ORDERID", orderId);
 		Order order = (Order) query.uniqueResult();
