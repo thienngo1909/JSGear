@@ -69,25 +69,25 @@
 		<ul>
 			<li class="dropdown"><a href="#home">Home</a></li>
 			<li class="dropdown"><a href="${contextPath}/productListByCategory">All Product</a></li>
-			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">MOUSE</a>
+			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">Mouse</a>
 				<div class="dropdown-content">
 					<a href="${contextPath}/productListByCategory?category=MOUSE&producer=gigabyte">GIGABYE</a>
 					 <a href="${contextPath}/productListByCategory?category=MOUSE&producer=asus">ASUS</a> 
 					 <a href="#">Link 3</a>
 				</div></li>
-			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">KEYBOAD</a>
+			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">Keyboad</a>
 				<div class="dropdown-content">
 					<a href="${contextPath}/productListByCategory?category=MOUSE&producer=gigabyte">GIGABYE</a>
 					 <a href="${contextPath}/productListByCategory?category=MOUSE&producer=asus">ASUS</a> 
 					 <a href="#">Link 3</a>
 				</div></li>
-			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">MOUSE</a>
+			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">HeadPhone</a>
 				<div class="dropdown-content">
 					<a href="${contextPath}/productListByCategory?category=MOUSE&producer=gigabyte">GIGABYE</a>
 					 <a href="${contextPath}/productListByCategory?category=MOUSE&producer=asus">ASUS</a> 
 					 <a href="#">Link 3</a>
 				</div></li>
-			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">MOUSE</a>
+			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">Screen</a>
 				<div class="dropdown-content">
 					<a href="${contextPath}/productListByCategory?category=MOUSE&producer=gigabyte">GIGABYE</a>
 					 <a href="${contextPath}/productListByCategory?category=MOUSE&producer=asus">ASUS</a> 
