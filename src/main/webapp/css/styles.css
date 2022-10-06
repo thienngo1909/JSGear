@@ -1,6 +1,6 @@
 html {
 	background: white;
-	background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+	background: linear-gradient(45deg, #7f7fd5, #86a8e7, #91eae4);
 	background-size: cover;
 }
 
@@ -15,9 +15,11 @@ body {
 }
 
 .page-title {
-	font-size: 120%;
+	font-size: 180%;
 	text-align: left;
-	margin: 10px 0px;
+	margin: 20px 0px;
+	font-weight: 600;
+	color: #fff;
 }
 
 .footer-container {
@@ -31,6 +33,7 @@ body {
 	color: #ff0000;
 	font-weight: bold;
 }
+
 
 ul {
 	list-style-type: none;
@@ -233,6 +236,7 @@ li a:hover, .dropdown:hover .dropbtn {
 } 
 
 /*-------------Shoppingcart page------------*/
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -301,14 +305,97 @@ li a {
 	border: 1px solid #fff;
 	left: -30%;
 	margin-bottom: 20px;
-	width: 180px;
-	height: 40px;
+	padding: 10px 20px;
 	margin-right: 20px;
 	text-align: center;
 	cursor: pointer;
 	transition: all .3s;
 	font-size: 16px;
 	border-radius: 15px;
+	text-decoration: none;
+}
+
+/*--------------------------MENU-------------------------*/
+.menu-container {
+	margin-top: 25px;
+    position: relative;
+    border-bottom: 1px solid #ccc;
+    min-height: 120px;
+	width: 100%;
+}
+
+.menu-container .menu-container-left{
+	margin-top: 15px;
+	float: left;
+	width: 40%;
+	
+}
+
+.menu-container .menu-container-right{
+	float: left;
+	width: 60%;
+	height: 100px;
+}
+
+.menu-container .menu-container.left .menu-logo{
+	position: relative;
+    margin-top: 30px;
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+}
+
+.menu-container .menu-container-right .menu-container-rigth-search-cart{
+	width: 100%;
+}
+
+.menu-container .menu-container-right .menu-container-rigth-search-cart .site-searching{
+	float: left;
+	width: 60%;
+}
+
+.menu-container .site-searching button{
+	position: relative;
+	float: left;
+  	padding: 10px 14px;
+ 	background: #eef0f1;
+ 	font-size: 17px;
+	border: none;
+ 	cursor: pointer;
+ 	border-radius: 0px 20px 20px 0px;
+}
+
+.site-searching input#search{
+  	width: 350px;
+  	height: 40px;
+  	background:  #d0e8f4;
+  	border: none;
+  	font-size: 10pt;
+  	float: left;
+  	color: rgb(155, 130, 151);
+  	padding-left: 15px;
+  	-webkit-border-radius: 5px;
+  	-moz-border-radius: 5px;
+  	border-radius: 20px 0px 0px 20px;
+}
+
+input[type="text"] {
+      width: 130px;
+      box-sizing: border-box;
+      border: 1px solid #c0c0c0;
+      border-radius: 4px;
+      outline:none;
+      padding: 5px 5px;
+} 
+
+input[type="password"] {
+      outline:none;
+      padding: 5px 5px;
+      box-sizing: border-box;
+} 
+
+.menu-container .menu-container-right .menu-container-rigtht-search-cart .site-cart{
+	width: 40%;
+	text-align: right;
 }
 .shopping-cart-container .shopping-cart-nav .btn-continue-buy:hover, .btn-continue-buy:active {
 	border: 1px solid #fff;
@@ -324,8 +411,8 @@ li a {
 	border: 1px solid #fff;
 	left: -30%;
 	margin-bottom: 20px;
-	width: 250px;
-	height: 40px;
+	padding: 10px 20px;
+	text-decoration: none;
 	margin-right: 20px;
 	text-align: center;
 	cursor: pointer;
@@ -343,9 +430,18 @@ li a {
 
 .shopping-cart-container{
 	border: 2px solid #ccc;
+
 }
 
 /*----------------------------------------*/
+
+
+.fa-shopping-cart{
+	position: relative;
+	color: #88ced9;
+	float: right;
+	right: 120px;
+}
 
 
 /*-------------------------------*/
@@ -408,6 +504,46 @@ li a {
 	border: 2px solid #ccc;
 }
 
+.button-update-product{
+	color: #fff;
+	border: 1px solid #fff;
+	left: -30%;
+	margin-bottom: 20px;
+	width: 150px;
+	height: 40px;
+	margin-right: 20px;
+	text-align: center;
+	cursor: pointer;
+	transition: all .3s;
+	font-size: 16px;
+	margin-top: 20px;
+	background: none;
+}
+
+.button-update-product:hover, .button-update-product:active{
+	width: 160px;
+	height: 40px;
+	
+}
+
+.navi-item{
+	color: #fff;
+	border: 1px solid #fff;
+	margin-bottom: 20px;
+	padding: 10px 20px;
+	margin-right: 20px;
+	text-align: center;
+	cursor: pointer;
+	transition: all .3s;
+	font-size: 16px;
+	margin-top: 20px;
+	background: none;
+	text-decoration: none;
+}
+
+.navi-item:hover, .navi-item:active{
+	padding: 10px 25px;
+}
 .product-shoppingcart-preview-container {
 	padding: 5px;
 	margin: 10px;
@@ -420,21 +556,23 @@ li a {
 	text-align: center;
 }
 
-.cart-number {
-	position: absolute;
-	top: -2px;
-	right: 150px;
-	z-index: 20;
-	background: #294d9f;
-	color: #fff;
-	-webkit-border-radius: 20px;
-	-moz-border-radius: 20px;
-	border-radius: 20px;
-	width: 18px;
-	height: 18px;
-	text-align: center;
-	font-size: 9px;
-	line-height: 18px;
+ 
+.cart-number{
+	position: relative;
+	float: right;
+	right: 145px;
+    /* right: 0px; */
+    z-index: 20;
+    background: #294d9f;
+    color: #fff;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    font-size: 9px;
+    line-height: 18px;
 }
 
 table th {
@@ -460,7 +598,8 @@ table td {
 	color: red;
 }
 
-.login-container {
+
+.login-container{
 	padding: 5px;
 	margin: 20px 0px;
 }
@@ -477,10 +616,12 @@ table td {
 }
 
 
+
 .login-container .login-form .login-input-group .login-input-group-username
 	{
 	display: inline;
   }
+
 .login-container .login-form .register-link{
 	margin-left: 115px;
 }
@@ -488,6 +629,46 @@ table td {
 .login-container .login-form .login-input-group .login-input-group-username{
 	display:inline;
 	padding: 10px 16px 11px 16px;;
+
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 2;
+    color: #555;
+    text-align: center;
+    vertical-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 10px 0 0 10px;
+    margin-right: -5px;
+}
+
+.login-container .login-form .login-input-group .login-input-group-password{
+	display:inline;
+	padding: 6px 16px 10px 16px;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 2;
+    color: #555;
+    text-align: center;
+    vertical-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+  	border-radius: 10px 0 0 10px;
+    margin-right: -5px;
+}
+
+.login-container .login-form .login-input-group input{
+	display:inline-block;
+	width: 350px;
+  	height: 40px;
+  	border: 1px solid #ccc;
+  	font-size: 15px;
+  	border-radius: 0 10px 10px 0;
+  	background:  #d0e8f4;
+}
+
+.login-container .login-form .login-button input{
+	width: 100px;
 	font-size: 16px;
 	font-weight: normal;
 	line-height: 2;
@@ -528,6 +709,7 @@ table td {
 
 .login-container .login-form .login-button input {
 	  width: 100px;
+
   	height: 30px;
   	border: 1px solid #ccc;
   	font-size: 15px;
@@ -559,12 +741,12 @@ td{
 	margin: 0px;
 }
 
-
 .product-form select{
 	width:100px;
 	height:30px;
 	text-align: center;
 }
+
 /* ---------------------registerAccountForm------------------------ */
 .register-container .register-form {
 	margin-bottom: 30px;
@@ -572,7 +754,7 @@ td{
 	text-align: left !important;
 }
 
-.register-container .register-form .register-button input {
+.register-container .register-form .register-button input{
 	width: 120px;
   	height: 30px;
   	border: 1px solid #ccc;
@@ -582,7 +764,20 @@ td{
   	margin-left: 140px;
 }
 
-.register-container .register-form .register-input-group input {
+
+.register-container .register-form .register-input-group input{
+	display:inline-block;
+	width: 350px;
+  	height: 40px;
+  	border: 1px solid #ccc;
+  	background:  #d0e8f4;
+  	font-size: 15px;
+  	border-radius: 0 10px 10px 0;
+  	margin-bottom: 10px;
+}
+
+.register-container .register-form .register-input-group .register-input-group-username{
+	display:inline;
 	display: inline-block;
 	width: 350px;
 	height: 40px;
@@ -596,6 +791,7 @@ td{
 .register-container .register-form .register-input-group .register-input-group-username
 	{
 	display: inline;
+
 	padding: 10px 16px 11px 16px;;
     font-size: 16px;
     font-weight: normal;
@@ -609,20 +805,20 @@ td{
     margin-right: -5px;
 }
 
-.register-container .register-form .register-input-group .register-input-group-password
-	{
-	display: inline;
+
+.register-container .register-form .register-input-group .register-input-group-password{
+	display:inline;
 	padding: 5px 16px 10px 18px;
-	font-size: 20px;
-	font-weight: normal;
-	line-height: 2;
-	color: #555;
-	text-align: center;
-	vertical-align: center;
-	background-color: #eee;
-	border: 1px solid #ccc;
-	border-radius: 10px 0 0 10px;
-	margin-right: -5px;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 2;
+    color: #555;
+    text-align: center;
+    vertical-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+  	border-radius: 10px 0 0 10px;
+    margin-right: -5px;
 }
 
 .register-container .register-form .register-input-group .register-input-group-name{
@@ -640,20 +836,50 @@ td{
     margin-right: -5px;
 }
 
-.register-container .register-form .register-input-group .register-input-group-address
-	{
-	display: inline;
+
+.register-container .register-form .register-input-group .register-input-group-address{
+	display:inline;
 	padding: 9px 16px 11px 16px;;
-	font-size: 16px;
-	font-weight: normal;
-	line-height: 2;
-	color: #555;
-	text-align: center;
-	vertical-align: center;
-	background-color: #eee;
-	border: 1px solid #ccc;
-	border-radius: 10px 0 0 10px;
-	margin-right: -5px;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 2;
+    color: #555;
+    text-align: center;
+    vertical-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 10px 0 0 10px;
+    margin-right: -5px;
+}
+
+.register-container .register-form .register-input-group .register-input-group-email{
+	display:inline;
+	padding: 10px 16px 11px 16px;;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 2;
+    color: #555;
+    text-align: center;
+    vertical-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 10px 0 0 10px;
+    margin-right: -5px;
+}
+
+.register-container .register-form .register-input-group .register-input-group-phone{
+	display:inline;
+	padding: 9px 16px 11px 16px;;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 2;
+    color: #555;
+    text-align: center;
+    vertical-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 10px 0 0 10px;
+    margin-right: -5px;
 }
 
 .register-container .register-form .register-input-group .register-input-group-email
@@ -686,6 +912,7 @@ td{
 	border: 1px solid #ccc;
 	border-radius: 10px 0 0 10px;
 	margin-right: -5px;
+
 }
 
 .clearfix::after {
@@ -902,7 +1129,9 @@ td{
 	cursor: pointer;
 	transition: all .3s;
 	font-size: 16px;
+	margin-top: 20px;
 	border-radius: 15px;
+
 }
 
 .btn-customer-form:hover, .btn-customer-form:active {
@@ -914,35 +1143,58 @@ td{
 }
 
 /* ---------------------ShoppingCartConfirmation------------------------ */
-.customer-form-confirm {
+.mid-title{
+	margin-top: 25px;
+	margin-bottom: 5px;
 	font-family: sans-serif;
-}
-
-.customer-form-confirm h3 {
-	font-size: 130%;
-	font-style: oblique;
+	color: #fff;
 	text-align: left;
+	font-size: 140%;
+	font-style: oblique;
 	color: #ff5500;
 }
 
-.customer-form-confirm li {
+.customer-form-confirm {
+	font-family: sans-serif;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	width: 1200px;
+}
+
+.customer-form-confirm .row{
 	float: none;
 	text-align: left;
+	margin-right: 20%;
+	margin-left: 10px;
+	border: none;
+}
+.customer-form-confirm .row .customer-information{
+	width: 100%;
+}
+.customer-form-confirm .row .customer-information p{
+	margin: 20px 0;
 	margin-bottom: 10px;
-}
-
-.customer-form-confirm li:first-child {
-	font-size: 18px;
+	font-size: 130%;
 	font-weight: 600;
+	width: 200%;
 }
 
-.customer-form-confirm li:last-child {
-	margin-bottom: 20px;
+.customer-form-confirm .row .customer-information h4{
+	font-weight: 200;
+	width: 200%;
+	margin: 10px 0;
+	margin-left: 50px;
+	font-size: 18px;
 }
 
-.edit-btn {
+
+
+.edit-btn{
 	text-align: left;
 	margin-bottom: 20px;
+	margin-top: 30px;
+	
 }
 
 .edit-btn a {
@@ -976,8 +1228,19 @@ td{
 	color: #003c4d;
 }
 
-.product-information th, td {
+
+.product-information p{
+	font-size: 200%;
+	color: #d14415;
+	text-transform: uppercase;
+	font-weight: 600;
+	
+}
+
+.product-information tr, th, td{
+	border: none;
 	border-bottom: 2px solid #fff;
+	text-align: center;
 }
 
 .product-information th {
@@ -988,13 +1251,47 @@ td{
 	position: relative;
 	left: 76%;
 	margin-top: 20px;
+	
+}
+
+
+.product-subtotal td{
+	/* padding: 15px; */
+	border-bottom: 2px solid #fff;
 	text-align: left;
+}
+
+.product-subtotal .td-last-child{
+	border: none;
+}
+/* ---------------------ShoppingCartFinalize------------------------ */
+.page-title-finalize{
+	margin-top: 20px;
+}
+.page-title-finalize i{
+	color: rgba(255,255,255, 0.6);
+	font-size: 100px;
+}
+
+.page-title-finalize p{
+	font-family: fantasy;
+	font-size: 400%;
+	margin: 0;
+}
+
+.page-title-finalize h2{
+	font-size: 22px;
+	font-style: italic;
+	color: #d14415;
+	text-decoration: underline;
 }
 
 .product-subtotal td {
 	padding: 15px;
 	border: none;
 }
+
+
 
 
 /*-------------------manageAccount-------------------*/
