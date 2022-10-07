@@ -51,7 +51,7 @@
 					</a>
 				</div>
 			</div>
-
+<!-- 
 			<div class="clearfix">
 				<div id="menu-main-menu" style="font-size: 30px">
 					<ul>
@@ -62,7 +62,7 @@
 						style="font-size: 40px" aria-hidden="true"></i> </a>			
 				</div>
 			</div>
-
+ -->
 		</div>
 	</div>
 	<div class="menu-main-menu">

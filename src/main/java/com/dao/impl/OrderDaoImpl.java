@@ -132,7 +132,7 @@ public class OrderDaoImpl implements OrderDao{
 	public PaginationResult<OrderInfo> getAllOrderInfo(int page, int maxResult) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
-		String hql = "SELECT NEW " + OrderInfo.class.getName() + " (ORD.id, ORD.orderDate, ORD.orderNum, ORD.amount, ORD.customer) FROM Order ORD ORDER BY ORD.orderNum DESC";
+		String hql = "SELECT NEW " + OrderInfo.class.getName() + " (ORD.id, ORD.orderDate, ORD.orderNum, ORD.amount, ORD.customer.account.userName) FROM Order ORD ORDER BY ORD.orderNum DESC";
 		Query<OrderInfo> query = session.createQuery(hql);
 		List<OrderInfo> orderInfos = query.list();
 		PaginationResult<OrderInfo> paginationResult = new PaginationResult<OrderInfo>(query, page, maxResult);

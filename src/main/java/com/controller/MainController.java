@@ -355,7 +355,7 @@ public class MainController {
 		
 		//Luu thong tin don da da mua
 		Utils.storeLastOrderedCartInfoSession(request, cartInfo);
-		return "redirect:/accountInfo";
+		return "redirect:/shoppingCartFinalize";
 	}
 	
 
@@ -409,6 +409,32 @@ public class MainController {
 		model.addAttribute("accountInfo", customerInfo);
 		model.addAttribute("orderList", orderDetailInfos);
 		return "orderList";
+	}
+	
+	@GetMapping(value= {"/manageCustomerOrder"})
+	public String manageCustomerOrder(Model model, @RequestParam(value = "page", defaultValue = "1") int page, Principal principal) {
+		if(principal == null) {
+			return "redirect:/login";
+		}
+		final int MAX_RESULT = 20;
+		PaginationResult<OrderInfo> paginationOrderInfos = orderService.getAllOrderInfo(page, MAX_RESULT);
+		model.addAttribute("paginationOrderInfos", paginationOrderInfos);
+		return "manageCustomerOrder";
+	}
+	
+	@GetMapping(value = {"/manageCustomerOrderDetail"})
+	public String manageCustomerOrderDetail(Model model, @RequestParam(value = "orderId") String orderId, Principal principal) {
+		OrderInfo orderInfo = null;
+		if(orderId == null && principal == null) {
+			return "redirect:/login";
+		}
+		if(orderId != null) {
+			orderInfo = orderService.getOrderInfoById(orderId);
+		}
+		List<OrderDetailInfo> orderDetailInfos = orderService.GetAllOrderDetail(orderId);
+		orderInfo.setOrderDetailInfos(orderDetailInfos);
+		model.addAttribute("orderDetailList", orderDetailInfos);
+		return "manageCustomerOrderDetail";
 	}
 	
 	@GetMapping(value= {"/editAccountInfo"})
