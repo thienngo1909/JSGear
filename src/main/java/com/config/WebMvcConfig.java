@@ -18,7 +18,6 @@ import org.springframework.web.servlet.view.JstlView;
 @ComponentScan(basePackages = { "com.*" })
 public class WebMvcConfig implements WebMvcConfigurer {
 
-	
 	@Bean
 	public InternalResourceViewResolver resolver() {
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
@@ -43,18 +42,16 @@ public class WebMvcConfig implements WebMvcConfigurer {
 		return localValidatorFactoryBean;
 	}
 
-	
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-	   registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
-	   registry.addResourceHandler("/css/**").addResourceLocations("/css/").setCachePeriod(31556926);
-        registry.addResourceHandler("/img/**").addResourceLocations("/img/").setCachePeriod(31556926);
-        registry.addResourceHandler("/js/**").addResourceLocations("/js/").setCachePeriod(31556926);
+		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+		registry.addResourceHandler("/css/**").addResourceLocations("/css/").setCachePeriod(31556926);
+		registry.addResourceHandler("/img/**").addResourceLocations("/img/").setCachePeriod(31556926);
+		registry.addResourceHandler("/js/**").addResourceLocations("/js/").setCachePeriod(31556926);
 	}
 
 	@Bean(name = "multipartResolver")
 	public CommonsMultipartResolver multipartResolver() {
 		CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver();
-
 		return commonsMultipartResolver;
 	}
 }

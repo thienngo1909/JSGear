@@ -38,56 +38,48 @@
 					</form>
 				</div>
 				<div class="site-cart">
-					<c:if test="${myCartInfo.quantityTotal == null}">
-						<div class="cart-number">0</div>
-					</c:if> 
-					<c:if test="${myCartInfo != null}">
-						<div class="cart-number">${myCartInfo.quantityTotal}</div>
-					</c:if> 
-
 					<a href="${contextPath}/shoppingCart"><i class="fa fa-shopping-cart"
 						style="font-size: 40px" aria-hidden="true"></i> 
-						
+						<c:if test="${myCartInfo.quantityTotal == null}">
+						<div class="cart-number">0</div>
+						</c:if>
+						<c:if test="${myCartInfo != null}">
+						<div class="cart-number">${myCartInfo.quantityTotal}</div>
+						</c:if>
 					</a>
 				</div>
 			</div>
-<!-- 
-			<div class="clearfix">
-				<div id="menu-main-menu" style="font-size: 30px">
-					<ul>
-						<li><a class="home-page" href="${contextPath}/productList">Home</a></li>
-						<li><a class="item" href="#">Product</a></li>					
-					</ul>
-					<a href="#"><i class="fa fa-shopping-cart"
-						style="font-size: 40px" aria-hidden="true"></i> </a>			
-				</div>
-			</div>
- -->
 		</div>
 	</div>
 	<div class="menu-main-menu">
 		<ul>
 			<li class="dropdown"><a href="#home">Home</a></li>
 			<li class="dropdown"><a href="${contextPath}/productListByCategory">All Product</a></li>
-			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">MOUSE</a>
+			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">Mouse</a>
 				<div class="dropdown-content">
 					<a href="${contextPath}/productListByCategory?category=MOUSE&producer=gigabyte">GIGABYE</a>
 					 <a href="${contextPath}/productListByCategory?category=MOUSE&producer=asus">ASUS</a> 
 					 <a href="#">Link 3</a>
 				</div></li>
-			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">KEYBOAD</a>
+			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">Keyboad</a>
 				<div class="dropdown-content">
 					<a href="${contextPath}/productListByCategory?category=MOUSE&producer=gigabyte">GIGABYE</a>
 					 <a href="${contextPath}/productListByCategory?category=MOUSE&producer=asus">ASUS</a> 
 					 <a href="#">Link 3</a>
 				</div></li>
-			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">MOUSE</a>
+			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">Headphone</a>
 				<div class="dropdown-content">
 					<a href="${contextPath}/productListByCategory?category=MOUSE&producer=gigabyte">GIGABYE</a>
 					 <a href="${contextPath}/productListByCategory?category=MOUSE&producer=asus">ASUS</a> 
 					 <a href="#">Link 3</a>
 				</div></li>
-			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">MOUSE</a>
+				<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">Screen</a>
+				<div class="dropdown-content">
+					<a href="${contextPath}/productListByCategory?category=MOUSE&producer=gigabyte">GIGABYE</a>
+					 <a href="${contextPath}/productListByCategory?category=MOUSE&producer=asus">ASUS</a> 
+					 <a href="#">Link 3</a>
+				</div></li>
+				<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">Laptop</a>
 				<div class="dropdown-content">
 					<a href="${contextPath}/productListByCategory?category=MOUSE&producer=gigabyte">GIGABYE</a>
 					 <a href="${contextPath}/productListByCategory?category=MOUSE&producer=asus">ASUS</a> 

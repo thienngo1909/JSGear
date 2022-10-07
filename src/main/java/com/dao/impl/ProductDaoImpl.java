@@ -26,14 +26,11 @@ public class ProductDaoImpl implements ProductDao {
 	private SessionFactory sessionFactory;
 
 	@Override
-	public PaginationResult<ProductInfo> getAllProductInfos(int page, int maxResult, String likeName) {
+	public PaginationResult<ProductInfo> getAllProductInfos(int page, int maxResult) {
 		Session session = sessionFactory.getCurrentSession();
 
 		String hql = "SELECT NEW " + ProductInfo.class.getName()
 				+ "(PRO.code, PRO.name, PRO.price, PRO.quantity) FROM Product PRO";
-		if (likeName != null && likeName.length() > 0) {
-			hql += " WHERE LOWER(PRO.code) LIKE :LIKENAME ";
-		}
 		hql += " ORDER BY PRO.createDate DESC ";
 
 		Query<ProductInfo> query = session.createQuery(hql);
@@ -57,21 +54,19 @@ public class ProductDaoImpl implements ProductDao {
 		return paginationResult;
 	}
 
-	public PaginationResult<ProductInfo> getProductInfosByCategory(int page, int maxResult, String likeName,
-			String nameCategory,String nameProducer) {
-		Category  category = getCategoryByName(nameCategory);
+	public PaginationResult<ProductInfo> getProductInfosByCategory(int page, int maxResult, String nameCategory,
+			String nameProducer) {
+		Category category = getCategoryByName(nameCategory);
 		Producer producer = getProducerByName(nameProducer);
-		if(category==null&&producer==null)
-			return getAllProductInfos(page, maxResult, likeName);
-		else if(category!=null&& producer ==null) {
-			return getAllByCategory(page, maxResult, likeName, category.getId());
-		}
-		else 
-			return getAllProductByProducer(page, maxResult, likeName, category.getId(), producer.getId());
+		if (category == null && producer == null)
+			return getAllProductInfos(page, maxResult);
+		else if (category != null && producer == null) {
+			return getAllByCategory(page, maxResult, category.getId());
+		} else
+			return getAllProductByProducer(page, maxResult, category.getId(), producer.getId());
 	}
 
-	public PaginationResult<ProductInfo> getAllByCategory(int page, int maxResult, String likeName,
-			int idCategory) {
+	public PaginationResult<ProductInfo> getAllByCategory(int page, int maxResult, int idCategory) {
 		Session session = sessionFactory.getCurrentSession();
 		String hql = "SELECT NEW " + ProductInfo.class.getName()
 				+ "(PRO.code, PRO.name, PRO.price, PRO.quantity) FROM Product PRO";
@@ -83,9 +78,9 @@ public class ProductDaoImpl implements ProductDao {
 		PaginationResult<ProductInfo> paginationResult = new PaginationResult<ProductInfo>(query, page, maxResult);
 		return paginationResult;
 	}
-	
-	public PaginationResult<ProductInfo> getAllProductByProducer(int page, int maxResult, String likeName,
-			int idCategory, int idProducer) {
+
+	public PaginationResult<ProductInfo> getAllProductByProducer(int page, int maxResult, int idCategory,
+			int idProducer) {
 		Session session = sessionFactory.getCurrentSession();
 		String hql = "SELECT NEW " + ProductInfo.class.getName()
 				+ "(PRO.code, PRO.name, PRO.price, PRO.quantity) FROM Product PRO";
@@ -100,8 +95,7 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	@Override
-	public PaginationResult<ProductInfo> getProductInfosByProducer(int page, int maxResult, String likeName,
-			int idProducer) {
+	public PaginationResult<ProductInfo> getProductInfosByProducer(int page, int maxResult, int idProducer) {
 		Session session = sessionFactory.getCurrentSession();
 		String hql = "SELECT NEW " + ProductInfo.class.getName()
 				+ "(PRO.code, PRO.name, PRO.price, PRO.quantity) FROM Product PRO";
@@ -113,14 +107,14 @@ public class ProductDaoImpl implements ProductDao {
 		PaginationResult<ProductInfo> paginationResult = new PaginationResult<ProductInfo>(query, page, maxResult);
 		return paginationResult;
 	}
-	
+
 	@Override
 	public Product getProductByCode(String code) {
- 		Session session = sessionFactory.getCurrentSession();
+		Session session = sessionFactory.getCurrentSession();
 		String hql = "SELECT PRO FROM Product PRO WHERE PRO.code = :CODE";
 		Query<Product> query = session.createQuery(hql);
 		query.setParameter("CODE", code);
- 		Product product = (Product) query.uniqueResult();
+		Product product = (Product) query.uniqueResult();
 		return product;
 	}
 
@@ -166,7 +160,7 @@ public class ProductDaoImpl implements ProductDao {
 		if (isNew)
 			session.persist(product);
 		product.setDetail(updateDeatil(productInfo));
-	
+
 		session.flush();
 	}
 
@@ -234,14 +228,12 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	@Override
-	public List<Producer>getAllProducer() {
+	public List<Producer> getAllProducer() {
 		Session session = sessionFactory.getCurrentSession();
 		String hql = "SELECT PRO FROM Producer PRO";
 		Query<Producer> query = session.createQuery(hql);
 		List<Producer> producers = query.getResultList();
 		return producers;
 	}
-
-
 
 }

@@ -12,13 +12,13 @@ public interface ProductDao {
 
 	public Product getProductByCode(String code);
 	
-	public PaginationResult<ProductInfo> getAllProductInfos(int page, int maxResult, String likeName);
+	public PaginationResult<ProductInfo> getAllProductInfos(int page, int maxResult);
 	
 	public PaginationResult<ProductInfo> getProductByName(int page, int maxResult, String name);
 	
-	public PaginationResult<ProductInfo> getProductInfosByCategory(int page, int maxResult, String likeName,String nameCategory, String nameProducer);
+	public PaginationResult<ProductInfo> getProductInfosByCategory(int page, int maxResult,String nameCategory, String nameProducer);
 	
-	public PaginationResult<ProductInfo> getProductInfosByProducer(int page, int maxResult, String likeName,int idProducer);
+	public PaginationResult<ProductInfo> getProductInfosByProducer(int page, int maxResult,int idProducer);
 	
 	public ProductInfo getProductInfoByCode(String code);
 	

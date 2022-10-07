@@ -44,6 +44,10 @@ public class ProductInfoValidator implements Validator {
 					errors.rejectValue("code", "Duplicate.productForm.code");
 			}
 		}
+		if(productInfo.getQuantity()<= 0)
+			errors.rejectValue("quantity", "0.productForm.quantity");
+		if(productInfo.getPrice()<= 0)
+			errors.rejectValue("price", "0.productForm.price");
 		
 		
 	}

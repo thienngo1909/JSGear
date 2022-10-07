@@ -1,6 +1,7 @@
 package com.model;
 
 public class CartLineInfo {
+	
 	private ProductInfo productInfo;
 	
 	private double amount;
