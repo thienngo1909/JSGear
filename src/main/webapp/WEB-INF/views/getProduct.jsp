@@ -43,7 +43,7 @@
 
 				</li>
 
-				<security:authorize access="hasRole('ROLE_MANAGER')">
+				<security:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_SUPERADMIN')">
 					<li><a style="color: red;"
 						href="${contextPath}/product?code=${productInfo.code}">Edit
 							Product</a></li>

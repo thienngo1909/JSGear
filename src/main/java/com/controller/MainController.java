@@ -355,7 +355,7 @@ public class MainController {
 		
 		//Luu thong tin don da da mua
 		Utils.storeLastOrderedCartInfoSession(request, cartInfo);
-		return "redirect:/shoppingCartFinalize";
+		return "redirect:/accountInfo";
 	}
 	
 

@@ -24,10 +24,13 @@
 
 	<div class="page-title">
 		<label>Product List</label>
-		<security:authorize access="hasRole('ROLE_MANAGER')">
-			<button href="${contextPath}/product" class="btn-create-product">Create
-				new</button>
+		<div class="create-link">
+			<security:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_SUPERADMIN')">
+			<a href="${contextPath}/product" class="btn-create-product">Create
+				new</a>
 		</security:authorize>
+		</div>
+		
 
 	</div>
 
@@ -44,9 +47,9 @@
 								type="currency" /></li>
 				</a>
 				<li><a
-					href="${contextPath}/buyProduct?code=${productInfo.code}">Buy now
-				</a></li>
-				<security:authorize access="hasRole('ROLE_MANAGER')">
+					href="${contextPath}/buyProduct?code=${productInfo.code}">Buy
+						Now</a></li>
+				<security:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_SUPERADMIN')">
 					<li><a
 						href="${contextPath}/deleteProduct?code=${productInfo.code}">Delete</a></li>
 					<li><a href="${contextPath}/product?code=${productInfo.code}">Edit</a></li>

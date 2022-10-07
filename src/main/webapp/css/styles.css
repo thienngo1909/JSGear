@@ -200,6 +200,11 @@ li a:hover, .dropdown:hover .dropbtn {
 	text-align: center;
 }
 
+.page-title .create-link{
+	text-align: center;
+	padding-left: 120px;
+}
+
 .page-title label{
 	padding-left: 130px;
 	font-size: 30px;
