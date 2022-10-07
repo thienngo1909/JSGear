@@ -16,6 +16,10 @@
 	<jsp:include page="_header.jsp" />
 	<jsp:include page="_menu.jsp" />
 	
+	<div class="back-btn">
+		<a class="back-link" href="${contextPath}/manageCustomerOrder">Go Back</a>
+	</div>
+	
 	<div class="accountinfo-container">
 		<h3>Your Account Information</h3>
 		<ul class="">
@@ -31,7 +35,6 @@
 	</div>
 	
 	<div class="orderDetaillist-container">
-	<a class="back-link" href="${contextPath}/accountInfo">Go Back</a>
 		<c:if test = "${not empty orderList}">
 			<table>
 				<tr>

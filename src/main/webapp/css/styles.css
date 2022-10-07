@@ -474,12 +474,12 @@ input[type="password"] {
 	width: 250px;
 	margin: 5px;
 	display: inline-block;
-	text-align: left;
+	text-align: center;
 	border-radius: 5px;
 	box-shadow: 1px 1px 1px 2px lightblue;
 }
 .product-preview-container ul{
-	display: block;
+	display: block !important;
 }
 
 .product-preview-container:hover {
@@ -493,7 +493,7 @@ input[type="password"] {
 
 .product-image {
 	width: 250px;
-	height: 150px;
+	height: 200px;
 }
 /*-------------product info----------------*/
 .row {
@@ -585,7 +585,7 @@ input[type="password"] {
 .cart-number{
 	position: relative;
 	float: right;
-	right: 145px;
+	right: 90px;
     /* right: 0px; */
     z-index: 20;
     background: #294d9f;
@@ -746,9 +746,8 @@ table td {
 /*-------------------Product From---------------------------*/
 .product-form{
 	text-align:center;
-	border: 1px solid black;
 	padding: 0px;
-	margin: 0px;
+	margin-left: 150px;
 }
 td{
 	border:1px solid black;
