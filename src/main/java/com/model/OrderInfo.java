@@ -3,6 +3,8 @@ package com.model;
 import java.util.Date;
 import java.util.List;
 
+import com.entity.Customer;
+
 public class OrderInfo {
 	private String id;
 	
@@ -15,6 +17,17 @@ public class OrderInfo {
 	private CustomerInfo customerInfo;
 	
 	private List<OrderDetailInfo> orderDetailInfos;
+	
+	private String accountName;
+
+	public OrderInfo(String id, Date orderDate, int orderNum, double amount, String accountName) {
+		super();
+		this.id = id;
+		this.orderDate = orderDate;
+		this.orderNum = orderNum;
+		this.amount = amount;
+		this.accountName = accountName;
+	}
 
 	public OrderInfo() {
 		super();
@@ -85,6 +98,14 @@ public class OrderInfo {
 	public void setOrderDetailInfos(List<OrderDetailInfo> orderDetailInfos) {
 		this.orderDetailInfos = orderDetailInfos;
 	}
-	
-	
+
+	public String getAccountName() {
+		return accountName;
+	}
+
+	public void setAccountName(String accountName) {
+		this.accountName = accountName;
+	}
+
+
 }
