@@ -25,12 +25,13 @@
 	<div class="page-title">
 		<label>Product List</label>
 		<div class="create-link">
-			<security:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_SUPERADMIN')">
-			<a href="${contextPath}/product" class="btn-create-product">Create
-				new</a>
-		</security:authorize>
+			<security:authorize
+				access="hasAnyRole('ROLE_ADMIN', 'ROLE_SUPERADMIN')">
+				<a href="${contextPath}/product" class="btn-create-product">Create
+					new</a>
+			</security:authorize>
 		</div>
-		
+
 
 	</div>
 
@@ -38,18 +39,30 @@
 
 		<div class="product-preview-container">
 			<ul>
-		
+
 				<a href="${contextPath}/productInfo?code=${productInfo.code}">
-						<li><img class="product-image"
-							src="${contextPath}/productImage?code=${productInfo.code}" />
-						<li>Name: ${productInfo.name}</li>
-						<li>Price: <fmt:formatNumber value="${productInfo.price}"
-								type="currency" /></li>
+					<li><img class="product-image"
+						src="${contextPath}/productImage?code=${productInfo.code}" />
+				<li>Name: ${productInfo.name}</li> <c:if
+						test="${productInfo.quantity > 0}">
+						<li>Quantity: ${productInfo.quantity}</li>
+					</c:if> <c:if test="${productInfo.quantity <= 0}">
+						<li>Quantity: 0</li>
+					</c:if>
+					<li>Price: <fmt:formatNumber value="${productInfo.price}"
+							type="currency" /></li>
 				</a>
-				<li><a
-					href="${contextPath}/buyProduct?code=${productInfo.code}">Buy
-						Now</a></li>
-				<security:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_SUPERADMIN')">
+				<c:if test="${productInfo.quantity > 0}">
+					<li><a
+						href="${contextPath}/buyProduct?code=${productInfo.code}">Buy
+							Now</a></li>
+				</c:if>
+				<c:if test="${productInfo.quantity <= 0}">
+					<li><p style="color: red;">Out of stock</p></li>
+				</c:if>
+				
+				<security:authorize
+					access="hasAnyRole('ROLE_ADMIN', 'ROLE_SUPERADMIN')">
 					<li><a
 						href="${contextPath}/deleteProduct?code=${productInfo.code}">Delete</a></li>
 					<li><a href="${contextPath}/product?code=${productInfo.code}">Edit</a></li>
