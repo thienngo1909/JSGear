@@ -312,7 +312,7 @@ public class MainController {
 	customerInfoValidator.validate(customerForm, result);
 	if(result.hasErrors()) {
 		customerForm.setValid(false);
-		return "customerInforForm";
+		return "productCustomerInforForm";
 		}
 	customerForm.setValid(true);
 	CartInfo cartInfo = Utils.getCartInfoInSession(request);
