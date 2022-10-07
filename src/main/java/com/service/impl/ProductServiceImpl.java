@@ -20,12 +20,10 @@ public class ProductServiceImpl implements ProductService{
 	private ProductDao productDao;
 	
 	@Override
-	public PaginationResult<ProductInfo> getAllProductInfos(int page, int maxResult, String likeName) {
+	public PaginationResult<ProductInfo> getAllProductInfos(int page, int maxResult) {
 		// TODO Auto-generated method stub
-		return productDao.getAllProductInfos(page, maxResult, likeName);
+		return productDao.getAllProductInfos(page, maxResult);
 	}
-
-	
 
 	@Override
 	public PaginationResult<ProductInfo> getProductByName(int page, int maxResult, String name) {
@@ -72,10 +70,10 @@ public class ProductServiceImpl implements ProductService{
 
 
 	@Override
-	public PaginationResult<ProductInfo> getProductInfosByCategory(int page, int maxResult, String likeName,
+	public PaginationResult<ProductInfo> getProductInfosByCategory(int page, int maxResult,
 			String nameCategory, String nameProducer) {
 		// TODO Auto-generated method stub
-		return productDao.getProductInfosByCategory(page, maxResult, likeName, nameCategory, nameProducer);
+		return productDao.getProductInfosByCategory(page, maxResult, nameCategory, nameProducer);
 	}
 
 

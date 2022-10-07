@@ -18,11 +18,8 @@
 	
 	<div class="accountinfo-container">
 		<h3>Your Account Information</h3>
-<<<<<<< HEAD
 		<ul>
-=======
 		<ul class="">
->>>>>>> 5151bdeec011411d555f250d5c86c465f96471e6
 			<li>Name: ${accountInfo.name}</li>
 			<li>Address: ${accountInfo.address}</li>
 			<li>Email: ${accountInfo.email}</li>

@@ -39,7 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 
 		http.authorizeRequests().antMatchers("/manageAccount").access("hasRole('SUPERADMIN')");
 		
-		http.authorizeRequests().antMatchers("/product").access("hasAnyRole('SUPERADMIN', 'ADMIN')");
+		//http.authorizeRequests().antMatchers("/product").access("hasAnyRole('SUPERADMIN', 'ADMIN')");
 		
 		//http.authorizeRequests().antMatchers("/product").access("hasRole('MANAGER')");
 

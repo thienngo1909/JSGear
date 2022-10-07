@@ -57,6 +57,7 @@ import com.entity.Producer;
 import com.entity.Product;
 import com.entity.Role;
 import com.util.Utils;
+import com.validator.CartInfoValidator;
 import com.validator.CustomerInfoValidator;
 import com.validator.ProductInfoValidator;
 
@@ -82,6 +83,9 @@ public class MainController {
 	private CustomerInfoValidator customerInfoValidator;
 	
 	@Autowired
+	private CartInfoValidator cartInfoValidator;
+	
+	@Autowired
 	private OrderDao orderDao;
 	
 	@GetMapping(value = "/menu")
@@ -90,11 +94,9 @@ public class MainController {
 	}
 	// Hien thi tat ca san pham
 	@GetMapping(value = "/productList")
-	private String getAllProductInfo(Model model, @RequestParam(value = "name",defaultValue = "") String likeName,
-
-			@RequestParam(value = "page", defaultValue = "1") int page) {
+	private String getAllProductInfo(Model model, @RequestParam(value = "page", defaultValue = "1") int page) {
 		final int maxResult = 10;
-		PaginationResult<ProductInfo> productInfos = productService.getAllProductInfos(page, maxResult, likeName);
+		PaginationResult<ProductInfo> productInfos = productService.getAllProductInfos(page, maxResult);
 		model.addAttribute("paginationProductInfos", productInfos);
 		return "productList";
 	}
@@ -103,10 +105,9 @@ public class MainController {
 	@GetMapping(value = "/productListByCategory")
 	private String getProductInfoByCategory(Model model, @RequestParam(value = "category", defaultValue = "")String category,
 			@RequestParam(value="producer",defaultValue = "")String producer,
-			@RequestParam(value = "name", defaultValue = "") String likeName,
 			@RequestParam(value = "page", defaultValue = "1") int page) {
 		final int maxResult = 10;
-		PaginationResult<ProductInfo> productInfos = productService.getProductInfosByCategory(page, maxResult, likeName,
+		PaginationResult<ProductInfo> productInfos = productService.getProductInfosByCategory(page, maxResult, 
 				category, producer);
 		model.addAttribute("paginationProductInfos", productInfos);
 		model.addAttribute("category", category);
@@ -157,10 +158,15 @@ public class MainController {
 	// POST: Cap nhat so luong san pham da mua
 	@PostMapping(value = { "/shoppingCart" })
 	public String shoppingCartUpdate(HttpServletRequest request, Model model,
-			@ModelAttribute("cartForm") CartInfo cartForm) {
+			@ModelAttribute("cartForm")@Valid CartInfo cartForm, BindingResult result) {
+		cartInfoValidator.validate(cartForm, result);
+		if(result.hasErrors()) {
+			CartInfo cartInfo = Utils.getCartInfoInSession(request);
+			model.addAttribute("cartForm", cartInfo);
+			return "shoppingCart";
+		}
 		CartInfo cartInfo = Utils.getCartInfoInSession(request);
 		cartInfo.updateQuantity(cartForm);
-
 		return "redirect:/shoppingCart";
 	}
 
