@@ -1,5 +1,6 @@
 package com.validator;
 
+import org.apache.commons.validator.routines.EmailValidator;
 import org.apache.commons.validator.util.ValidatorUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,6 +18,7 @@ public class AccountInfoValidator implements Validator{
 	@Autowired
 	private AccountService accountService;
 	
+	private EmailValidator emailValidator = EmailValidator.getInstance();
 	@Override
 	public boolean supports(Class<?> clazz) {
 		// TODO Auto-generated method stub
@@ -39,6 +41,10 @@ public class AccountInfoValidator implements Validator{
 		Account account = accountService.getAccountByUserName(userName);
 		if(userName != null && account != null) {
 			errors.rejectValue("userName", "Duplicate.registerForm.userName");
+		}
+		
+		if(!emailValidator.isValid(accountInfo.getEmail())) {
+			errors.rejectValue("email", "Pattern.customerForm.email");
 		}
 	}
 
