@@ -38,19 +38,21 @@
 	<c:forEach items="${paginationProductInfos.list}" var="productInfo">
 
 		<div class="product-preview-container">
-			<ul>
+			<ul class="product-list">
 
 				<a href="${contextPath}/productInfo?code=${productInfo.code}">
 					<li><img class="product-image"
-						src="${contextPath}/productImage?code=${productInfo.code}" />
-				<li>Name: ${productInfo.name}</li> <c:if
+						src="${contextPath}/productImage?code=${productInfo.code}"
+						width="250" height="400" />
+				<li class="name">${productInfo.name}</li> <c:if
 						test="${productInfo.quantity > 0}">
-						<li>Quantity: ${productInfo.quantity}</li>
+						<li style="display: none">Quantity: ${productInfo.quantity}</li>
 					</c:if> <c:if test="${productInfo.quantity <= 0}">
 						<li>Quantity: 0</li>
 					</c:if>
-					<li>Price: <fmt:formatNumber value="${productInfo.price}"
-							type="currency" /></li>
+					<br/>
+					<li class="price"><fmt:formatNumber
+							value="${productInfo.price}" type="currency" /></li>
 				</a>
 				<c:if test="${productInfo.quantity > 0}">
 					<li><a
@@ -60,7 +62,7 @@
 				<c:if test="${productInfo.quantity <= 0}">
 					<li><p style="color: red;">Out of stock</p></li>
 				</c:if>
-				
+
 				<security:authorize
 					access="hasAnyRole('ROLE_ADMIN', 'ROLE_SUPERADMIN')">
 					<li><a

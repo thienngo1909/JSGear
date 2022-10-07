@@ -15,6 +15,8 @@
 	href="${contextPath}/css/styles.css">
 </head>
 <body>
+<jsp:include page="_header.jsp" />
+	<jsp:include page="_menu.jsp" />
 	<c:if test="${not empty errorMessage }">
 		<div class="errorstyle="text-align: center;"-message">${errorMessage}</div>
 	</c:if>
@@ -92,12 +94,13 @@
 			<form:hidden path="detail.id" />
 			<tr>
 				<td>&nbsp;</td>
-				<td><input type="submit" value="Submit" /> <input type="reset"
+				<td><input type="submit" value="Submit" /> 
+				<input type="reset"
 					value="Reset" /></td>
 			</tr>
 		</table>
 
 	</form:form>
-
+<jsp:include page="_footer.jsp" />
 </body>
 </html>
