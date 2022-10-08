@@ -42,9 +42,10 @@ ul {
 	overflow: hidden;
 }
 
-li {
+ li {
 	float: left;
-}
+	text-decoration: none;
+} 
 
 li a {
 	display: block;
@@ -269,8 +270,9 @@ ul {
 
 li {
   float: left;
+  text-decoration: none;
 }
-
+ 
 li a {
   display: block;
   color: black;
@@ -478,8 +480,13 @@ input[type="password"] {
 	border-radius: 5px;
 	box-shadow: 1px 1px 1px 2px lightblue;
 }
+
 .product-preview-container ul{
 	display: block !important;
+}
+
+.product-preview-container li{
+	float: none;
 }
 
 .product-preview-container:hover {
