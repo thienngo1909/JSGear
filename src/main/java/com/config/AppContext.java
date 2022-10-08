@@ -35,15 +35,7 @@ public class AppContext {
 		return sessionFactory;
 	}
 
-	@Bean
-	public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean() {
-		LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
-		entityManagerFactoryBean.setDataSource(dataSource());
-		entityManagerFactoryBean.setPackagesToScan(new String[] { "com.entity" });
-		entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-		entityManagerFactoryBean.setJpaProperties(hibernateProperties());
-		return entityManagerFactoryBean;
-	}
+	
 
 	@Bean
 	public DataSource dataSource() {

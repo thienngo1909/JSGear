@@ -18,12 +18,15 @@
 <jsp:include page="_header.jsp" />
 	<jsp:include page="_menu.jsp" />
 	<c:if test="${not empty errorMessage }">
-		<div class="errorstyle="text-align: center;"-message">${errorMessage}</div>
+		<div class="errorstyle=" text-align:center;"-message">${errorMessage}</div>
 	</c:if>
+	<jsp:include page="_header.jsp"></jsp:include>
+	<jsp:include page="_menu.jsp"></jsp:include>
+	<fmt:setLocale value="en_US" scope="session" />
 
 	<form:form modelAttribute="productForm" method="POST"
 		enctype="multipart/form-data" action="${contextPath}/product">
-		<table class="product-form "style="text-align: left;">			
+		<table class="product-form " style="text-align: left;">
 			<tr>
 				<td>Code *</td>
 				<td style="color: red;"><form:input path="code" /> <form:hidden
@@ -90,7 +93,7 @@
 				<td><form:input type="file" path="fileData" /></td>
 				<td></td>
 			</tr>
-			<form:hidden path="oldCode"/>
+			<form:hidden path="oldCode" />
 			<form:hidden path="detail.id" />
 			<tr>
 				<td>&nbsp;</td>
@@ -101,6 +104,11 @@
 		</table>
 
 	</form:form>
+<<<<<<< HEAD
 <jsp:include page="_footer.jsp" />
+=======
+	<jsp:include page="_footer.jsp"></jsp:include>=
+
+>>>>>>> 3793d42 (Update)
 </body>
 </html>

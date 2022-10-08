@@ -39,6 +39,8 @@
 				<p>${productInfos.detail.specification }</p>
 			</div>
 		</div>
+		
+			<jsp:include page="_footer.jsp"></jsp:include>
 
 </body>
 </html>

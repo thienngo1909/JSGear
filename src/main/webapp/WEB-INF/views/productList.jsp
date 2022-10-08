@@ -38,8 +38,12 @@
 	<c:forEach items="${paginationProductInfos.list}" var="productInfo">
 
 		<div class="product-preview-container">
+<<<<<<< HEAD
 			<ul class="product-list">
 
+=======
+			<ul>
+>>>>>>> 3793d42 (Update)
 				<a href="${contextPath}/productInfo?code=${productInfo.code}">
 					<li><img class="product-image"
 						src="${contextPath}/productImage?code=${productInfo.code}"
