@@ -35,8 +35,6 @@ public class AppContext {
 		return sessionFactory;
 	}
 
-	
-
 	@Bean
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();// javax.sql.DataSource

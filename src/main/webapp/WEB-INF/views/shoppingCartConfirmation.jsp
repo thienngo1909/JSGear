@@ -35,12 +35,7 @@
 				<h4>${myCartInfo.customerInfo.email}</h4>
 			</div>
 		</div>
-		<div class="row">
-			<div class="customer-information">
-				<p>Total Quantity: </p>
-				<h4>${myCartInfo.quantityTotal}</h4>
-			</div>
-		</div>
+		
 		<div class="row">
 			<div class="customer-information">
 				<p>Phone: </p>
@@ -51,7 +46,12 @@
 				<h4>${myCartInfo.customerInfo.address}</h4>
 			</div>
 		</div>
-		
+		<div class="row" style="color:red;">
+			<div class="customer-information">
+				<p>Total Quantity: </p>
+				<h4>${myCartInfo.quantityTotal}</h4>
+			</div>
+		</div>
 	</div>
 	
 	<form class="edit-btn" method="POST" action="${contextPath}/shoppingCartConfirmation">
@@ -72,7 +72,7 @@
 				</tr>
 				<c:forEach items="${myCartInfo.cartLineInfos}" var="cartLineInfo">
 				<tr>
-					<td><img src="${contextPath}/productImage?code=${cartLineInfo.productInfo.code}"></td>
+					<td><img src="${contextPath}/productImage?code=${cartLineInfo.productInfo.code}" style="width:250px;height:200px;"></td>
 					<td>${cartLineInfo.productInfo.code}</td>
 					<td>${cartLineInfo.productInfo.name}</td>
 					<td>${cartLineInfo.productInfo.price}</td>
@@ -80,18 +80,10 @@
 					<td><fmt:formatNumber value="${cartLineInfo.amount}" type="currency"/></td>
 				</tr>
 				</c:forEach>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
 			</table>
 		
 	</div>
-	<div class="product-subtotal">
+	<div class="product-subtotal" style="color:red; font-weight: bold;">
 		<table>
 			<tr>
 				<td>SubTotal:</td>

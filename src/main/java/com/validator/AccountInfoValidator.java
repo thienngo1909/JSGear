@@ -46,6 +46,10 @@ public class AccountInfoValidator implements Validator{
 		if(!emailValidator.isValid(accountInfo.getEmail())) {
 			errors.rejectValue("email", "Pattern.customerForm.email");
 		}
+		String phone = accountInfo.getPhone();
+		if (!phone.matches("[0-9]{10}$")) {//
+			errors.rejectValue("phone", "Pattern.customerForm.phone");
+		}
 	}
 
 }

@@ -21,6 +21,7 @@
 
 	<div class="page-title">
 		<h3>Order List</h3>
+		<h3 style="color: navy;">Total order: ${orderQuantity}</h3>
 	</div>
 	<div class="orderlist-container">
 		<c:if test = "${not empty paginationOrderInfos}">

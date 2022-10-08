@@ -104,7 +104,7 @@ public class AccountDaoImpl implements AccountDao {
 		Session session = sessionFactory.getCurrentSession();
 //		String hql = "Select ACC From Account ACC Where ACC.role.roleName = :ROLE1 And ACC.role.roleName = :ROLE2";
 		String hql = "Select New " + AccountInfo.class.getName() + "(ACC.userName)" 
-				+ "From Account ACC";
+				+ "From Account ACC Where ACC.role.id NOT LIKE 1";
 		Query<AccountInfo> query = session.createQuery(hql);
 		List<AccountInfo> accountList = (List<AccountInfo>) query.list();
 		return accountList;
@@ -135,8 +135,9 @@ public class AccountDaoImpl implements AccountDao {
 	public List<Role> getAllRoleName() {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
-		String hql = "Select ROLE From Role ROLE";
+		String hql = "Select ROLE From Role ROLE Where ROLE.id = :ID1 or ROLE.id = :ID2";
 		Query<Role> query = session.createQuery(hql);
+		query.setParameter("ID1", 2).setParameter("ID2", 3);
 		List<Role> roleList = (List<Role>) query.list();
 		return roleList;
 	}

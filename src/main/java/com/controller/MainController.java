@@ -97,6 +97,8 @@ public class MainController {
 	private String getAllProductInfo(Model model, @RequestParam(value = "page", defaultValue = "1") int page) {
 		final int maxResult = 10;
 		PaginationResult<ProductInfo> productInfos = productService.getAllProductInfos(page, maxResult);
+		int productQuantity = productInfos.getTotalRecords();
+		model.addAttribute("productQuantity", productQuantity);
 		model.addAttribute("paginationProductInfos", productInfos);
 		return "productList";
 	}
@@ -109,6 +111,8 @@ public class MainController {
 		final int maxResult = 10;
 		PaginationResult<ProductInfo> productInfos = productService.getProductInfosByCategory(page, maxResult, 
 				category, producer);
+		int productQuantity = productInfos.getTotalRecords();
+		model.addAttribute("productQuantity", productQuantity);
 		model.addAttribute("paginationProductInfos", productInfos);
 		model.addAttribute("category", category);
 		model.addAttribute("producer", producer);
@@ -158,7 +162,7 @@ public class MainController {
 	// POST: Cap nhat so luong san pham da mua
 	@PostMapping(value = { "/shoppingCart" })
 	public String shoppingCartUpdate(HttpServletRequest request, Model model,
-			@ModelAttribute("cartForm")@Valid CartInfo cartForm, BindingResult result) {
+			@ModelAttribute("cartForm") @Valid CartInfo cartForm, BindingResult result) {
 		cartInfoValidator.validate(cartForm, result);
 		if(result.hasErrors()) {
 			CartInfo cartInfo = Utils.getCartInfoInSession(request);
@@ -323,6 +327,12 @@ public class MainController {
 	customerForm.setValid(true);
 	CartInfo cartInfo = Utils.getCartInfoInSession(request);
 	cartInfo.setCustomerInfo(customerForm);
+	
+	try {
+		customerService.saveCustomerInfo(customerForm);
+	} catch(Exception e) {
+		return "/customerInfo";
+	}
 	return "redirect:/shoppingCartConfirmation";
 	}
 	
@@ -424,6 +434,8 @@ public class MainController {
 		}
 		final int MAX_RESULT = 20;
 		PaginationResult<OrderInfo> paginationOrderInfos = orderService.getAllOrderInfo(page, MAX_RESULT);
+		int orderQuantity = paginationOrderInfos.getTotalRecords();
+		model.addAttribute("orderQuantity", orderQuantity);
 		model.addAttribute("paginationOrderInfos", paginationOrderInfos);
 		return "manageCustomerOrder";
 	}
@@ -457,11 +469,11 @@ public class MainController {
 	
 	@PostMapping(value = {"/editAccountInfo"})
 	public String editAccountInfoSave(HttpServletRequest request, Model model,
-			@ModelAttribute("accountInfoForm") CustomerInfo customerForm, BindingResult result) {
+			@ModelAttribute("accountInfoForm") @Valid CustomerInfo customerForm, BindingResult result) {
 		customerInfoValidator.validate(customerForm, result);
 		if(result.hasErrors()) {
 			customerForm.setValid(false);
-			return "customerForm";
+			return "accountInfoForm";
 		}
 		try {
 			customerService.saveCustomerInfo(customerForm);
@@ -479,6 +491,7 @@ public class MainController {
 
 		//lấy ra danh sách username có phân quyền
 		List<AccountInfo> accountUserNameList = accountService.getAllAccount();
+		int accountQuantity = accountUserNameList.size();
 		Account account = null;
 		Customer customer = null;
 		AccountDetailInfo accountDetailInfo = new AccountDetailInfo();
@@ -496,7 +509,7 @@ public class MainController {
 		
 		List<Role> roleList = accountService.getAllRoleName();
 		model.addAttribute("roleList", roleList);
-		
+		model.addAttribute("accountQuantity", accountQuantity);
 		
 //		Set<Map.Entry<String, Integer>> roles;
 //		List<Role> roleList = accountService.getAllRoleName();

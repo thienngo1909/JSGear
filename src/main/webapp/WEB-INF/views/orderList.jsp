@@ -17,7 +17,7 @@
 	<jsp:include page="_menu.jsp" />
 	
 	<div class="back-btn">
-		<a class="back-link" href="${contextPath}/manageCustomerOrder">Go Back</a>
+		<a class="back-link" href="${contextPath}/accountInfo">Go Back</a>
 	</div>
 	
 	<div class="accountinfo-container">

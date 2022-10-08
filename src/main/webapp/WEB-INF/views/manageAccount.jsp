@@ -26,6 +26,7 @@
 
 	<div class="page-title">
 		<h3>Account List</h3>
+		<h3 style="color: navy;">Total account: ${accountQuantity }</h3>
 	</div>
 	<div class="account-list-container">
 		<c:if test="${not empty accountDetailInfo}">
