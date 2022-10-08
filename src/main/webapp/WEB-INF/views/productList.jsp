@@ -24,9 +24,11 @@
 
 	<div class="page-title">
 		<label>Product List</label>
+		
 		<div class="create-link">
 			<security:authorize
 				access="hasAnyRole('ROLE_ADMIN', 'ROLE_SUPERADMIN')">
+				<h3 style="color: navy;; padding-left: 120px; margin: none;">Total product: ${productQuantity}</h3>
 				<a href="${contextPath}/product" class="btn-create-product">Create
 					new</a>
 			</security:authorize>

@@ -22,7 +22,8 @@
 	<jsp:include page="_menu.jsp"></jsp:include>
 	<fmt:setLocale value="en_US" scope="session" />
 
-	<div class="page-title">Product List</div>
+	<div class="page-title">Product List
+	</div>
 
 	<c:forEach items="${paginationProductInfos.list}" var="productInfo">
 
