@@ -66,7 +66,7 @@
 								<td><form:input
 										path="cartLineInfos[${varStatus.index}].quantity"
 										id="item-quantity-${varStatus.index}" class="item-quantity" />
-									<form:errors path="cartLineInfos"></form:errors></td>
+									<form:errors path="cartLineInfos[${varStatus.index}].quantity"></form:errors></td>
 								<td><span class="subtotal"> <fmt:formatNumber
 											value="${cartLineInfo.amount}" type="currency" />
 								</span></td>

@@ -38,21 +38,21 @@
 					</form>
 				</div>
 				<div class="site-cart">
-					<a href="${contextPath}/shoppingCart"><i class="fa fa-shopping-cart"
-						style="font-size: 40px" aria-hidden="true"></i> 
-						<c:if test="${myCartInfo.quantityTotal == null}">
-						<div class="cart-number">0</div>
-						</c:if>
-						<c:if test="${myCartInfo != null}">
-						<div class="cart-number">${myCartInfo.quantityTotal}</div>
-						</c:if>
-					</a>
+					<a href="${contextPath}/shoppingCart"><i
+						class="fa fa-shopping-cart" style="font-size: 40px"
+						aria-hidden="true"></i> <c:if
+							test="${myCartInfo.quantityTotal == null}">
+							<div class="cart-number">0</div>
+						</c:if> <c:if test="${myCartInfo != null}">
+							<div class="cart-number">${myCartInfo.quantityTotal}</div>
+						</c:if> </a>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class="menu-main-menu">
 		<ul>
+<<<<<<< HEAD
 			<li class="dropdown"><a href="${contextPath}/productList">Home</a></li>
 			<li class="dropdown"><a href="${contextPath}/productListByCategory">All Product</a></li>
 			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">Mouse</a>
@@ -79,7 +79,53 @@
 				<div class="dropdown-content">
 					<a href="${contextPath}/productListByCategory?category=LAPTOP&producer=acer">ACER</a>
 					 <a href="${contextPath}/productListByCategory?category=LAPTOP&producer=asus">ASUS</a> 
+=======
+			<li class="dropdown"><a
+				href="${contextPath}/productListByCategory">Home</a></li>
+			<li class="dropdown"><a
+				href="${contextPath}/productListByCategory?category=Mouse">Mouse</a>
+				<div class="dropdown-content">
+					<a
+						href="${contextPath}/productListByCategory?category=MOUSE&producer=Logitech">Logitech</a>
+					<a
+						href="${contextPath}/productListByCategory?category=MOUSE&producer=Razer">Razer</a>
+					<a
+						href="${contextPath}/productListByCategory?category=MOUSE&producer=Corsair">Corsair</a>
+					<a
+						href="${contextPath}/productListByCategory?category=MOUSE&producer=Fuhlen">Fuhlen</a>
+					<a
+						href="${contextPath}/productListByCategory?category=MOUSE&producer=Steelseries">Steelseries</a>
 				</div></li>
+			<li class="dropdown"><a
+				href="${contextPath}/productListByCategory?category=Keyboad">Keyboad</a>
+				<div class="dropdown-content">
+					<a
+						href="${contextPath}/productListByCategory?category=Keyboad&producer=Logitech">Logitech</a>
+					<a
+						href="${contextPath}/productListByCategory?category=Keyboad&producer=Razer">Razer</a>
+					<a
+						href="${contextPath}/productListByCategory?category=Keyboad&producer=Corsair">Corsair</a>
+					<a
+						href="${contextPath}/productListByCategory?category=Keyboad&producer=Steelseries">Steelseries</a>
+				</div></li>
+			<li class="dropdown"><a
+				href="${contextPath}/productListByCategory?category=Headphone">Headphone</a>
+				<div class="dropdown-content">
+					<a
+						href="${contextPath}/productListByCategory?category=Headphone&producer=Logitech">Logitech</a>
+					<a
+						href="${contextPath}/productListByCategory?category=Headphone&producer=Razer">Razer</a>
+					<a
+						href="${contextPath}/productListByCategory?category=Headphone&producer=Corsair">Corsair</a>
+					<a
+						href="${contextPath}/productListByCategory?category=Headphone&producer=Steelseries">Steelseries</a>
+>>>>>>> a06418f (Update db and img)
+				</div></li>
+			<li class="dropdown"><a
+				href="${contextPath}/productListByCategory?category=Screen">Screen</a>
+			<li class="dropdown"><a
+				href="${contextPath}/productListByCategory?category=Laptop">Laptop</a>
+			</li>
 		</ul>
 	</div>
 </body>

@@ -40,23 +40,20 @@
 	<c:forEach items="${paginationProductInfos.list}" var="productInfo">
 
 		<div class="product-preview-container">
-<<<<<<< HEAD
-			<ul class="product-list">
 
-=======
+			<ul class="product-list">
 			<ul>
->>>>>>> 3793d42 (Update)
 				<a href="${contextPath}/productInfo?code=${productInfo.code}">
 					<li><img class="product-image"
 						src="${contextPath}/productImage?code=${productInfo.code}"
 						width="250" height="400" />
-				<li class="name">${productInfo.name}</li> <c:if
-						test="${productInfo.quantity > 0}">
-						<li style="display: none">Quantity: ${productInfo.quantity}</li>
-					</c:if> <c:if test="${productInfo.quantity <= 0}">
+					<li class="name">${productInfo.name}</li> 
+					<c:if test="${productInfo.quantity > 0}">
+						<li>Quantity:${productInfo.quantity}</li>
+					</c:if> 
+					<c:if test="${productInfo.quantity <= 0}">
 						<li>Quantity: 0</li>
 					</c:if>
-					<br/>
 					<li class="price"><fmt:formatNumber
 							value="${productInfo.price}" type="currency" /></li>
 				</a>
