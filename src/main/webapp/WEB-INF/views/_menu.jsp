@@ -52,7 +52,6 @@
 	</div>
 	<div class="menu-main-menu">
 		<ul>
-<<<<<<< HEAD
 			<li class="dropdown"><a href="${contextPath}/productList">Home</a></li>
 			<li class="dropdown"><a href="${contextPath}/productListByCategory">All Product</a></li>
 			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">Mouse</a>
@@ -79,7 +78,6 @@
 				<div class="dropdown-content">
 					<a href="${contextPath}/productListByCategory?category=LAPTOP&producer=acer">ACER</a>
 					 <a href="${contextPath}/productListByCategory?category=LAPTOP&producer=asus">ASUS</a> 
-=======
 			<li class="dropdown"><a
 				href="${contextPath}/productListByCategory">Home</a></li>
 			<li class="dropdown"><a
@@ -119,7 +117,6 @@
 						href="${contextPath}/productListByCategory?category=Headphone&producer=Corsair">Corsair</a>
 					<a
 						href="${contextPath}/productListByCategory?category=Headphone&producer=Steelseries">Steelseries</a>
->>>>>>> a06418f (Update db and img)
 				</div></li>
 			<li class="dropdown"><a
 				href="${contextPath}/productListByCategory?category=Screen">Screen</a>

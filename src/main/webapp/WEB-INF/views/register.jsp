@@ -32,12 +32,9 @@
 		<h1>Register</h1>
 		<br>
 		<div class="register-form">
-<<<<<<< HEAD
-			<form:form method="POST" modelAttribute="registerForm" action="${contextPath}/register" onsubmit="return alertMessage()">
-=======
+			<form:form method="POST" modelAttribute="registerForm" action="${contextPath}/register" onsubmit="return alertMessage()"></form:form>
 			<form:form method="POST" modelAttribute="registerForm"
 				action="${contextPath}/register">
->>>>>>> a06418f (Update db and img)
 				<div class="register-input-group">
 					<span class="register-input-group-username"><i
 						class="fas fa-user-alt"></i></span>
