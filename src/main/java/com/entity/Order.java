@@ -28,7 +28,7 @@ public class Order implements Serializable {
 	private String id;
 
 	@Column(name = "Order_Date", nullable = false)
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date orderDate;
 	
 	@Column(name = "Order_Num", nullable = false)

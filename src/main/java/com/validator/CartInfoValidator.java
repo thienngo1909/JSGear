@@ -20,6 +20,7 @@ public class CartInfoValidator implements Validator{
 	public boolean supports(Class<?> clazz) {
 		// TODO Auto-generated method stub
 		return CartInfo.class.isAssignableFrom(clazz);
+		
 	}
 
 	@Override
