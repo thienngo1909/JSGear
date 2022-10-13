@@ -484,10 +484,12 @@ input[type="password"] {
 
 .product-preview-container ul{
 	display: block !important;
+	
 }
 
 .product-preview-container li{
 	float: none;
+	text-decoration: none !important;
 }
 
 .product-preview-container:hover {

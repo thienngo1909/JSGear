@@ -28,10 +28,9 @@
 			<li>Email: ${accountInfo.email}</li>
 			<li>Phone: ${accountInfo.phone}</li>
 		</ul>
-		<form class="edit-btn" method="POST" action="">
-			<input type="submit" value="Accept" class="btn-confirmation"/>
-			<a href="">Edit Your Information</a>
-		</form>
+		<div class="edit-btn">
+			<a class="edit-link" href="${contextPath}/editAccountInfo">Edit Your Information</a>
+		</div>
 	</div>
 	
 	<div class="orderDetaillist-container">

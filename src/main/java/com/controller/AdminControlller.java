@@ -1,5 +1,6 @@
 package com.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,18 +43,19 @@ public class AdminControlller {
 	} 
 	
 	@PostMapping(value = "/register")
-	public String saveNewAccount(Model model, @ModelAttribute("registerForm") @Valid AccountInfo AccountInfo, BindingResult result) {
+	public String saveNewAccount(Model model, HttpServletRequest request, @ModelAttribute("registerForm") @Valid AccountInfo AccountInfo, BindingResult result) {
 		accountInfoValidator.validate(AccountInfo, result);
 		if(result.hasErrors()) {
 			return "register";
 		}
 		try {
 			accountService.registerNewAccount(AccountInfo);
+			request.login(AccountInfo.getUserName(), AccountInfo.getPassword());
 		} catch (Exception e) {
 			model.addAttribute("errorMessage", e.getMessage());
 			return "register";
 		}
-		return "redirect:/login";
+		return "redirect:/accountInfo";
 	}
 	
 }

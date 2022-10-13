@@ -42,7 +42,6 @@
 		<div class="product-preview-container">
 
 			<ul class="product-list">
-			<ul>
 				<a href="${contextPath}/productInfo?code=${productInfo.code}">
 					<li><img class="product-image"
 						src="${contextPath}/productImage?code=${productInfo.code}"
