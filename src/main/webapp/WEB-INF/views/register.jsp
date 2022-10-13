@@ -16,11 +16,6 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src='https://kit.fontawesome.com/a076d05399.js'
 	crossorigin='anonymous'></script>
-	<script>
-	function alertMessage(){
-		alert("Update Successfully!!!");
-	}
-</script>
 <body>
 	<jsp:include page="_header.jsp" />
 	<jsp:include page="_menu.jsp" />
@@ -32,7 +27,7 @@
 		<h1>Register</h1>
 		<br>
 		<div class="register-form">
-			<form:form method="POST" modelAttribute="registerForm" action="${contextPath}/register" onsubmit="return alertMessage()">
+			<form:form method="POST" modelAttribute="registerForm" action="${contextPath}/register">
 				<div class="register-input-group">
 					<span class="register-input-group-username"><i
 						class="fas fa-user-alt"></i></span> <form:input name="userName" path="userName" type="text"
