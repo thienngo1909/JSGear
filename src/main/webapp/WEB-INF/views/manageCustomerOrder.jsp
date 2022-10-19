@@ -20,7 +20,7 @@
 	<jsp:include page="_menu.jsp" />
 
 	<div class="page-title">
-		<h3>Order List</h3>
+		<h3 style="color: black">Order List</h3>
 		<h3 style="color: navy;">Total order: ${orderQuantity}</h3>
 	</div>
 	<div class="orderlist-container">

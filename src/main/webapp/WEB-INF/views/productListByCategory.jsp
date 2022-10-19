@@ -23,12 +23,12 @@
 	<fmt:setLocale value="en_US" scope="session" />
 
 	<div class="page-title">
-
+		<label style="color: black">Product List</label>
+		
 		<div class="create-link">
 			<security:authorize
 				access="hasAnyRole('ROLE_ADMIN', 'ROLE_SUPERADMIN')">
-				<h4 style="color: navy; margin: none;">Total
-					product: ${productQuantity}</h3>
+				<h3 style="color: navy;; padding-left: 40px; margin: none;">Total product: ${productQuantity}</h3>
 				<a href="${contextPath}/product" class="btn-create-product">Create
 					new</a>
 			</security:authorize>
@@ -46,7 +46,8 @@
 					<li><img class="product-image"
 						src="${contextPath}/productImage?code=${productInfo.code}"
 						width="250" height="400" />
-				<li class="name">${productInfo.name}</li> <security:authorize
+					<li class="name">${productInfo.name}</li> 
+					<security:authorize
 						access="hasAnyRole('ROLE_ADMIN', 'ROLE_SUPERADMIN')">
 						<c:if test="${productInfo.quantity > 0}">
 							<li>Quantity:${productInfo.quantity}</li>
@@ -55,7 +56,6 @@
 							<li>Quantity: 0</li>
 						</c:if>
 					</security:authorize>
-
 					<li class="price"><fmt:formatNumber
 							value="${productInfo.price}" type="currency" /></li>
 				</a>
@@ -84,9 +84,7 @@
 			<c:forEach items="${paginationProductInfos.navigationPages}"
 				var="page">
 				<c:if test="${page != -1 }">
-					<a
-						href="productListByCategory?category=${category}&producer=${producer }&page=${page}"
-						class="nav-item">${page}
+					<a href="productListByCategory?category=${category}&producer=${producer }&page=${page}" class="nav-item">${page}
 				</c:if>
 				<c:if test="${page == -1 }">
 					<span class="nav-item"> ... </span>

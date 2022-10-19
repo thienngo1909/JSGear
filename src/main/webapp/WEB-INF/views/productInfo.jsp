@@ -21,30 +21,10 @@
 	<jsp:include page="_header.jsp"></jsp:include>
 	<jsp:include page="_menu.jsp"></jsp:include>
 	<fmt:setLocale value="en_US" scope="session" />
-<<<<<<< HEAD
 
 	<div class="row">
 		<div class="col-25">
 			<img src="${contextPath}/productImage?code=${productInfos.code}" />
-=======
-	
-		<div class="row">
-			<div class="col-25">
-				<img src="${contextPath}/productImage?code=${productInfos.code}" />
-			</div>
-			<div class="col-75">
-				<p>Code: ${productInfos.code}</p>
-				<p>Name: ${productInfos.name}</p>
-				<p>Quantity: ${productInfos.quantity}</p>
-				<h3 style="color: red;">Price: <fmt:formatNumber  value="${productInfos.price}" type="currency"></fmt:formatNumber></h3></p>
-				<p>Category: ${productInfos.category}</p>
-				<p>Producer: ${productInfos.producer}</p>
-				<p>Weight: ${productInfos.detail.weight}</p>
-				<p>Color: ${productInfos.detail.color }</p>
-				<h4>Insurance: ${productInfos.detail.insurance }</h4>
-				<p>Specification: ${productInfos.detail.specification }</p>
-			</div>
->>>>>>> a06418f (Update db and img)
 		</div>
 		<div class="col-75">
 			<p>Code: ${productInfos.code}</p>
@@ -62,8 +42,15 @@
 			<h4>Insurance: ${productInfos.detail.insurance }</h4>
 			<p>${productInfos.detail.specification }</p>
 			<div class="buy-product">
-				<a class="buy-link" href="${contextPath}/buyProduct?code=${productInfos.code}">Buy
+			
+				<c:if test="${productInfos.quantity > 0}">
+					<a class="buy-link" href="${contextPath}/buyProduct?code=${productInfos.code}">Buy
 					Now</a>
+				</c:if>
+				<c:if test="${productInfos.quantity <= 0}">
+					<p style="color: red;font-size: 30px">Out of stock</p>
+				</c:if>
+				
 			</div>
 
 		</div>

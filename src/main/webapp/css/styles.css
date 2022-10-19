@@ -1,6 +1,5 @@
 html {
 	background: white;
-	background: linear-gradient(45deg, #7f7fd5, #86a8e7, #91eae4);
 	background-size: cover;
 }
 
@@ -75,16 +74,15 @@ li a {
 	text-align: left;
 	margin-bottom: 20px;
 	margin-top: 30px;
-	
 }
 
 .back-btn a {
 	text-decoration: none;
-	color: #fff;
+	color: purple;
 	font-size: 16px;
 	margin-right: 20px;
 	background: none;
-	border: 1px solid #fff;
+	border: 1px solid #ccc;
 	text-align: center;
 	padding: 10px 20px;
 }
@@ -190,7 +188,7 @@ input[type="password"] {
 .menu-main-menu {
 	text-align: left;
 	vertical-align: left;
-	color: red;
+	background: #0087ff1c;
 	border: 1px solid black;
 }
 
@@ -287,9 +285,7 @@ li a {
 }
 
 .shopping-cart-container .shopping-cart-nav .button-update-product{
-	background: none;
-	color: #fff;
-	border: 1px solid #fff;
+	border: 1px solid #ccc;
 	left: -30%;
 	margin-bottom: 20px;
 	width: 180px;
@@ -325,9 +321,7 @@ li a {
 }
 
 .shopping-cart-container .shopping-cart-nav .btn-continue-buy{
-	background: none;
-	color: #fff;
-	border: 1px solid #fff;
+	border: 1px solid #ccc;
 	left: -30%;
 	margin-bottom: 20px;
 	padding: 10px 20px;
@@ -431,9 +425,7 @@ input[type="password"] {
 } 
 
 .shopping-cart-container .shopping-cart-nav .btn-enter-customer{
-	background: none;
-	color: #fff;
-	border: 1px solid #fff;
+	border: 1px solid #ccc;
 	left: -30%;
 	margin-bottom: 20px;
 	padding: 10px 20px;
@@ -472,6 +464,7 @@ input[type="password"] {
 /*-------------------------------*/
 .product-preview-container {
 	border: 0.5px solid #ccc;
+	background: #cccccc5e;
 	padding: 5px;
 	width: 250px;
 	margin: 5px;
@@ -479,7 +472,6 @@ input[type="password"] {
 	text-align: center;
 	border-radius: 5px;
 	box-shadow: 1px 1px 1px 2px lightblue;
-	height:380px;
 }
 
 .product-preview-container ul{
@@ -538,8 +530,8 @@ input[type="password"] {
 }
 
 .button-update-product{
-	color: #fff;
-	border: 1px solid #fff;
+	border: 1px solid #ccc;
+	color: purple;
 	left: -30%;
 	margin-bottom: 20px;
 	width: 150px;
@@ -1139,7 +1131,7 @@ td{
 
 .form-customer {
 	font-family: sans-serif;
-	color: #fff;
+	color: navy;
 	text-align: left;
 }
 
@@ -1151,8 +1143,8 @@ td{
 .btn-customer-form {
 	position: relative;
 	background: none;
-	color: #fff;
-	border: 1px solid #fff;
+	color: purple;
+	border: 1px solid #ccc;
 	left: -30%;
 	margin-bottom: 20px;
 	width: 120px;
@@ -1219,6 +1211,7 @@ td{
 	margin: 10px 0;
 	margin-left: 50px;
 	font-size: 18px;
+	color: navy;
 }
 
 
@@ -1232,19 +1225,19 @@ td{
 
 .edit-btn a {
 	text-decoration: none;
-	color: #fff;
+	color: purple;
 	font-size: 16px;
 	margin-right: 20px;
 	background: none;
-	border: 1px solid #fff;
+	border: 1px solid #ccc;
 	text-align: center;
 	padding: 10px 20px;
 }
 
 .edit-btn input {
 	background: none;
-	color: #fff;
-	border: 1px solid #fff;
+	color: purple;
+	border: 1px solid #ccc;
 	margin-bottom: 20px;
 	width: 120px;
 	height: 40px;
@@ -1272,7 +1265,7 @@ td{
 
 .product-information tr, th, td{
 	border: none;
-	border-bottom: 2px solid #fff;
+	border-bottom: 2px solid #ccc;
 	text-align: center;
 }
 
@@ -1290,7 +1283,7 @@ td{
 
 .product-subtotal td{
 	/* padding: 15px; */
-	border-bottom: 2px solid #fff;
+	border-bottom: 2px solid #ccc;
 	text-align: left;
 }
 

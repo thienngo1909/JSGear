@@ -52,32 +52,6 @@
 	</div>
 	<div class="menu-main-menu">
 		<ul>
-			<li class="dropdown"><a href="${contextPath}/productList">Home</a></li>
-			<li class="dropdown"><a href="${contextPath}/productListByCategory">All Product</a></li>
-			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=MOUSE">Mouse</a>
-				<div class="dropdown-content">
-					<a href="${contextPath}/productListByCategory?category=MOUSE&producer=logitech">LOGITECH</a>
-					 <a href="${contextPath}/productListByCategory?category=MOUSE&producer=RAZER">RAZER</a> 
-				</div></li>
-			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=KEYBOAD">Keyboard</a>
-				<div class="dropdown-content">
-					<a href="${contextPath}/productListByCategory?category=KEYBOAD&producer=razer">RAZER</a>
-					 <a href="${contextPath}/productListByCategory?category=KEYBOAD&producer=corsair">CORSAIR</a> 
-				</div></li>
-			<li class="dropdown"><a href="${contextPath}/productListByCategory?category=HEADPHONE">Headphone</a>
-				<div class="dropdown-content">
-					<a href="${contextPath}/productListByCategory?category=HEADPHONE&producer=logitech">LOGITECH</a>
-					 <a href="${contextPath}/productListByCategory?category=HEADPHONE&producer=asus">ASUS</a> 
-				</div></li>
-				<li class="dropdown"><a href="${contextPath}/productListByCategory?category=SCREEN">Screen</a>
-				<div class="dropdown-content">
-					<a href="${contextPath}/productListByCategory?category=SCREEN&producer=acer">ACER</a>
-					 <a href="${contextPath}/productListByCategory?category=SCREEN&producer=asus">ASUS</a> 
-				</div></li>
-				<li class="dropdown"><a href="${contextPath}/productListByCategory?category=LAPTOP">Laptop</a>
-				<div class="dropdown-content">
-					<a href="${contextPath}/productListByCategory?category=LAPTOP&producer=acer">ACER</a>
-					 <a href="${contextPath}/productListByCategory?category=LAPTOP&producer=asus">ASUS</a> 
 			<li class="dropdown"><a
 				href="${contextPath}/productListByCategory">Home</a></li>
 			<li class="dropdown"><a

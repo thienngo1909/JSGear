@@ -116,7 +116,7 @@ public class MainController {
 		model.addAttribute("paginationProductInfos", productInfos);
 		model.addAttribute("category", category);
 		model.addAttribute("producer", producer);
-		return "productList";
+		return "productListByCategory";
 	}
 
 	// hien thi san pham theo hang san xuat
@@ -178,7 +178,7 @@ public class MainController {
 	@RequestMapping("/searchingProduct")
 	public String searchingForProduct(Model model, @RequestParam(value = "search") String search,
 			@RequestParam(value = "page", defaultValue = "1") int page) {
-		final int maxResult = 5;
+		final int maxResult = 10;
 		PaginationResult<ProductInfo> productInfos = productService.getProductByName(page, maxResult, search);
 		model.addAttribute("paginationProductInfos", productInfos);
 		model.addAttribute("searchName", search);
