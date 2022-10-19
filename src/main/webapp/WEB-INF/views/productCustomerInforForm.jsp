@@ -15,14 +15,14 @@
 <body>
 	<jsp:include page="_header.jsp" />
 	<jsp:include page="_menu.jsp" />
-	<div class="page-title-form">
+	<div class="page-title-form" style="color:black">
 		<p>Customer's Information</p>
 		<h3>Please fill in your information and we'll be sending your order in no time</h3>
 	</div>
 	
 	<form:form method="POST" modelAttribute="customerForm" action="${contextPath}/customerInfo">
 		<table class= "form-customer">
-			<tr>
+			<tr >
 				<td><form:input type="hidden" path="id" name="id" autofocus="autofocus"/></td>
 				<td><form:errors type="hidden" path="id" name="id" class="error-message" /> </td>
 			</tr>

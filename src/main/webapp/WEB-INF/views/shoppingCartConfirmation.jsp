@@ -18,11 +18,11 @@
 	<jsp:include page="_menu.jsp" />
 	
 	<fmt:setLocale value="en_US" scope="session" />
-	<div class="page-title-form">
+	<div class="page-title-form" style="color:black">
 		<p>Confirmation</p>
 		<h3>Please check your information before submit</h3>
 	</div>
-	<h3 class="mid-title">Customer Information</h3> 
+	<h3 class="mid-title" style="color:black">Customer Information</h3> 
 	<div class="customer-form-confirm">
 		
 		<div class="row">
